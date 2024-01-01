@@ -29,7 +29,7 @@ const mobsHandler = new MobsHandler();
 mobsHandler.updateMobInfo(mobsInfo.moblist);
 
 
-const harvestablesHandler = new HarvestablesHandler();
+const harvestablesHandler = new HarvestablesHandler(settings);
 const playersHandler = new PlayersHandler();
 
 const chestsDrawing = new ChestsDrawing(settings);
@@ -115,19 +115,20 @@ function onEvent(Parameters) {
 
 
 
-
+        console.log('Plqyer');
 
 
 
     }
     else if (eventCode == 36) {
 
-
+        console.log('Here');
         harvestablesHandler.newSimpleHarvestableObject(Parameters);
 
     }
     else if (eventCode == 37) {
 
+        console.log('Here 2');
         harvestablesHandler.newHarvestableObject(id, Parameters);
     }
 
@@ -196,8 +197,6 @@ function onRequest(Parameters)
 requestAnimationFrame(gameLoop);
 
 function render() {
-
-
 
     context.clearRect(0, 0, canvas.width, canvas.height);
 

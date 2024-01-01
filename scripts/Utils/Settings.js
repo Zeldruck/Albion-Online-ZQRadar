@@ -44,6 +44,15 @@ class Settings {
 
 
         this.harvestingFiber = false;
+
+        // TEST
+        // Array or string delimited by ';'
+        // Array => for & if
+        // String => Find in string
+        this.harvestingFiberTiers = [false, false, false, false, false, false, false, false];
+        this.harvestingFiberEnchants = [false, false, false, false, false, false];
+
+
         this.harvestingWood = false;
         this.harvestingHide = false;
         this.harvestingOre = false;
@@ -119,6 +128,24 @@ class Settings {
         this.harvestingEnchants[4] = this.returnLocalBool("settingRawE4");
 
         this.harvestingFiber = this.returnLocalBool("settingRawFiber");
+
+        // TEST
+        // Tier
+        this.harvestingFiberTiers[0] = this.returnLocalBool("settingRawFiberT1");
+        this.harvestingFiberTiers[1] = this.returnLocalBool("settingRawFiberT2");
+        this.harvestingFiberTiers[2] = this.returnLocalBool("settingRawFiberT3");
+        this.harvestingFiberTiers[3] = this.returnLocalBool("settingRawFiberT4");
+        this.harvestingFiberTiers[4] = this.returnLocalBool("settingRawFiberT5");
+        this.harvestingFiberTiers[5] = this.returnLocalBool("settingRawFiberT6");
+        this.harvestingFiberTiers[6] = this.returnLocalBool("settingRawFiberT7");
+        this.harvestingFiberTiers[7] = this.returnLocalBool("settingRawFiberT8");
+        // Enchant
+        this.harvestingFiberEnchants[0] = this.returnLocalBool("settingRawFiberE0");
+        this.harvestingFiberEnchants[1] = this.returnLocalBool("settingRawFiberE1");
+        this.harvestingFiberEnchants[2] = this.returnLocalBool("settingRawFiberE2");
+        this.harvestingFiberEnchants[3] = this.returnLocalBool("settingRawFiberE3");
+        this.harvestingFiberEnchants[4] = this.returnLocalBool("settingRawFiberE4");
+
         this.harvestingRock = this.returnLocalBool( "settingRawRock");
         this.harvestingOre = this.returnLocalBool(  "settingRawOre" );
         this.harvestingHide = this.returnLocalBool( "settingRawHide");
