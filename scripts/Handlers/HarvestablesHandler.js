@@ -50,15 +50,15 @@ class HarvestablesHandler
         switch (this.GetStringType(type))
         {
             case HarvestableType.Fiber:
-                if (!this.settings.harvestingFiberTiers[tier - 1]) return;
+                if (!this.settings.harvestingFiberTiers[tier - 1] || !this.settings.harvestingFiberEnchants[charges]) return;
                 break;
 
             case HarvestableType.Hide:
-                if (!this.settings.harvestingHideTiers[tier - 1]) return;
+                if (!this.settings.harvestingHideTiers[tier - 1] || !this.settings.harvestingHideEnchants[charges]) return;
                 break;
 
             case HarvestableType.Log:
-                if (!this.settings.harvestingLogTiers[tier - 1]) return;
+                if (!this.settings.harvestingLogTiers[tier - 1] || !this.settings.harvestingLogEnchants[charges]) return;
                 break;
 
             /*case HarvestableType.Ore:
