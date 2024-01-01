@@ -47,16 +47,17 @@ class HarvestablesHandler
             continue;
         }*/
 
-        switch (this.GetStringType(type)) {
+        switch (this.GetStringType(type))
+        {
             case HarvestableType.Fiber:
                 if (!this.settings.harvestingFiberTiers[tier - 1]) return;
                 break;
 
-            /*case HarvestableType.Hide:
+            case HarvestableType.Hide:
                 if (!this.settings.harvestingHideTiers[tier - 1]) return;
                 break;
 
-            case HarvestableType.Log:
+            /*case HarvestableType.Log:
                 if (!this.settings.harvestingLogTiers[tier - 1]) return;
                 break;
 
@@ -67,7 +68,7 @@ class HarvestablesHandler
             case HarvestableType.Rock:
                 if (!this.settings.harvestingRockTiers[tier - 1]) return;
                 break;*/
-        
+
             default:
                 return;
         }
@@ -79,7 +80,7 @@ class HarvestablesHandler
         {
             const h = new Harvestable(id, type, tier, posX, posY, charges, size);
             this.harvestableList.push(h);
-            console.log("New Harvestable: " + h.toString());
+            //console.log("New Harvestable: " + h.toString());
         } else
         {
             this.harvestableList[index].setCharges(charges);

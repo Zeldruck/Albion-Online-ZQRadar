@@ -198,6 +198,76 @@
 			</div>
 		</div>
 
+		<div class="flex items-start p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 ">
+			<div>
+				<h4 class="text-lg font-semibold text-gray-600 dark:text-gray-300">
+					Hide
+				</h4>
+
+				<div class="flex">
+
+					<label class="flex items-center">
+						<input type="checkbox" id="settingRawHideT1" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T1</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawHideT2" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T2</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawHideT3" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T3</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawHideT4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T4</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawHideT5" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T5</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawHideT6" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T6</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawHideT7" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T7</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawHideT8" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T8</span>
+					</label>
+
+
+				</div>
+				<div class="mt-4 flex">
+
+					<label class="flex items-center">
+						<input type="checkbox" id="settingRawHideE0" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E0</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawHideE1" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E1</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawHideE2" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E2</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawHideE3" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E3</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawHideE4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E4</span>
+					</label>
+
+				</div>
+			</div>
+		</div>
+
 
 
 		<div class="flex items-start p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
@@ -392,8 +462,6 @@
 			let settingRawE4 = document.getElementById("settingRawE4");
 
 			let settingRawFiber = document.getElementById("settingRawFiber");
-
-			// TEST
 			// Tier
 			settingRawFiberT1 = document.getElementById("settingRawFiberT1");
 			settingRawFiberT2 = document.getElementById("settingRawFiberT2");
@@ -413,7 +481,23 @@
 			let settingRawWood = document.getElementById("settingRawWood");
 			let settingRawOre = document.getElementById("settingRawOre");
 			let settingRawRock = document.getElementById("settingRawRock");
-			let settingRawHide= document.getElementById("settingRawHide");
+
+			let settingRawHide = document.getElementById("settingRawHide");
+			// Tier
+			settingRawHideT1 = document.getElementById("settingRawHideT1");
+			settingRawHideT2 = document.getElementById("settingRawHideT2");
+			settingRawHideT3 = document.getElementById("settingRawHideT3");
+			settingRawHideT4 = document.getElementById("settingRawHideT4");
+			settingRawHideT5 = document.getElementById("settingRawHideT5");
+			settingRawHideT6 = document.getElementById("settingRawHideT6");
+			settingRawHideT7 = document.getElementById("settingRawHideT7");
+			settingRawHideT8 = document.getElementById("settingRawHideT8");
+			// Enchant
+			settingRawHideE0 = document.getElementById("settingRawHideE0");
+			settingRawHideE1 = document.getElementById("settingRawHideE1");
+			settingRawHideE2 = document.getElementById("settingRawHideE2");
+			settingRawHideE3 = document.getElementById("settingRawHideE3");
+			settingRawHideE4 = document.getElementById("settingRawHideE4");
 
 
 			let settingRawSize = document.getElementById("settingRawSize");
@@ -435,8 +519,6 @@
 
 
 			settingRawFiber.checked = returnLocalBool("settingRawFiber");
-
-			// TEST
 			// Tier
 			settingRawFiberT1.checked = returnLocalBool("settingRawFiberT1");
 			settingRawFiberT2.checked = returnLocalBool("settingRawFiberT2");
@@ -457,7 +539,24 @@
 			settingRawWood.checked = returnLocalBool("settingRawWood");
 			settingRawOre.checked = returnLocalBool("settingRawOre");
 			settingRawRock.checked = returnLocalBool("settingRawRock");
+
 			settingRawHide.checked = returnLocalBool("settingRawHide");
+			// Tier
+			settingRawHideT1.checked = returnLocalBool("settingRawHideT1");
+			settingRawHideT2.checked = returnLocalBool("settingRawHideT2");
+			settingRawHideT3.checked = returnLocalBool("settingRawHideT3");
+			settingRawHideT4.checked = returnLocalBool("settingRawHideT4");
+			settingRawHideT5.checked = returnLocalBool("settingRawHideT5");
+			settingRawHideT6.checked = returnLocalBool("settingRawHideT6");
+			settingRawHideT7.checked = returnLocalBool("settingRawHideT7");
+			settingRawHideT8.checked = returnLocalBool("settingRawHideT8");
+			// Enchant
+			settingRawHideE0.checked = returnLocalBool("settingRawHideE0");
+			settingRawHideE1.checked = returnLocalBool("settingRawHideE1");
+			settingRawHideE2.checked = returnLocalBool("settingRawHideE2");
+			settingRawHideE3.checked = returnLocalBool("settingRawHideE3");
+			settingRawHideE4.checked = returnLocalBool("settingRawHideE4");
+
 
 			settingRawSize.checked = returnLocalBool("settingRawSize");
 
@@ -477,8 +576,6 @@
 		    settingRawE4.addEventListener("click", () => {localStorage.setItem("settingRawE4", settingRawE4.checked);});
 			
 			settingRawFiber.addEventListener("click", () => {localStorage.setItem("settingRawFiber", settingRawFiber.checked);});
-			
-			// TEST
 			// Tier
 			settingRawFiberT1.addEventListener("click", () => {localStorage.setItem("settingRawFiberT1", settingRawFiberT1.checked);});
 			settingRawFiberT2.addEventListener("click", () => {localStorage.setItem("settingRawFiberT2", settingRawFiberT2.checked);});
@@ -497,8 +594,25 @@
 			
 			settingRawWood.addEventListener("click", () => {localStorage.setItem("settingRawWood", settingRawWood.checked);});
 			settingRawOre.addEventListener("click", () => {localStorage.setItem("settingRawOre", settingRawOre.checked);});
+			
 			settingRawRock.addEventListener("click", () => {localStorage.setItem("settingRawRock", settingRawRock.checked);});
 			settingRawHide.addEventListener("click", () => {localStorage.setItem("settingRawHide", settingRawHide.checked);});
+			// Tier
+			settingRawHideT1.addEventListener("click", () => {localStorage.setItem("settingRawHideT1", settingRawHideT1.checked);});
+			settingRawHideT2.addEventListener("click", () => {localStorage.setItem("settingRawHideT2", settingRawHideT2.checked);});
+			settingRawHideT3.addEventListener("click", () => {localStorage.setItem("settingRawHideT3", settingRawHideT3.checked);});
+			settingRawHideT4.addEventListener("click", () => {localStorage.setItem("settingRawHideT4", settingRawHideT4.checked);});
+			settingRawHideT5.addEventListener("click", () => {localStorage.setItem("settingRawHideT5", settingRawHideT5.checked);});
+			settingRawHideT6.addEventListener("click", () => {localStorage.setItem("settingRawHideT6", settingRawHideT6.checked);});
+			settingRawHideT7.addEventListener("click", () => {localStorage.setItem("settingRawHideT7", settingRawHideT7.checked);});
+			settingRawHideT8.addEventListener("click", () => {localStorage.setItem("settingRawHideT8", settingRawHideT8.checked);});
+			// Enchant
+			settingRawHideE0.addEventListener("click", () => {localStorage.setItem("settingRawHideE0", settingRawHideE0.checked);});
+			settingRawHideE1.addEventListener("click", () => {localStorage.setItem("settingRawHideE1", settingRawHideE1.checked);});
+			settingRawHideE2.addEventListener("click", () => {localStorage.setItem("settingRawHideE2", settingRawHideE2.checked);});
+			settingRawHideE3.addEventListener("click", () => {localStorage.setItem("settingRawHideE3", settingRawHideE3.checked);});
+			settingRawHideE4.addEventListener("click", () => {localStorage.setItem("settingRawHideE4", settingRawHideE4.checked);});
+
 
 			settingRawSize.addEventListener("click", () => {localStorage.setItem("settingRawSize", settingRawSize.checked);});
 

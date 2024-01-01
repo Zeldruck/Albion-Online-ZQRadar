@@ -44,17 +44,18 @@ class Settings {
 
 
         this.harvestingFiber = false;
-
-        // TEST
         // Array or string delimited by ';'
         // Array => for & if
         // String => Find in string
         this.harvestingFiberTiers = [false, false, false, false, false, false, false, false];
         this.harvestingFiberEnchants = [false, false, false, false, false, false];
 
-
         this.harvestingWood = false;
+
         this.harvestingHide = false;
+        this.harvestingHideTiers = [false, false, false, false, false, false, false, false];
+        this.harvestingHideEnchants = [false, false, false, false, false, false];
+
         this.harvestingOre = false;
         this.harvestingRock = false;
         this.harvestingSize = false;
@@ -128,8 +129,6 @@ class Settings {
         this.harvestingEnchants[4] = this.returnLocalBool("settingRawE4");
 
         this.harvestingFiber = this.returnLocalBool("settingRawFiber");
-
-        // TEST
         // Tier
         this.harvestingFiberTiers[0] = this.returnLocalBool("settingRawFiberT1");
         this.harvestingFiberTiers[1] = this.returnLocalBool("settingRawFiberT2");
@@ -148,7 +147,24 @@ class Settings {
 
         this.harvestingRock = this.returnLocalBool( "settingRawRock");
         this.harvestingOre = this.returnLocalBool(  "settingRawOre" );
+
         this.harvestingHide = this.returnLocalBool( "settingRawHide");
+        // Tier
+        this.harvestingHideTiers[0] = this.returnLocalBool("settingRawHideT1");
+        this.harvestingHideTiers[1] = this.returnLocalBool("settingRawHideT2");
+        this.harvestingHideTiers[2] = this.returnLocalBool("settingRawHideT3");
+        this.harvestingHideTiers[3] = this.returnLocalBool("settingRawHideT4");
+        this.harvestingHideTiers[4] = this.returnLocalBool("settingRawHideT5");
+        this.harvestingHideTiers[5] = this.returnLocalBool("settingRawHideT6");
+        this.harvestingHideTiers[6] = this.returnLocalBool("settingRawHideT7");
+        this.harvestingHideTiers[7] = this.returnLocalBool("settingRawHideT8");
+        // Enchant
+        this.harvestingHideEnchants[0] = this.returnLocalBool("settingRawHideE0");
+        this.harvestingHideEnchants[1] = this.returnLocalBool("settingRawHideE1");
+        this.harvestingHideEnchants[2] = this.returnLocalBool("settingRawHideE2");
+        this.harvestingHideEnchants[3] = this.returnLocalBool("settingRawHideE3");
+        this.harvestingHideEnchants[4] = this.returnLocalBool("settingRawHideE4");
+
         this.harvestingWood = this.returnLocalBool("settingRawWood");
         
         this.harvestingSize = this.returnLocalBool("settingRawSize");

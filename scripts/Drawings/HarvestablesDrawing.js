@@ -37,10 +37,12 @@ export class HarvestablesDrawing extends DrawingUtils  {
             }
 
             
+            // OLD, to keep if I do an advance settings menu
+            // This will be the beginner friendly
+
             /*if (!this.settings.harvestingTiers[harvestableOne.tier - 1]) {
                 continue;
             }
-
 
             if (!this.settings.harvestingEnchants[harvestableOne.charges]) {
                 continue;
@@ -51,7 +53,32 @@ export class HarvestablesDrawing extends DrawingUtils  {
 
             let draw = "";
 
-            if (this.settings.harvestingFiber && (type >= 11 && type <= 14)) {
+            if (type >= 11 && type <= 14) {
+
+                draw = "fiber_" + harvestableOne.tier + "_" + harvestableOne.charges;
+            }
+            else if (type >= 0 && type <= 5) {
+
+                draw = "Logs_" + harvestableOne.tier + "_" + harvestableOne.charges;
+            }
+
+            else if (type >= 6 && type <= 10) {
+
+                draw = "rock_" + harvestableOne.tier + "_" + harvestableOne.charges;
+            }
+            
+            else if (type >= 15 && type <= 22)
+            {
+
+                draw = "hide_" + harvestableOne.tier + "_" + harvestableOne.charges;
+            }
+            else if (type >= 23 && type <= 27)
+            {
+
+                draw = "ore_" + harvestableOne.tier + "_" + harvestableOne.charges;
+            }
+
+            /*if (this.settings.harvestingFiber && (type >= 11 && type <= 14)) {
 
                 draw = "fiber_" + harvestableOne.tier + "_" + harvestableOne.charges;
             }
@@ -73,7 +100,7 @@ export class HarvestablesDrawing extends DrawingUtils  {
             else if (this.settings.harvestingOre && (type >= 23 && type <= 27)){
 
                 draw = "ore_" + harvestableOne.tier + "_" + harvestableOne.charges;
-            }
+            }*/
 
 
             const point = this.transformPoint(harvestableOne.hX, harvestableOne.hY);
