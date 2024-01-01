@@ -338,6 +338,76 @@
 			</div>
 		</div>
 
+		<div class="flex items-start p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 ">
+			<div>
+				<h4 class="text-lg font-semibold text-gray-600 dark:text-gray-300">
+					Ore
+				</h4>
+
+				<div class="flex">
+
+					<label class="flex items-center">
+						<input type="checkbox" id="settingRawOreT1" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T1</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawOreT2" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T2</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawOreT3" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T3</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawOreT4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T4</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawOreT5" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T5</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawOreT6" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T6</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawOreT7" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T7</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawOreT8" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T8</span>
+					</label>
+
+
+				</div>
+				<div class="mt-4 flex">
+
+					<label class="flex items-center">
+						<input type="checkbox" id="settingRawOreE0" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E0</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawOreE1" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E1</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawOreE2" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E2</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawOreE3" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E3</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawOreE4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E4</span>
+					</label>
+
+				</div>
+			</div>
+		</div>
+
 
 		<div class="flex items-start p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
 			<div>
@@ -565,6 +635,22 @@
 			settingRawLogE4 = document.getElementById("settingRawLogE4");
 
 			let settingRawOre = document.getElementById("settingRawOre");
+			// Tier
+			settingRawOreT1 = document.getElementById("settingRawOreT1");
+			settingRawOreT2 = document.getElementById("settingRawOreT2");
+			settingRawOreT3 = document.getElementById("settingRawOreT3");
+			settingRawOreT4 = document.getElementById("settingRawOreT4");
+			settingRawOreT5 = document.getElementById("settingRawOreT5");
+			settingRawOreT6 = document.getElementById("settingRawOreT6");
+			settingRawOreT7 = document.getElementById("settingRawOreT7");
+			settingRawOreT8 = document.getElementById("settingRawOreT8");
+			// Enchant
+			settingRawOreE0 = document.getElementById("settingRawOreE0");
+			settingRawOreE1 = document.getElementById("settingRawOreE1");
+			settingRawOreE2 = document.getElementById("settingRawOreE2");
+			settingRawOreE3 = document.getElementById("settingRawOreE3");
+			settingRawOreE4 = document.getElementById("settingRawOreE4");
+
 			let settingRawRock = document.getElementById("settingRawRock");
 
 			let settingRawHide = document.getElementById("settingRawHide");
@@ -638,6 +724,22 @@
 			settingRawLogE4.checked = returnLocalBool("settingRawLogE4");
 
 			settingRawOre.checked = returnLocalBool("settingRawOre");
+			// Tier
+			settingRawOreT1.checked = returnLocalBool("settingRawOreT1");
+			settingRawOreT2.checked = returnLocalBool("settingRawOreT2");
+			settingRawOreT3.checked = returnLocalBool("settingRawOreT3");
+			settingRawOreT4.checked = returnLocalBool("settingRawOreT4");
+			settingRawOreT5.checked = returnLocalBool("settingRawOreT5");
+			settingRawOreT6.checked = returnLocalBool("settingRawOreT6");
+			settingRawOreT7.checked = returnLocalBool("settingRawOreT7");
+			settingRawOreT8.checked = returnLocalBool("settingRawOreT8");
+			// Enchant
+			settingRawOreE0.checked = returnLocalBool("settingRawOreE0");
+			settingRawOreE1.checked = returnLocalBool("settingRawOreE1");
+			settingRawOreE2.checked = returnLocalBool("settingRawOreE2");
+			settingRawOreE3.checked = returnLocalBool("settingRawOreE3");
+			settingRawOreE4.checked = returnLocalBool("settingRawOreE4");
+
 			settingRawRock.checked = returnLocalBool("settingRawRock");
 
 			settingRawHide.checked = returnLocalBool("settingRawHide");
@@ -710,8 +812,24 @@
 			settingRawLogE4.addEventListener("click", () => {localStorage.setItem("settingRawLogE4", settingRawLogE4.checked);});
 			
 			settingRawOre.addEventListener("click", () => {localStorage.setItem("settingRawOre", settingRawOre.checked);});
-			
+			// Tier
+			settingRawOreT1.addEventListener("click", () => {localStorage.setItem("settingRawOreT1", settingRawOreT1.checked);});
+			settingRawOreT2.addEventListener("click", () => {localStorage.setItem("settingRawOreT2", settingRawOreT2.checked);});
+			settingRawOreT3.addEventListener("click", () => {localStorage.setItem("settingRawOreT3", settingRawOreT3.checked);});
+			settingRawOreT4.addEventListener("click", () => {localStorage.setItem("settingRawOreT4", settingRawOreT4.checked);});
+			settingRawOreT5.addEventListener("click", () => {localStorage.setItem("settingRawOreT5", settingRawOreT5.checked);});
+			settingRawOreT6.addEventListener("click", () => {localStorage.setItem("settingRawOreT6", settingRawOreT6.checked);});
+			settingRawOreT7.addEventListener("click", () => {localStorage.setItem("settingRawOreT7", settingRawOreT7.checked);});
+			settingRawOreT8.addEventListener("click", () => {localStorage.setItem("settingRawOreT8", settingRawOreT8.checked);});
+			// Enchant
+			settingRawOreE0.addEventListener("click", () => {localStorage.setItem("settingRawOreE0", settingRawOreE0.checked);});
+			settingRawOreE1.addEventListener("click", () => {localStorage.setItem("settingRawOreE1", settingRawOreE1.checked);});
+			settingRawOreE2.addEventListener("click", () => {localStorage.setItem("settingRawOreE2", settingRawOreE2.checked);});
+			settingRawOreE3.addEventListener("click", () => {localStorage.setItem("settingRawOreE3", settingRawOreE3.checked);});
+			settingRawOreE4.addEventListener("click", () => {localStorage.setItem("settingRawOreE4", settingRawOreE4.checked);});
+
 			settingRawRock.addEventListener("click", () => {localStorage.setItem("settingRawRock", settingRawRock.checked);});
+
 			settingRawHide.addEventListener("click", () => {localStorage.setItem("settingRawHide", settingRawHide.checked);});
 			// Tier
 			settingRawHideT1.addEventListener("click", () => {localStorage.setItem("settingRawHideT1", settingRawHideT1.checked);});

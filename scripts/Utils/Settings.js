@@ -59,7 +59,12 @@ class Settings {
         this.harvestingHideEnchants = [false, false, false, false, false, false];
 
         this.harvestingOre = false;
+        this.harvestingOreTiers = [false, false, false, false, false, false, false, false];
+        this.harvestingOreEnchants = [false, false, false, false, false, false];
+
         this.harvestingRock = false;
+
+
         this.harvestingSize = false;
         this.drones = false;
 
@@ -148,7 +153,23 @@ class Settings {
         this.harvestingFiberEnchants[4] = this.returnLocalBool("settingRawFiberE4");
 
         this.harvestingRock = this.returnLocalBool( "settingRawRock");
+
         this.harvestingOre = this.returnLocalBool(  "settingRawOre" );
+        // Tier
+        this.harvestingOreTiers[0] = this.returnLocalBool("settingRawOreT1");
+        this.harvestingOreTiers[1] = this.returnLocalBool("settingRawOreT2");
+        this.harvestingOreTiers[2] = this.returnLocalBool("settingRawOreT3");
+        this.harvestingOreTiers[3] = this.returnLocalBool("settingRawOreT4");
+        this.harvestingOreTiers[4] = this.returnLocalBool("settingRawOreT5");
+        this.harvestingOreTiers[5] = this.returnLocalBool("settingRawOreT6");
+        this.harvestingOreTiers[6] = this.returnLocalBool("settingRawOreT7");
+        this.harvestingOreTiers[7] = this.returnLocalBool("settingRawOreT8");
+        // Enchant
+        this.harvestingOreEnchants[0] = this.returnLocalBool("settingRawOreE0");
+        this.harvestingOreEnchants[1] = this.returnLocalBool("settingRawOreE1");
+        this.harvestingOreEnchants[2] = this.returnLocalBool("settingRawOreE2");
+        this.harvestingOreEnchants[3] = this.returnLocalBool("settingRawOreE3");
+        this.harvestingOreEnchants[4] = this.returnLocalBool("settingRawOreE4");
 
         this.harvestingHide = this.returnLocalBool( "settingRawHide");
         // Tier
