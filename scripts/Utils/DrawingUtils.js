@@ -3,8 +3,8 @@ class DrawingUtils {
 
     constructor(settings) {
         this.settings = settings;
-         this.fontSize = "12px";
-         this.fontFamily = "Arial";
+        this.fontSize = "12px";
+        this.fontFamily = "Arial";
         this.textColor = "white";
         this.images = [];
      }
@@ -81,25 +81,6 @@ class DrawingUtils {
         else {
             this.settings.preloadImageAndAddToList(src);
         }
-      
-
-   
-
-
-   
-     
-
-
-
-    
-
-        
-     
-
-
-
-   
-
     }
 
     transformPoint(x, y) {

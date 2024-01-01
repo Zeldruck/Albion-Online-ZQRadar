@@ -9,16 +9,8 @@ export class HarvestablesDrawing extends DrawingUtils  {
     
     interpolate(harvestables, lpX, lpY ,t ) {
 
-    
-
-
         for (const harvestableOne of harvestables) {
-
-
-
-
-
-            
+ 
             const hX = -1 * harvestableOne.posX + lpX;
             const hY = harvestableOne.posY - lpY;
 
@@ -29,42 +21,30 @@ export class HarvestablesDrawing extends DrawingUtils  {
 
             }
             
-
-
-
             harvestableOne.hX = this.lerp(harvestableOne.hX, hX, t);
             harvestableOne.hY = this.lerp(harvestableOne.hY, hY, t);
             
-
-
-
-
-
         }
 
     }
+
     invalidate(ctx, harvestables) {
-
-
-    
-
-  
         for (const harvestableOne of harvestables) {
 
-            if (harvestableOne.size <=0) {
+            if (harvestableOne.size <= 0) {
                 continue;
 
             }
 
             
-            if (!this.settings.harvestingTiers[harvestableOne.tier - 1]) {
+            /*if (!this.settings.harvestingTiers[harvestableOne.tier - 1]) {
                 continue;
             }
 
 
             if (!this.settings.harvestingEnchants[harvestableOne.charges]) {
                 continue;
-            }
+            }*/
             
 
             const type = harvestableOne.type;
@@ -102,11 +82,12 @@ export class HarvestablesDrawing extends DrawingUtils  {
                 this.drawImageCustom(ctx, point.x, point.y, draw, 50);
             }
 
-            if (this.settings.harvestingSize) {
+            // ???
+            /*if (this.settings.harvestingSize) {
 
                 this.drawText(point.x, point.y +25 + 10, harvestableOne.size, ctx);
 
-            }
+            }*/
           
         
 
