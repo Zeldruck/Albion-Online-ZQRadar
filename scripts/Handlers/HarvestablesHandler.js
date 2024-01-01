@@ -57,11 +57,11 @@ class HarvestablesHandler
                 if (!this.settings.harvestingHideTiers[tier - 1]) return;
                 break;
 
-            /*case HarvestableType.Log:
+            case HarvestableType.Log:
                 if (!this.settings.harvestingLogTiers[tier - 1]) return;
                 break;
 
-            case HarvestableType.Ore:
+            /*case HarvestableType.Ore:
                 if (!this.settings.harvestingOreTiers[tier - 1]) return;
                 break;
 

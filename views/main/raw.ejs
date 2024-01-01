@@ -268,6 +268,75 @@
 			</div>
 		</div>
 
+		<div class="flex items-start p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800 ">
+			<div>
+				<h4 class="text-lg font-semibold text-gray-600 dark:text-gray-300">
+					Log
+				</h4>
+
+				<div class="flex">
+
+					<label class="flex items-center">
+						<input type="checkbox" id="settingRawLogT1" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T1</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawLogT2" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T2</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawLogT3" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T3</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawLogT4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T4</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawLogT5" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T5</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawLogT6" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T6</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawLogT7" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T7</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawLogT8" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">T8</span>
+					</label>
+
+
+				</div>
+				<div class="mt-4 flex">
+
+					<label class="flex items-center">
+						<input type="checkbox" id="settingRawLogE0" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E0</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawLogE1" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E1</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawLogE2" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E2</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawLogE3" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E3</span>
+					</label>
+					<label class="flex items-center ml-3">
+						<input type="checkbox" id="settingRawLogE4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E4</span>
+					</label>
+
+				</div>
+			</div>
+		</div>
 
 
 		<div class="flex items-start p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
@@ -479,6 +548,22 @@
 			settingRawFiberE4 = document.getElementById("settingRawFiberE4");
 
 			let settingRawWood = document.getElementById("settingRawWood");
+			// Tier
+			settingRawLogT1 = document.getElementById("settingRawLogT1");
+			settingRawLogT2 = document.getElementById("settingRawLogT2");
+			settingRawLogT3 = document.getElementById("settingRawLogT3");
+			settingRawLogT4 = document.getElementById("settingRawLogT4");
+			settingRawLogT5 = document.getElementById("settingRawLogT5");
+			settingRawLogT6 = document.getElementById("settingRawLogT6");
+			settingRawLogT7 = document.getElementById("settingRawLogT7");
+			settingRawLogT8 = document.getElementById("settingRawLogT8");
+			// Enchant
+			settingRawLogE0 = document.getElementById("settingRawLogE0");
+			settingRawLogE1 = document.getElementById("settingRawLogE1");
+			settingRawLogE2 = document.getElementById("settingRawLogE2");
+			settingRawLogE3 = document.getElementById("settingRawLogE3");
+			settingRawLogE4 = document.getElementById("settingRawLogE4");
+
 			let settingRawOre = document.getElementById("settingRawOre");
 			let settingRawRock = document.getElementById("settingRawRock");
 
@@ -535,8 +620,23 @@
 			settingRawFiberE3.checked = returnLocalBool("settingRawFiberE3");
 			settingRawFiberE4.checked = returnLocalBool("settingRawFiberE4");
 
-
 			settingRawWood.checked = returnLocalBool("settingRawWood");
+			// Tier
+			settingRawLogT1.checked = returnLocalBool("settingRawLogT1");
+			settingRawLogT2.checked = returnLocalBool("settingRawLogT2");
+			settingRawLogT3.checked = returnLocalBool("settingRawLogT3");
+			settingRawLogT4.checked = returnLocalBool("settingRawLogT4");
+			settingRawLogT5.checked = returnLocalBool("settingRawLogT5");
+			settingRawLogT6.checked = returnLocalBool("settingRawLogT6");
+			settingRawLogT7.checked = returnLocalBool("settingRawLogT7");
+			settingRawLogT8.checked = returnLocalBool("settingRawLogT8");
+			// Enchant
+			settingRawLogE0.checked = returnLocalBool("settingRawLogE0");
+			settingRawLogE1.checked = returnLocalBool("settingRawLogE1");
+			settingRawLogE2.checked = returnLocalBool("settingRawLogE2");
+			settingRawLogE3.checked = returnLocalBool("settingRawLogE3");
+			settingRawLogE4.checked = returnLocalBool("settingRawLogE4");
+
 			settingRawOre.checked = returnLocalBool("settingRawOre");
 			settingRawRock.checked = returnLocalBool("settingRawRock");
 
@@ -593,6 +693,22 @@
 			settingRawFiberE4.addEventListener("click", () => {localStorage.setItem("settingRawFiberE4", settingRawFiberE4.checked);});
 			
 			settingRawWood.addEventListener("click", () => {localStorage.setItem("settingRawWood", settingRawWood.checked);});
+			// Tier
+			settingRawLogT1.addEventListener("click", () => {localStorage.setItem("settingRawLogT1", settingRawLogT1.checked);});
+			settingRawLogT2.addEventListener("click", () => {localStorage.setItem("settingRawLogT2", settingRawLogT2.checked);});
+			settingRawLogT3.addEventListener("click", () => {localStorage.setItem("settingRawLogT3", settingRawLogT3.checked);});
+			settingRawLogT4.addEventListener("click", () => {localStorage.setItem("settingRawLogT4", settingRawLogT4.checked);});
+			settingRawLogT5.addEventListener("click", () => {localStorage.setItem("settingRawLogT5", settingRawLogT5.checked);});
+			settingRawLogT6.addEventListener("click", () => {localStorage.setItem("settingRawLogT6", settingRawLogT6.checked);});
+			settingRawLogT7.addEventListener("click", () => {localStorage.setItem("settingRawLogT7", settingRawLogT7.checked);});
+			settingRawLogT8.addEventListener("click", () => {localStorage.setItem("settingRawLogT8", settingRawLogT8.checked);});
+			// Enchant
+			settingRawLogE0.addEventListener("click", () => {localStorage.setItem("settingRawLogE0", settingRawLogE0.checked);});
+			settingRawLogE1.addEventListener("click", () => {localStorage.setItem("settingRawLogE1", settingRawLogE1.checked);});
+			settingRawLogE2.addEventListener("click", () => {localStorage.setItem("settingRawLogE2", settingRawLogE2.checked);});
+			settingRawLogE3.addEventListener("click", () => {localStorage.setItem("settingRawLogE3", settingRawLogE3.checked);});
+			settingRawLogE4.addEventListener("click", () => {localStorage.setItem("settingRawLogE4", settingRawLogE4.checked);});
+			
 			settingRawOre.addEventListener("click", () => {localStorage.setItem("settingRawOre", settingRawOre.checked);});
 			
 			settingRawRock.addEventListener("click", () => {localStorage.setItem("settingRawRock", settingRawRock.checked);});

@@ -51,6 +51,8 @@ class Settings {
         this.harvestingFiberEnchants = [false, false, false, false, false, false];
 
         this.harvestingWood = false;
+        this.harvestingLogTiers = [false, false, false, false, false, false, false, false];
+        this.harvestingLogEnchants = [false, false, false, false, false, false];
 
         this.harvestingHide = false;
         this.harvestingHideTiers = [false, false, false, false, false, false, false, false];
@@ -166,6 +168,21 @@ class Settings {
         this.harvestingHideEnchants[4] = this.returnLocalBool("settingRawHideE4");
 
         this.harvestingWood = this.returnLocalBool("settingRawWood");
+        // Tier
+        this.harvestingLogTiers[0] = this.returnLocalBool("settingRawLogT1");
+        this.harvestingLogTiers[1] = this.returnLocalBool("settingRawLogT2");
+        this.harvestingLogTiers[2] = this.returnLocalBool("settingRawLogT3");
+        this.harvestingLogTiers[3] = this.returnLocalBool("settingRawLogT4");
+        this.harvestingLogTiers[4] = this.returnLocalBool("settingRawLogT5");
+        this.harvestingLogTiers[5] = this.returnLocalBool("settingRawLogT6");
+        this.harvestingLogTiers[6] = this.returnLocalBool("settingRawLogT7");
+        this.harvestingLogTiers[7] = this.returnLocalBool("settingRawLogT8");
+        // Enchant
+        this.harvestingLogEnchants[0] = this.returnLocalBool("settingRawLogE0");
+        this.harvestingLogEnchants[1] = this.returnLocalBool("settingRawLogE1");
+        this.harvestingLogEnchants[2] = this.returnLocalBool("settingRawLogE2");
+        this.harvestingLogEnchants[3] = this.returnLocalBool("settingRawLogE3");
+        this.harvestingLogEnchants[4] = this.returnLocalBool("settingRawLogE4");
         
         this.harvestingSize = this.returnLocalBool("settingRawSize");
         this.mobDevMode = this.returnLocalBool("settingMobDevMode");
