@@ -62,12 +62,12 @@ class HarvestablesHandler
                 break;
 
             case HarvestableType.Ore:
-                if (!this.settings.harvestingOreTiers[tier - 1]) return;
+                if (!this.settings.harvestingOreTiers[tier - 1] || !this.settings.harvestingOreEnchants[charges]) return;
                 break;
 
-            /*case HarvestableType.Rock:
-                if (!this.settings.harvestingRockTiers[tier - 1]) return;
-                break;*/
+            case HarvestableType.Rock:
+                if (!this.settings.harvestingRockTiers[tier - 1] || !this.settings.harvestingRockEnchants[charges]) return;
+                break;
 
             default:
                 return;
