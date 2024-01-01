@@ -47,12 +47,6 @@ class HarvestablesHandler
             continue;
         }*/
 
-        console.log('Type: ' + type);
-        console.log('GetStringType: ' + this.GetStringType(type));
-        console.log('Settings: ' + this.settings);
-        console.log('Settings tier: ' + this.settings.harvestingFiberTiers);
-        console.log('Settings tier 2: ' + this.settings.harvestingTiers);
-
         switch (this.GetStringType(type)) {
             case HarvestableType.Fiber:
                 if (!this.settings.harvestingFiberTiers[tier - 1]) return;

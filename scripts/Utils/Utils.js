@@ -113,22 +113,14 @@ function onEvent(Parameters) {
     else if (eventCode == 27) {
         playersHandler.handleNewPlayerEvent(id, Parameters, settings.ignoreList, settings.settingSound);
 
-
-
-        console.log('Plqyer');
-
-
-
     }
     else if (eventCode == 36) {
 
-        console.log('Here');
         harvestablesHandler.newSimpleHarvestableObject(Parameters);
 
     }
     else if (eventCode == 37) {
 
-        console.log('Here 2');
         harvestablesHandler.newHarvestableObject(id, Parameters);
     }
 
@@ -173,25 +165,11 @@ function onEvent(Parameters) {
 };
 
 function onRequest(Parameters)
-{
-
-
-
- 
+{ 
     if (Parameters[253] == 21) {
-
-   
-
         lpX = Parameters[1][0];
         lpY = Parameters[1][1];
-
-
     }
-
-
-
-
-
 };
 
 requestAnimationFrame(gameLoop);
@@ -207,17 +185,10 @@ function render() {
     dungeonsDrawing.invalidate(context, dungeonsHandler.dungeonList);
     playersDrawing.invalidate(context, playersHandler.playersInRange);
 
-
 }
 
 
-
-
-
 var previousTime = performance.now();
-
-
-
 
 function gameLoop() {
     update();
@@ -245,27 +216,17 @@ function update() {
     dungeonsDrawing.interpolate(dungeonsHandler.dungeonList, lpX, lpY, t);
     playersDrawing.interpolate(playersHandler.playersInRange, lpX, lpY, t);
 
-
-
-
     previousTime = currentTime;
-
-
-
-
 }
 
 function drawItems() {
 
-
     contextItems.clearRect(0, 0, canvasItems.width, canvasItems.height);
 
-    if (settings.settingItems) {
+    if (settings.settingItems)
+    {
         playersDrawing.drawItems(contextItems, canvasItems, playersHandler.playersInRange, settings.settingItemsDev);
     }
-
-
-
 
 }
 const intervalItems = 500;
@@ -282,7 +243,6 @@ function checkLocalStorage() {
 }
 const interval = 300;
 setInterval(checkLocalStorage, interval)
-
 
 
 
