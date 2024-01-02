@@ -1,13 +1,12 @@
 
-class Settings {
-
-   
-
-    constructor() {
-
-        
+class Settings
+{
+    constructor()
+    {       
         this.images = {};
+        this.map_images = {}
 
+        this.showMapBackground = false;
 
         this.settingDot = false;
         this.settingNickname = false;
@@ -22,8 +21,6 @@ class Settings {
 
         this.ignoreList = [];
 
-        this.harvestingTiers = [false, false, false, false, false, false, false, false];
-        this.harvestingEnchants = [false, false, false, false, false,false];
         this.mobEnchants = [false, false, false, false, false];
         this.mobTiers = [false, false, false, false, false, false, false, false];
         this.mistEnchants = [false, false, false, false, false];
@@ -43,26 +40,21 @@ class Settings {
         this.mobDevMode = false;
 
 
-        this.harvestingFiber = false;
         // Array or string delimited by ';'
         // Array => for & if
         // String => Find in string
         this.harvestingFiberTiers = [false, false, false, false, false, false, false, false];
         this.harvestingFiberEnchants = [false, false, false, false, false, false];
 
-        this.harvestingWood = false;
         this.harvestingLogTiers = [false, false, false, false, false, false, false, false];
         this.harvestingLogEnchants = [false, false, false, false, false, false];
 
-        this.harvestingHide = false;
         this.harvestingHideTiers = [false, false, false, false, false, false, false, false];
         this.harvestingHideEnchants = [false, false, false, false, false, false];
 
-        this.harvestingOre = false;
         this.harvestingOreTiers = [false, false, false, false, false, false, false, false];
         this.harvestingOreEnchants = [false, false, false, false, false, false];
 
-        this.harvestingRock = false;
         this.harvestingRockTiers = [false, false, false, false, false, false, false, false];
         this.harvestingRockEnchants = [false, false, false, false, false, false];
 
@@ -78,20 +70,64 @@ class Settings {
 
         
     }
-    preloadImageAndAddToList(path) {
-        return new Promise((resolve, reject) => {
-            if (this.images[path]) {
-            
-                resolve();
-            } else {
-                const img = new Image();
-                img.src = path;
-                img.onload = () => {
-                    this.images[path] = img; 
-                    resolve();
-                };
+
+    preloadImageAndAddToList(path, container)
+    {
+        return new Promise((resolve, reject) =>
+        {
+            switch (container)
+            {
+                default:
+                case "ressources":
+                    if (this.images[path])
+                    {
+                        resolve();
+                    }
+                    else
+                    {
+                        const img = new Image();
+                        img.src = path;
+                        img.onload = () =>
+                        {
+                            this.images[path] = img; 
+                            resolve();
+                        };
+                    }
+
+                    break;
+
+                case "maps":
+                    if (this.map_images[path])
+                    {
+                        resolve();
+                    }
+                    else
+                    {
+                        const img = new Image();
+                        img.src = path;
+                        img.onload = () =>
+                        {
+                            this.map_images[path] = img; 
+                            resolve();
+                        };
+                    }
+
+                    break;
             }
         });
+    }
+
+    GetPreloadedImage(path, container)
+    {
+        switch (container)
+        {
+            default:
+            case "ressources":
+                return this.images[path];
+
+            case "maps":
+                return this.map_images[path];
+        }
     }
 
     returnLocalBool(item) {
@@ -105,8 +141,11 @@ class Settings {
 
     }
 
-    update() {
-   
+    update()
+    {
+        this.showMapBackground = this.returnLocalBool("settingShowMap");
+
+
         this.settingDot = this.returnLocalBool("settingDot");
         this.settingNickname = this.returnLocalBool("settingNickname");
         
@@ -122,22 +161,7 @@ class Settings {
         this.settingDistance = this.returnLocalBool("settingDistance");
         this.settingGuild = this.returnLocalBool("settingGuild");
         this.settingSound = this.returnLocalBool("settingSound");
-        this.harvestingTiers[0] = this.returnLocalBool("settingRawT1");
-        this.harvestingTiers[1] = this.returnLocalBool("settingRawT2");
-        this.harvestingTiers[2] = this.returnLocalBool("settingRawT3");
-        this.harvestingTiers[3] = this.returnLocalBool("settingRawT4");
-        this.harvestingTiers[4] = this.returnLocalBool("settingRawT5");
-        this.harvestingTiers[5] = this.returnLocalBool("settingRawT6");
-        this.harvestingTiers[6] = this.returnLocalBool("settingRawT7");
-        this.harvestingTiers[7] = this.returnLocalBool("settingRawT8");
 
-        this.harvestingEnchants[0] = this.returnLocalBool("settingRawE0");
-        this.harvestingEnchants[1] = this.returnLocalBool("settingRawE1");
-        this.harvestingEnchants[2] = this.returnLocalBool("settingRawE2");
-        this.harvestingEnchants[3] = this.returnLocalBool("settingRawE3");
-        this.harvestingEnchants[4] = this.returnLocalBool("settingRawE4");
-
-        this.harvestingFiber = this.returnLocalBool("settingRawFiber");
         // Tier
         this.harvestingFiberTiers[0] = this.returnLocalBool("settingRawFiberT1");
         this.harvestingFiberTiers[1] = this.returnLocalBool("settingRawFiberT2");
@@ -154,7 +178,6 @@ class Settings {
         this.harvestingFiberEnchants[3] = this.returnLocalBool("settingRawFiberE3");
         this.harvestingFiberEnchants[4] = this.returnLocalBool("settingRawFiberE4");
 
-        this.harvestingRock = this.returnLocalBool( "settingRawRock");
         // Tier
         this.harvestingRockTiers[0] = this.returnLocalBool("settingRawRockT1");
         this.harvestingRockTiers[1] = this.returnLocalBool("settingRawRockT2");
@@ -171,7 +194,6 @@ class Settings {
         this.harvestingRockEnchants[3] = this.returnLocalBool("settingRawRockE3");
         this.harvestingRockEnchants[4] = this.returnLocalBool("settingRawRockE4");
 
-        this.harvestingOre = this.returnLocalBool(  "settingRawOre" );
         // Tier
         this.harvestingOreTiers[0] = this.returnLocalBool("settingRawOreT1");
         this.harvestingOreTiers[1] = this.returnLocalBool("settingRawOreT2");
@@ -188,7 +210,6 @@ class Settings {
         this.harvestingOreEnchants[3] = this.returnLocalBool("settingRawOreE3");
         this.harvestingOreEnchants[4] = this.returnLocalBool("settingRawOreE4");
 
-        this.harvestingHide = this.returnLocalBool( "settingRawHide");
         // Tier
         this.harvestingHideTiers[0] = this.returnLocalBool("settingRawHideT1");
         this.harvestingHideTiers[1] = this.returnLocalBool("settingRawHideT2");
@@ -205,7 +226,6 @@ class Settings {
         this.harvestingHideEnchants[3] = this.returnLocalBool("settingRawHideE3");
         this.harvestingHideEnchants[4] = this.returnLocalBool("settingRawHideE4");
 
-        this.harvestingWood = this.returnLocalBool("settingRawWood");
         // Tier
         this.harvestingLogTiers[0] = this.returnLocalBool("settingRawLogT1");
         this.harvestingLogTiers[1] = this.returnLocalBool("settingRawLogT2");

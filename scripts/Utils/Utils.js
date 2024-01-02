@@ -4,16 +4,27 @@ import { HarvestablesDrawing } from '../Drawings/HarvestablesDrawing.js';
 import { MobsDrawing } from '../Drawings/MobsDrawing.js';
 import { ChestsDrawing } from '../Drawings/ChestsDrawing.js';
 import { DungeonsDrawing } from '../Drawings/DungeonsDrawing.js';
-var canvasBottom = document.getElementById("bottomCanvas");
-var contextBottom = canvasBottom.getContext("2d");
+import { MapDrawing } from '../Drawings/MapsDrawing.js';
 
-const settings = new Settings();
+var canvasMap = document.getElementById("mapCanvas");
+var contextMap = canvasMap.getContext("2d");
+
+var canvasGrid = document.getElementById("gridCanvas");
+var contextGrid = canvasGrid.getContext("2d");
+
+var canvas = document.getElementById("drawCanvas");
+var context = canvas.getContext("2d");
+
+var canvasOurPlayer = document.getElementById("ourPlayerCanvas");
+var contextOurPlayer = canvasOurPlayer .getContext("2d");
+
 
 var canvasItems = document.getElementById("thirdCanvas");
 var contextItems = canvasItems.getContext("2d");
 
-var canvas = document.getElementById("drawCanvas");
-var context = canvas.getContext("2d");
+const settings = new Settings();
+
+
 
 const harvestablesDrawing = new HarvestablesDrawing(settings);
 const dungeonsHandler = new DungeonsHandler();
@@ -23,6 +34,9 @@ var mobsInfo = new MobsInfo();
 
 itemsInfo.initItems();
 mobsInfo.initMobs();
+
+var map = new MapH(2212); // TO CHANGE to -1
+const mapsDrawing = new MapDrawing(settings);
 
 const chestsHandler = new ChestsHandler();
 const mobsHandler = new MobsHandler();
@@ -37,13 +51,15 @@ const mobsDrawing = new MobsDrawing(settings);
 const playersDrawing = new PlayersDrawing(settings);
 const dungeonsDrawing = new DungeonsDrawing(settings);
 playersDrawing.updateItemsInfo(itemsInfo.iteminfo);
-const drawingUtils = new DrawingUtils();
+
 
 let lpX = 0.0;
 let lpY = 0.0;
 
+const drawingUtils = new DrawingUtils();
 drawingUtils.initCanvas(canvas, context);
-drawingUtils.initCanvasBottom(canvasBottom, contextBottom);
+drawingUtils.initGridCanvas(canvasGrid, contextGrid);
+drawingUtils.InitOurPlayerCanvas(canvasOurPlayer, contextOurPlayer);
 
 
 
@@ -63,29 +79,27 @@ socket.addEventListener('message', (event) => {
 
   var extractedDictionary = JSON.parse(data.dictionary);
 
-  
+  switch (extractedString)
+  {
+    case "request":
+        onRequest(extractedDictionary["parameters"]);
+        break;
 
-  if(extractedString === "request")
-  {
-    onRequest(extractedDictionary["parameters"]);
-  }
-  else
-  {
-    onEvent(extractedDictionary["parameters"]);
+    case "event":
+        onEvent(extractedDictionary["parameters"]);
+        break;
+
+    case "response":
+        onResponse(extractedDictionary["parameters"]);
+        break;
   }
 });
 
 
-function onEvent(Parameters) {
-
-
-
-
-
-
+function onEvent(Parameters)
+{
     const id = parseInt(Parameters[0]);
     const eventCode = Parameters[252];
-
 
     if (eventCode == 1) {
 
@@ -95,9 +109,6 @@ function onEvent(Parameters) {
         mobsHandler.removeMob(id);
         dungeonsHandler.removeMob(id);
         chestsHandler.removeChest(id);
-
-
-
     }
     else if (eventCode == 3) {
 
@@ -123,7 +134,6 @@ function onEvent(Parameters) {
 
         harvestablesHandler.newHarvestableObject(id, Parameters);
     }
-
     else if (eventCode == 58) {
 
         harvestablesHandler.harvestFinished(Parameters);
@@ -159,16 +169,32 @@ function onEvent(Parameters) {
         chestsHandler.addChestEvent(Parameters);
 
     }
-
-
-
 };
 
 function onRequest(Parameters)
 { 
-    if (Parameters[253] == 21) {
+    // Player moving
+    if (Parameters[253] == 21)
+    {
         lpX = Parameters[1][0];
         lpY = Parameters[1][1];
+
+        console.log("X: " + lpX + ", Y: " + lpY);
+    }
+};
+
+function onResponse(Parameters)
+{
+    // Player join new map
+    if (Parameters[253] == 35)
+    {
+        map.id = Parameters[0];
+    }
+    // All data on the player joining the map (us)
+    else if (Parameters[253] == 2)
+    {
+        lpX = Parameters[9][0];
+        lpY = Parameters[9][1];
     }
 };
 
@@ -177,6 +203,9 @@ requestAnimationFrame(gameLoop);
 function render() {
 
     context.clearRect(0, 0, canvas.width, canvas.height);
+    contextMap.clearRect(0, 0, canvasMap.width, canvasMap.height);
+
+    mapsDrawing.Draw(contextMap, map);
 
     harvestablesDrawing.invalidate(context, harvestablesHandler.harvestableList);
 
@@ -204,6 +233,9 @@ function update() {
     const deltaTime = currentTime - previousTime;
     const t = Math.min(1, deltaTime / 100);
 
+
+    if (settings.settingShowMap)
+        mapsDrawing.interpolate(map, lpX, lpY, t);
 
     harvestablesHandler.removeNotInRange(lpX, lpY);
     harvestablesDrawing.interpolate(harvestablesHandler.harvestableList, lpX, lpY, t);
