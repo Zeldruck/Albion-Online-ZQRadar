@@ -12,6 +12,8 @@ var decoders = require('cap').decoders;
 const WebSocket = require('ws');
 const ip = require('ip');
 
+const fs = require("fs");
+
 
 
 
@@ -41,9 +43,25 @@ app.get('/raw', (req, res) => {
   res.render('layout', { mainContent: viewName });
 });
 
-app.get('/settings', (req, res) => {
-  const viewName = 'main/settings'; 
+app.get('/chests', (req, res) => {
+  const viewName = 'main/chests'; 
   res.render('layout', { mainContent: viewName });
+});
+
+app.get('/map', (req, res) => {
+  const viewName = 'main/map';
+  const viewRequireName = 'main/require-map'
+
+  fs.access("./images/Maps", function(error) {
+    if (error)
+    {
+      res.render('layout', { mainContent: viewRequireName });
+    }
+    else
+    {
+      res.render('layout', { mainContent: viewName });
+    }
+  });
 });
 
 app.get('/ignorelist', (req, res) => {
@@ -51,11 +69,12 @@ app.get('/ignorelist', (req, res) => {
   res.render('layout', { mainContent: viewName });
 });
 
-
-app.get('/chests', (req, res) => {
-  const viewName = 'main/chests'; 
+app.get('/settings', (req, res) => {
+  const viewName = 'main/settings'; 
   res.render('layout', { mainContent: viewName });
 });
+
+
 
 
 app.get('/drawing', (req, res) => {
@@ -76,6 +95,7 @@ app.use('/scripts/Handlers', express.static(__dirname + '/scripts/Handlers'))
 app.use('/scripts/Drawings', express.static(__dirname + '/scripts/Drawings'))
 app.use('/scripts/Utils', express.static(__dirname + '/scripts/Utils'));;
 app.use('/images/Resources', express.static(__dirname + '/images/Resources'));
+app.use('/images/Maps', express.static(__dirname + '/images/Maps'));
 app.use('/images/Items', express.static(__dirname + '/images/Items'));
 
 
@@ -109,47 +129,48 @@ const server = new WebSocket.Server({ port: 5002, host: 'localhost'});
 server.on('connection', () => {
   console.log("openned");
 
-c.on('packet', function(nbytes, trunc) {
+  c.on('packet', function(nbytes, trunc) {
+
+    let  ret = decoders.Ethernet(buffer);
+    ret = decoders.IPV4(buffer, ret.offset);
+    ret = decoders.UDP(buffer, ret.offset);
+
+    let payload = buffer.slice(ret.offset, nbytes);
+
+    // Parse the UDP payload
+    try
+    {
+        manager.handle(payload);
+    }
+    catch {}
+
+  });
 
 
-
-
-  let  ret = decoders.Ethernet(buffer);
-	ret = decoders.IPV4(buffer, ret.offset);
-	ret = decoders.UDP(buffer, ret.offset);
-
-	let payload = buffer.slice(ret.offset, nbytes);
-
-	// Parse the UDP payload
-	try
-	{
-	    manager.handle(payload);
-	}
-	catch{
-	    
-	}
-
-});
-
-
-  manager.on('event', (dictonary) => {
-
+  manager.on('event', (dictonary) =>
+  {    
     const dictionaryDataJSON = JSON.stringify(dictonary);
     server.clients.forEach(function(client) {
       client.send(JSON.stringify({ code : "event", dictionary: dictionaryDataJSON }))
-   });
+    });
   });
 
   
-  manager.on('request', (dictonary) => {
-
+  manager.on('request', (dictonary) =>
+  {
     const dictionaryDataJSON = JSON.stringify(dictonary);
     server.clients.forEach(function(client) {
       client.send(JSON.stringify({ code : "request", dictionary: dictionaryDataJSON }))
    });
   });
 
-
+  manager.on('response', (dictonary) =>
+  {
+    const dictionaryDataJSON = JSON.stringify(dictonary);
+    server.clients.forEach(function(client) {
+      client.send(JSON.stringify({ code : "response", dictionary: dictionaryDataJSON }))
+   });
+  });
 });
 
 

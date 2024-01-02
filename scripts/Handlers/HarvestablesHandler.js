@@ -17,26 +17,79 @@
     }
 }
 
-class HarvestablesHandler {
-    constructor() {
+const HarvestableType = 
+{
+    Fiber: 'Fiber',
+    Hide: 'Hide',
+    Log: 'Log',
+    Ore: 'Ore',
+    Rock: 'Rock'
+};
+
+class HarvestablesHandler
+{
+    constructor(settings)
+    {
         this.harvestableList = [];
+        this.settings = settings;
+
+        
     }
 
-    addHarvestable(id, type, tier, posX, posY, charges, size) {
-   
+    addHarvestable(id, type, tier, posX, posY, charges, size)
+    {
+        /*if (!this.settings.harvestingTiers[harvestableOne.tier - 1]) {
+            continue;
+        }
+
+
+        if (!this.settings.harvestingEnchants[harvestableOne.charges]) {
+            continue;
+        }*/
+
+        switch (this.GetStringType(type))
+        {
+            case HarvestableType.Fiber:
+                if (!this.settings.harvestingFiberTiers[tier - 1] || !this.settings.harvestingFiberEnchants[charges]) return;
+                break;
+
+            case HarvestableType.Hide:
+                if (!this.settings.harvestingHideTiers[tier - 1] || !this.settings.harvestingHideEnchants[charges]) return;
+                break;
+
+            case HarvestableType.Log:
+                if (!this.settings.harvestingLogTiers[tier - 1] || !this.settings.harvestingLogEnchants[charges]) return;
+                break;
+
+            case HarvestableType.Ore:
+                if (!this.settings.harvestingOreTiers[tier - 1] || !this.settings.harvestingOreEnchants[charges]) return;
+                break;
+
+            case HarvestableType.Rock:
+                if (!this.settings.harvestingRockTiers[tier - 1] || !this.settings.harvestingRockEnchants[charges]) return;
+                break;
+
+            default:
+                return;
+        }
+
+        
+        const index = this.harvestableList.findIndex((item) => item.id === id);
+
+        if (index === -1)
+        {
             const h = new Harvestable(id, type, tier, posX, posY, charges, size);
-            const index = this.harvestableList.findIndex((item) => item.id === h.id);
-
-            if (index === -1) {
-                this.harvestableList.push(h);
-                // console.log("New Harvestable: " + h.toString());
-            } else {
-                this.harvestableList[index].setCharges(charges);
-            }
-  
+            this.harvestableList.push(h);
+            //console.log("New Harvestable: " + h.toString());
+        } 
+        else // ???
+        {
+            this.harvestableList[index].setCharges(charges);
+        }
     }
 
-    harvestFinished( Parameters) {
+    harvestFinished( Parameters)
+    {
 
         const id = Parameters[3];
         const count = Parameters[5];
@@ -45,44 +98,53 @@ class HarvestablesHandler {
 
     }
 
-    newHarvestableObject(id, Parameters) {
-
+    // Normally work with everything
+    // Good
+    newHarvestableObject(id, Parameters) // From dead monster harvestable
+    {
         const type = Parameters[5];
         const tier = Parameters[7];
-        const location =Parameters[8];
+        const location = Parameters[8];
 
         let enchant = 0;
         let size = 0;
 
-        try {
+        try
+        {
             size = Parameters[10];
-        } catch (ignored) { }
+        } 
+        catch (ignored) { }
 
-        try {
+        try
+        {
             enchant = Parameters[11];
-        } catch (ignored) { }
+        } 
+        catch (ignored) { }
 
         this.addHarvestable(id, type, tier, location[0], location[1], enchant, size);
-
     }
 
-     base64ToArrayBuffer(base64) {
+     base64ToArrayBuffer(base64)
+     {
         var binaryString = atob(base64);
         var bytes = new Uint8Array(binaryString.length);
-        for (var i = 0; i < binaryString.length; i++) {
+
+        for (var i = 0; i < binaryString.length; i++)
+        {
             bytes[i] = binaryString.charCodeAt(i);
         }
+        
         return bytes;
     }
 
-    newSimpleHarvestableObject(Parameters) {
+    // Normally work with everything 
+    // Good
+    newSimpleHarvestableObject(Parameters) // Static harvestable objects
+    {
         const a0 = Parameters[0];
 
-        if (a0.length === 0) {
-            return;
-        }
+        if (a0.length === 0) return;
 
-   
         const a1 = Parameters[1]["data"];
         const a2 = Parameters[2]["data"];
  
@@ -99,54 +161,73 @@ class HarvestablesHandler {
 
             this.addHarvestable(id, type, tier, posX, posY, 0, count);
         }
-   
     }
 
-    removeNotInRange(lpX, lpY) {
-   
-            this.harvestableList = this.harvestableList.filter(
-                (x) => this.calculateDistance(lpX, lpY, x.posX, x.posY) <= 80
+    removeNotInRange(lpX, lpY)
+    {
+        this.harvestableList = this.harvestableList.filter(
+            (x) => this.calculateDistance(lpX, lpY, x.posX, x.posY) <= 80
         );
+
         this.harvestableList = this.harvestableList.filter(item => item.size !== undefined);
-   
     }
 
-    calculateDistance(lpX, lpY, posX, posY) {
+    calculateDistance(lpX, lpY, posX, posY)
+    {
         const deltaX = lpX - posX;
         const deltaY = lpY - posY;
         const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
         return distance;
     }
 
-    removeHarvestable(id) {
-   
-            this.harvestableList = this.harvestableList.filter((x) => x.id !== id);
-   
+    removeHarvestable(id)
+    {
+        this.harvestableList = this.harvestableList.filter((x) => x.id !== id);
     }
 
     getHarvestableList() {
-
-
-            return [...this.harvestableList];
-   
+        return [...this.harvestableList];
     }
 
-    updateHarvestable(harvestableId, count) {
-   
-    
-            const harvestable = this.harvestableList.find((h) => h.id == harvestableId);
+    updateHarvestable(harvestableId, count)
+    {   
+        const harvestable = this.harvestableList.find((h) => h.id == harvestableId);
 
-        if (harvestable) {
-
-                  harvestable.size = harvestable.size - count;
-         
-            }
-     
+        if (harvestable)
+        {
+            harvestable.size = harvestable.size - count;
+        }
     }
 
-    clear() {
+    clear()
+    {
   
-            this.harvestableList = [];
+        this.harvestableList = [];
+    }
 
+    GetStringType(typeNumber)
+    {
+        if (typeNumber >= 0 && typeNumber <= 5)
+        {
+            return HarvestableType.Log;
+        }
+        else if (typeNumber >= 6 && typeNumber <= 10)
+        {
+            return HarvestableType.Rock;
+        }
+        else if (typeNumber >= 11 && typeNumber <= 14)
+        {
+            return HarvestableType.Fiber;
+        }
+        else if (typeNumber >= 15 && typeNumber <= 22)
+        {
+            return HarvestableType.Hide;
+        }
+        else if (typeNumber >= 23 && typeNumber <= 27)
+        {
+            return HarvestableType.Ore;
+        }
+        else return '';
     }
 }
