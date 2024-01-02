@@ -110,7 +110,8 @@ export class MobsDrawing extends DrawingUtils {
             else if (mobOne.type == 4) {
                 this.drawImageCustom(ctx, point.x, point.y, "droneicon" , 40);
             }
-            else {
+            else
+            {
         
              
                 if (mobOne.enchantmentLevel == 1) {
@@ -129,11 +130,10 @@ export class MobsDrawing extends DrawingUtils {
                     this.drawFilledCircle(ctx, point.x, point.y, 15, "yellow");
 
                 }
-       
-                this.drawFilledCircle(ctx, point.x, point.y, 10, "#4169E1");
-           
-
-             
+                else
+                {
+                    this.drawFilledCircle(ctx, point.x, point.y, 10, "#4169E1");
+                }             
             }
 
 
@@ -144,20 +144,11 @@ export class MobsDrawing extends DrawingUtils {
 
                 this.drawTextItems(point.x - textWidth /2, point.y + 24, mobOne.health, ctx, "12px", "yellow");
             }
-            if (this.settings.mobDevMode) {
-         
+
+            if (this.settings.mobDevMode)
+            {
                 this.drawText(point.x, point.y - 20, mobOne.typeId, ctx);
             }
-
-
-
-
-
-       
-  
-
-
-
         }
 
         for (const mistsOne of mists) {

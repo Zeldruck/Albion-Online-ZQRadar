@@ -150,8 +150,8 @@ function onEvent(Parameters)
 
 
     }
-    else if (eventCode == 118) {
-
+    else if (eventCode == 118)
+    {
         mobsHandler.NewMobEvent(Parameters);
     }
 
@@ -180,7 +180,7 @@ function onRequest(Parameters)
         lpY = Parameters[1][1];
 
         //console.log("X: " + lpX + ", Y: " + lpY);
-    }
+    }    
 };
 
 function onResponse(Parameters)
