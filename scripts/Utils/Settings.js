@@ -77,7 +77,6 @@ class Settings
         {
             switch (container)
             {
-                default:
                 case "ressources":
                     if (this.images[path])
                     {
@@ -86,12 +85,16 @@ class Settings
                     else
                     {
                         const img = new Image();
-                        img.src = path;
+
                         img.onload = () =>
                         {
                             this.images[path] = img; 
                             resolve();
                         };
+
+                        img.onerror = reject;
+
+                        img.src = path;
                     }
 
                     break;
@@ -104,14 +107,22 @@ class Settings
                     else
                     {
                         const img = new Image();
-                        img.src = path;
+
                         img.onload = () =>
                         {
                             this.map_images[path] = img; 
                             resolve();
                         };
+
+                        img.onerror = reject;
+
+                        img.src = path;
                     }
 
+                    break;
+
+                default:
+                    reject();
                     break;
             }
         });
@@ -121,12 +132,14 @@ class Settings
     {
         switch (container)
         {
-            default:
             case "ressources":
                 return this.images[path];
 
             case "maps":
                 return this.map_images[path];
+
+            default:
+                return null;
         }
     }
 

@@ -21,10 +21,10 @@ export class MapDrawing extends DrawingUtils
         if (curr_map.id < 0)
             return;
 
-        this.DrawImageMap(ctx, curr_map.hX*4, curr_map.hY*4, curr_map.id.toString(), 825*4);
+        this.DrawImageMap(ctx, curr_map.hX*4, curr_map.hY*4, curr_map.id.toString(), 825*4, curr_map);
     }
 
-    DrawImageMap(ctx, x, y, drawTo, size)
+    DrawImageMap(ctx, x, y, drawTo, size, curr_map)
     {
         if (drawTo === undefined || drawTo.toLowerCase().includes("undefined"))
             return;
@@ -54,7 +54,12 @@ export class MapDrawing extends DrawingUtils
         }
         else
         {
-            this.settings.preloadImageAndAddToList(src, "maps");
+            this.settings.preloadImageAndAddToList(src, "maps")
+            .then(() => { console.log('Map loaded'); })
+            .catch(() => { 
+                console.log('Map not loaded');
+                curr_map.id = -1;
+            });
         }
     }
 }
