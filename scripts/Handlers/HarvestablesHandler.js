@@ -81,7 +81,8 @@ class HarvestablesHandler
             const h = new Harvestable(id, type, tier, posX, posY, charges, size);
             this.harvestableList.push(h);
             //console.log("New Harvestable: " + h.toString());
-        } else
+        } 
+        else // ???
         {
             this.harvestableList[index].setCharges(charges);
         }
@@ -97,7 +98,9 @@ class HarvestablesHandler
 
     }
 
-    newHarvestableObject(id, Parameters)
+    // Normally work with everything
+    // Good
+    newHarvestableObject(id, Parameters) // From dead monster harvestable
     {
         const type = Parameters[5];
         const tier = Parameters[7];
@@ -134,14 +137,13 @@ class HarvestablesHandler
         return bytes;
     }
 
-    newSimpleHarvestableObject(Parameters)
+    // Normally work with everything 
+    // Good
+    newSimpleHarvestableObject(Parameters) // Static harvestable objects
     {
         const a0 = Parameters[0];
 
-        if (a0.length === 0)
-        {
-            return;
-        }
+        if (a0.length === 0) return;
 
         const a1 = Parameters[1]["data"];
         const a2 = Parameters[2]["data"];
@@ -226,5 +228,6 @@ class HarvestablesHandler
         {
             return HarvestableType.Ore;
         }
+        else return '';
     }
 }

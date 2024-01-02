@@ -518,6 +518,18 @@ img, video {
     border-color: #63b3ed
 }
 
+.space-x-1 > :not(template) ~ :not(template) {
+    --space-x-reverse: 0;
+    margin-right: calc(0.25rem*var(--space-x-reverse));
+    margin-left: calc(0.25rem*(1 - var(--space-x-reverse)))
+}
+
+.space-x-2 > :not(template) ~ :not(template) {
+    --space-x-reverse: 0;
+    margin-right: calc(0.50rem*var(--space-x-reverse));
+    margin-left: calc(0.50rem*(1 - var(--space-x-reverse)))
+}
+
 .space-y-2 > :not(template) ~ :not(template) {
     --space-y-reverse: 0;
     margin-top: calc(0.5rem*(1 - var(--space-y-reverse)));
