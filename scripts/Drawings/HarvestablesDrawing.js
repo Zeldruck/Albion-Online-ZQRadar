@@ -31,10 +31,7 @@ export class HarvestablesDrawing extends DrawingUtils  {
     invalidate(ctx, harvestables) {
         for (const harvestableOne of harvestables) {
 
-            if (harvestableOne.size <= 0) {
-                continue;
-
-            }
+            if (harvestableOne.size <= 0) continue;
 
             
             // OLD, to keep if I do an advance settings menu
@@ -105,7 +102,8 @@ export class HarvestablesDrawing extends DrawingUtils  {
 
             const point = this.transformPoint(harvestableOne.hX, harvestableOne.hY);
 
-            if (draw.length > 2) {
+            if (draw.length != "")
+            {
                 this.drawImageCustom(ctx, point.x, point.y, draw, 50);
             }
 

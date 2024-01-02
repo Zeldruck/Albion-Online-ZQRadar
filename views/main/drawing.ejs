@@ -8,15 +8,30 @@
             background-color: #121317;
         }
         
-        /* Position the canvases, with the topCanvas above the bottomCanvas */
-        #bottomCanvas {
+        /* Position the canvases, with the topCanvas above the gridCanvas */
+        #mapCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 10px;
+        }
+
+        #gridCanvas {
             position: absolute;
             top: 0;
             left: 0;
             margin: 10px;
             border: 2px solid grey;
         }
+
         #drawCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            margin: 10px;
+        }
+
+        #ourPlayerCanvas {
             position: absolute;
             top: 0;
             left: 0;
@@ -55,10 +70,12 @@
 </head>
 <body>
 
-      <div id="canvasContainer">
+    <div id="canvasContainer">
 
-        <canvas id="bottomCanvas" width="500" height="500"></canvas>
+        <canvas id="mapCanvas" width="500" height="500"></canvas>
+        <canvas id="gridCanvas" width="500" height="500"></canvas>
         <canvas id="drawCanvas" width="500" height="500"></canvas>
+        <canvas id="ourPlayerCanvas" width="500" height="500"></canvas>
         <canvas id="thirdCanvas" width="500" height="500" ></canvas>
         <button id="button">Clear</button>
  
@@ -72,6 +89,7 @@
     <script src="/scripts/Handlers/MobsHandler.js"></script>
     <script src="/scripts/Handlers/ChestsHandler.js"></script>
     <script src="/scripts/Handlers/DungeonsHandler.js"></script>  
+    <script src="/scripts/Handlers/Map.js"></script>  
     <script src="/scripts/Handlers/MobsInfo.js"></script>
     <script src="/scripts/Handlers/ItemsInfo.js"></script>
     <script src="/scripts/Utils/DrawingUtils.js"></script>
