@@ -35,7 +35,7 @@ var mobsInfo = new MobsInfo();
 itemsInfo.initItems();
 mobsInfo.initMobs();
 
-var map = new MapH(2212); // TO CHANGE to -1
+var map = new MapH(-1);
 const mapsDrawing = new MapDrawing(settings);
 
 const chestsHandler = new ChestsHandler();
@@ -179,7 +179,7 @@ function onRequest(Parameters)
         lpX = Parameters[1][0];
         lpY = Parameters[1][1];
 
-        console.log("X: " + lpX + ", Y: " + lpY);
+        //console.log("X: " + lpX + ", Y: " + lpY);
     }
 };
 
@@ -234,7 +234,7 @@ function update() {
     const t = Math.min(1, deltaTime / 100);
 
 
-    if (settings.settingShowMap)
+    if (settings.showMapBackground)
         mapsDrawing.interpolate(map, lpX, lpY, t);
 
     harvestablesHandler.removeNotInRange(lpX, lpY);
