@@ -37,7 +37,7 @@ You can download the Image Packs to enhance the radar.
 - **Items Pack v0.0**: [Link](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases/tag/item-pack-v0.0)
 - **Animals & Harvestables Pack v0.0**: [Link](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases/)
 - **Enemies Pack v0.0**: [Link](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases/)
-- **Maps Pack v0.0**: [Link](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases/tag/map-pack-v0.0)
+- **Maps Pack v0.1**: [Link](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases/tag/map-pack-v0.1)
 
 \
 Once downloaded, exitract the folder into `Albion-Online-ZQRadar/images/`.
