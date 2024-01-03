@@ -3,6 +3,8 @@ echo Installing necessary packages
 echo.
 echo npm install
 
+cd ..
+
 call npm install
 
 pause
