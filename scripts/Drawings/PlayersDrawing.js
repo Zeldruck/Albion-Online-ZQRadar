@@ -1,119 +1,80 @@
-export class PlayersDrawing extends DrawingUtils  {
-
-
-    constructor(Settings) {
-
+export class PlayersDrawing extends DrawingUtils 
+{
+    constructor(Settings)
+    {
         super(Settings);
 
-        this.itemsInfo = {};
-        this.images = {};
-  
+        this.itemsInfo = {};  
     }
 
-    updateItemsInfo(newData) {
+    updateItemsInfo(newData)
+    {
         this.itemsInfo = newData;
     }
 
-
-    preloadImageAndAddToList(path) {
-        return new Promise((resolve, reject) => {
-            if (this.images[path]) {
-
-                resolve();
-            } else {
-                const img = new Image();
-                img.src = path;
-                img.onload = () => {
-                    this.images[path] = img;
-                    resolve();
-                };
-            }
-        });
-    }
-
-
-    drawItems(context,canvas, players ,  devMode) {
-
+    drawItems(context, canvas, players, devMode)
+    {
         let posY = 15;
 
-        if (players.length <= 0) {
-            this.images = {};
+        if (players.length <= 0)
+        {
+            this.settings.ClearPreloadedImages("Items");
+            return;
         }
-      
 
-        for (const playerOne of players) {
-
-            
-
-
+        for (const playerOne of players)
+        {
             const items = playerOne.items;
 
-            if (items === null) {
-                continue;
+            if (items == null) continue;
 
-            } 
 
             let posX = 5;
+            const total = posY + 20;
 
+            // TODO
+            // Show more than few players 
+            if (total > canvas.height) break; // Ecxeed canvas size
 
-            
-            const  total = posY + 20;
-            if (total > canvas.height) {
-                break;
-            }
             const nickname = playerOne.nickname;
-
-    
             this.drawTextItems(posX, posY, nickname, context, "14px", "white");
 
             let posTemp = posX + context.measureText(nickname).width + 10;
-
-
             this.drawTextItems(posTemp, posY, playerOne.currentHealth + "/" + playerOne.initialHealth, context, "14px", "red");
 
             posTemp += context.measureText(playerOne.currentHealth + "/" + playerOne.initialHealth).width + 10;
   
-            let itemString = "";
+            let itemsListString = "";
 
-            posY += 5;
-            for (const item of items) {
+            posX += 20;
+            posY += 25;
 
-                itemString += item + " ";
-                
-
-
-                const src = "/images/Items/" + this.itemsInfo[item] + ".png";
-                if (src.includes("undefined")) {
-                    continue;
-                }
-                if (this.images[src]) {
-                    context.drawImage(this.images[src], posX, posY, 40, 40);
-                }
-                else {
-                    this.preloadImageAndAddToList(src);
-                }
-
-        
-                 
-              
-                posX += 10 + 40;
-
-
+            if (items["type"] === "Buffer") // No items
+            {
+                posX = 0;
+                posY += 50;
+                continue;
             }
-            if (devMode) {
-                this.drawTextItems(posTemp, posY - 5, itemString, context, "14px", "white");
+
+            for (const item of items)
+            {
+                const itemInfo = this.itemsInfo[item];
+
+                if (itemInfo != undefined && this.settings.GetPreloadedImage(itemInfo, "Items") !== null)
+                {
+                    this.DrawCustomImage(context, posX, posY, itemInfo, "Items", 40);
+                }
+
+                posX += 10 + 40;
+                itemsListString += item.toString() + " ";
+            }
+
+            if (devMode)
+            {
+                this.drawTextItems(posTemp, posY - 5, itemsListString, context, "14px", "white");
             }
       
-            posX = 0;
-            posY += 50;
-
-     
-
-         
-
-
-       
-
+            posY += 45;
         }
 
     }
@@ -152,41 +113,37 @@ export class PlayersDrawing extends DrawingUtils  {
         }
 
     }
-    invalidate(context, players) {
 
- 
-
-
-        for (const playerOne of players) {
-
-            
-
+    invalidate(context, players)
+    {
+        for (const playerOne of players)
+        {
             const point = this.transformPoint(playerOne.hX, playerOne.hY);
             let space = 0;
 
-
-            if (this.settings.settingDot == true) {
+            if (this.settings.settingDot == true)
+            {
                 this.drawFilledCircle(context, point.x, point.y, 10, "red");
             }
-            if (this.settings.settingMounted) {
-                if (playerOne.mounted) {
+            if (this.settings.settingMounted)
+            {
+                if (playerOne.mounted)
+                {
                     this.drawText(point.x, point.y +3, "M", context);
                 }
-       
             }
-            if (this.settings.settingNickname == true) {
-
+            if (this.settings.settingNickname == true)
+            {
                 space = space + 20;
                 this.drawText(point.x, point.y + space, playerOne.nickname, context);
             }
-            if (this.settings.settingDistance) {
-
-       
+            if (this.settings.settingDistance)
+            {
                 this.drawText(point.x, point.y - 14, playerOne.distance +"m", context);
             }
 
-            if (this.settings.settingHealth) {
-
+            if (this.settings.settingHealth)
+            {
                 space = space + 6;
 
                 const percent = playerOne.currentHealth / playerOne.initialHealth;
@@ -200,23 +157,15 @@ export class PlayersDrawing extends DrawingUtils  {
                 context.fillRect(point.x - width/2, point.y - height/2 + space, width * percent, height);
              //   this.drawText(point.x, point.y + space, playerOne.currentHealth, context);
             }
-            if (this.settings.settingGuild) {
+            if (this.settings.settingGuild)
+            {
                 space = space + 14;
 
-                if (playerOne.guildName != "undefined") {
-
-
+                if (playerOne.guildName != "undefined")
+                {
                     this.drawText(point.x, point.y + space, playerOne.guildName, context);
                 }
-                
-       
             }
-            
-        
-
         }
-
-
     }
-    
 }
