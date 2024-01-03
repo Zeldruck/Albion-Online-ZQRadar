@@ -28,12 +28,12 @@ export class HarvestablesDrawing extends DrawingUtils  {
 
     }
 
-    invalidate(ctx, harvestables) {
-        for (const harvestableOne of harvestables) {
-
+    invalidate(ctx, harvestables)
+    {
+        for (const harvestableOne of harvestables)
+        {
             if (harvestableOne.size <= 0) continue;
-
-            
+ 
             // OLD, to keep if I do an advance settings menu
             // This will be the beginner friendly
 
@@ -45,35 +45,35 @@ export class HarvestablesDrawing extends DrawingUtils  {
                 continue;
             }*/
             
-
             const type = harvestableOne.type;
 
-            let draw = "";
+            let draw = undefined;
 
-            if (type >= 11 && type <= 14) {
-
+            if (type >= 11 && type <= 14)
+            {
                 draw = "fiber_" + harvestableOne.tier + "_" + harvestableOne.charges;
             }
-            else if (type >= 0 && type <= 5) {
-
+            else if (type >= 0 && type <= 5)
+            {
                 draw = "Logs_" + harvestableOne.tier + "_" + harvestableOne.charges;
             }
 
-            else if (type >= 6 && type <= 10) {
-
+            else if (type >= 6 && type <= 10)
+            {
                 draw = "rock_" + harvestableOne.tier + "_" + harvestableOne.charges;
             }
             
             else if (type >= 15 && type <= 22)
             {
-
                 draw = "hide_" + harvestableOne.tier + "_" + harvestableOne.charges;
             }
             else if (type >= 23 && type <= 27)
             {
-
                 draw = "ore_" + harvestableOne.tier + "_" + harvestableOne.charges;
             }
+
+            if (draw == undefined)
+                continue;
 
             /*if (this.settings.harvestingFiber && (type >= 11 && type <= 14)) {
 
@@ -99,13 +99,11 @@ export class HarvestablesDrawing extends DrawingUtils  {
                 draw = "ore_" + harvestableOne.tier + "_" + harvestableOne.charges;
             }*/
 
-
             const point = this.transformPoint(harvestableOne.hX, harvestableOne.hY);
 
-            if (draw.length != "")
-            {
-                this.drawImageCustom(ctx, point.x, point.y, draw, 50);
-            }
+            // TODO
+            // Change Resources to Animals/LHarvestables (living harvestables)
+            this.DrawCustomImage(ctx, point.x, point.y, draw, "Resources", 50);
 
             // ???
             /*if (this.settings.harvestingSize) {
@@ -113,13 +111,6 @@ export class HarvestablesDrawing extends DrawingUtils  {
                 this.drawText(point.x, point.y +25 + 10, harvestableOne.size, ctx);
 
             }*/
-          
-        
-
         }
-        
-
-
-    }
-    
+    }  
 }

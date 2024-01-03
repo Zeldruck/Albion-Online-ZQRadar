@@ -30,44 +30,20 @@ export class DungeonsDrawing extends DrawingUtils {
 
 
     }
-    invalidate(ctx,  dungeons) {
-
-
-        for (const dungeonOne of dungeons) {
-
-            
-            if (!this.settings.dungeonEnchants[dungeonOne.enchant]) {
+    invalidate(ctx,  dungeons)
+    {
+        for (const dungeonOne of dungeons)
+        {
+            if (!this.settings.dungeonEnchants[dungeonOne.enchant] || dungeonOne.name == "undefined")
                 continue;
 
-            }
-    
-        
-
-
-
-
             const point = this.transformPoint(dungeonOne.hX, dungeonOne.hY);
-            if (dungeonOne.name != "undefined") {
-                if (dungeonOne.name.toLowerCase().includes("corrupt")) {
-                    this.drawImageCustom(ctx, point.x, point.y, "corrupt", 40);
-                }
-                else {
-                    this.drawImageCustom(ctx, point.x, point.y, "dungeon_" + dungeonOne.enchant, 40);
-                }
 
-            }
-        
-     
+            const isCorrupt = dungeonOne.name.toLowerCase().includes("corrupt");
+            const imageName = isCorrupt ? "corrupt" : "dungeon_" + dungeonOne.enchant;
 
+            this.DrawCustomImage(ctx, point.x, point.y, imageName, "Resources", 40);
         }
-
-
-
-
-
-
-
-
     }
 
 }
