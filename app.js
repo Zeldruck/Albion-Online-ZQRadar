@@ -1,11 +1,7 @@
 ﻿
 const express = require('express');
-const session = require('express-session');
-const bodyParser = require('body-parser');
-const mysql = require('mysql');
 const ejs = require('ejs');
 const path = require('path');
-const dotenv = require('dotenv');
 const PhotonParser = require('./scripts/classes/PhotonPacketParser');
 var Cap = require('cap').Cap;
 var decoders = require('cap').decoders;
@@ -97,6 +93,7 @@ app.use('/scripts/Utils', express.static(__dirname + '/scripts/Utils'));;
 app.use('/images/Resources', express.static(__dirname + '/images/Resources'));
 app.use('/images/Maps', express.static(__dirname + '/images/Maps'));
 app.use('/images/Items', express.static(__dirname + '/images/Items'));
+app.use('/config', express.static(__dirname + '/config'));
 
 
 
