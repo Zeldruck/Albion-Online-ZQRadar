@@ -24,20 +24,22 @@ export class MapDrawing extends DrawingUtils
         this.DrawImageMap(ctx, curr_map.hX*4, curr_map.hY*4, curr_map.id.toString(), 825*4, curr_map);
     }
 
-    DrawImageMap(ctx, x, y, drawTo, size, curr_map)
+    DrawImageMap(ctx, x, y, imageName, size, curr_map)
     {
-        if (drawTo === undefined || drawTo.toLowerCase().includes("undefined"))
-            return;
-
-        // Fill background => if no map image or corner not glitchy
+        // Fill background => if no map image or corner to prevent glitch textures
         ctx.fillStyle = '#1a1c23';
         ctx.fillRect(0, 0, ctx.width, ctx.height);
 
         if (!this.settings.showMapBackground) return;
 
-        const src = "/images/Maps/" + drawTo + ".png";
+        if (imageName === undefined || imageName == "undefined")
+            return;
 
-        const preloadedImage = this.settings.GetPreloadedImage(src, "maps");
+        const src = "/images/Maps/" + imageName + ".png";
+
+        const preloadedImage = this.settings.GetPreloadedImage(src, "Maps");
+
+        if (preloadedImage === null) return;
 
         if (preloadedImage)
         {
@@ -54,12 +56,9 @@ export class MapDrawing extends DrawingUtils
         }
         else
         {
-            this.settings.preloadImageAndAddToList(src, "maps")
-            .then(() => { console.log('Map loaded'); })
-            .catch(() => { 
-                console.log('Map not loaded');
-                curr_map.id = -1;
-            });
+            this.settings.preloadImageAndAddToList(src, "Maps")
+            .then(() => console.log('Map loaded'))
+            .catch(() => console.log('Map not loaded'));
         }
     }
 }

@@ -4,6 +4,7 @@ class Settings
     constructor()
     {       
         this.images = {};
+        this.item_images = {}
         this.map_images = {}
 
         this.showMapBackground = false;
@@ -77,7 +78,7 @@ class Settings
         {
             switch (container)
             {
-                case "ressources":
+                case "Resources":
                     if (this.images[path])
                     {
                         resolve();
@@ -88,18 +89,22 @@ class Settings
 
                         img.onload = () =>
                         {
-                            this.images[path] = img; 
+                            this.images[path] = img;
                             resolve();
                         };
 
-                        img.onerror = reject;
+                        img.onerror = () => 
+                        {
+                            this.images[path] = null;
+                            reject();
+                        };
 
                         img.src = path;
                     }
 
                     break;
 
-                case "maps":
+                case "Maps":
                     if (this.map_images[path])
                     {
                         resolve();
@@ -114,7 +119,37 @@ class Settings
                             resolve();
                         };
 
-                        img.onerror = reject;
+                        img.onerror = () =>
+                        {
+                            this.map_images[path] = null;
+                            reject();
+                        };
+
+                        img.src = path;
+                    }
+
+                    break;
+
+                case "Items":
+                    if (this.item_images[path])
+                    {
+                        resolve();
+                    }
+                    else
+                    {
+                        const img = new Image();
+
+                        img.onload = () =>
+                        {
+                            this.item_images[path] = img; 
+                            resolve();
+                        };
+
+                        img.onerror = () =>
+                        {
+                            this.item_images[path] = null;
+                            reject();
+                        };
 
                         img.src = path;
                     }
@@ -132,14 +167,41 @@ class Settings
     {
         switch (container)
         {
-            case "ressources":
+            case "Resources":
                 return this.images[path];
 
-            case "maps":
+            case "Maps":
                 return this.map_images[path];
+
+            case "Items":
+                return this.item_images[path];
 
             default:
                 return null;
+        }
+    }
+
+    ClearPreloadedImages(container)
+    {
+        switch (container)
+        {
+            case "Resources":
+                this.images = {};
+                break;
+
+            case "Maps":
+                this.map_images = {};
+                break;
+
+            case "Items":
+                this.item_images = {};
+                break;
+
+            case "_ALL_":
+                this.images = {};
+                this.map_images = {};
+                this.item_images = {};
+                break;
         }
     }
 

@@ -64,14 +64,18 @@
     lerp(a, b, t) { return a + (b - a) * t; }
 
 
-    drawImageCustom(ctx, x, y , drawTo , size)
+    DrawCustomImage(ctx, x, y, imageName, folder, size)
     {
-        if (drawTo === undefined || drawTo.toLowerCase().includes("undefined"))
+        if (imageName == "" || imageName === undefined)
             return;
-               
-        const src = "/images/Resources/" + drawTo + ".png"; 
+        
+        const folderR = folder == "" || folder === undefined ? "" : folder + "/";
 
-        const preloadedImage = this.settings.GetPreloadedImage(src, "ressources");
+        const src = "/images/" + folderR + imageName + ".png"; 
+
+        const preloadedImage = this.settings.GetPreloadedImage(src, folder);
+
+        if (preloadedImage === null) return;
 
         if (preloadedImage)
         {
@@ -79,7 +83,9 @@
         }
         else
         {
-            this.settings.preloadImageAndAddToList(src, "ressources");
+            this.settings.preloadImageAndAddToList(src, folder)
+            .then(() => console.log('Item loaded'))
+            .catch(() => console.log('Item not loaded'));
         }
     }
 

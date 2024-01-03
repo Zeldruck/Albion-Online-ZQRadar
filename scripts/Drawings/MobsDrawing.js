@@ -45,90 +45,74 @@ export class MobsDrawing extends DrawingUtils {
 
 
     }
-    invalidate(ctx, mobs, mists) {
 
-
- 
-
-
-
-
-
-        for (const mobOne of mobs) {
-
-
-            
-            if (mobOne.type == 3 && !this.settings.mobBoss) {
-
+    invalidate(ctx, mobs, mists)
+    {
+        for (const mobOne of mobs)
+        {
+            if (mobOne.type == 3 && !this.settings.mobBoss)
+            {
                 continue;
-
             }
             else if(mobOne.type == 4 && !this.settings.drones) 
             {
-
                 continue;
-
             } 
-            else {
-
-                if (!this.settings.mobEnchants[mobOne.enchantmentLevel]) {
+            else
+            {
+                if (!this.settings.mobEnchants[mobOne.enchantmentLevel])
+                {
                     continue; 
                 }
-                if (mobOne.type == 0 || mobOne.type == 1 && !this.settings.mobTiers[mobOne.tier - 1]) {
+                if (mobOne.type == 0 || mobOne.type == 1 && !this.settings.mobTiers[mobOne.tier - 1])
+                {
                     continue;
                 }
-
             }
             
-
             const point = this.transformPoint(mobOne.hX, mobOne.hY);
 
- 
-            if (mobOne.type == 1) {
-
-
-                this.drawImageCustom(ctx, point.x, point.y, "hide_" + mobOne.tier + "_" + mobOne.enchantmentLevel, 40);
+            if (mobOne.type == 1)
+            {
+                this.DrawCustomImage(ctx, point.x, point.y, "hide_" + mobOne.tier + "_" + mobOne.enchantmentLevel, "Resources", 40);
             }
-            else if (mobOne.type == 0) {
-
-             
-
-                if (myString.includes("wood")) {
-
-                    this.drawImageCustom(ctx, point.x, point.y, "Logs_" + mobOne.tier + "_" + mobOne.enchantmentLevel, 40);
+            else if (mobOne.type == 0)
+            {
+                if (myString.includes("wood"))
+                {
+                    this.DrawCustomImage(ctx, point.x, point.y, "Logs_" + mobOne.tier + "_" + mobOne.enchantmentLevel, "Resources", 40);
                 }
-                else {
-                    this.drawImageCustom(ctx, point.x, point.y, mobOne.name + "_" + mobOne.tier + "_" + mobOne.enchantmentLevel, 40);
+                else
+                {
+                    this.DrawCustomImage(ctx, point.x, point.y, mobOne.name + "_" + mobOne.tier + "_" + mobOne.enchantmentLevel, "Resources", 40);
                 }
-         
             }
-            else if (mobOne.type == 3) {
-
-                this.drawImageCustom(ctx, point.x, point.y, this.name, 40);
+            else if (mobOne.type == 3)
+            {
+                this.DrawCustomImage(ctx, point.x, point.y, this.name, "Resources", 40);
 
             }
-            else if (mobOne.type == 4) {
-                this.drawImageCustom(ctx, point.x, point.y, "droneicon" , 40);
+            else if (mobOne.type == 4)
+            {
+                this.DrawCustomImage(ctx, point.x, point.y, "droneicon", "Resources", 40);
             }
             else
             {
-        
-             
-                if (mobOne.enchantmentLevel == 1) {
+                if (mobOne.enchantmentLevel == 1)
+                {
                     this.drawFilledCircle(ctx, point.x, point.y, 15, "green");
-
                 }
-                else if (mobOne.enchantmentLevel == 2) {
+                else if (mobOne.enchantmentLevel == 2)
+                {
                     this.drawFilledCircle(ctx, point.x, point.y, 15, "#45BDEE");
-
                 }
-                else if (mobOne.enchantmentLevel == 3) {
+                else if (mobOne.enchantmentLevel == 3)
+                {
                     this.drawFilledCircle(ctx, point.x, point.y, 15, "purple");
-
                 }
-                else if (mobOne.enchantmentLevel == 4) {
+                else if (mobOne.enchantmentLevel == 4)
+                {
                     this.drawFilledCircle(ctx, point.x, point.y, 15, "yellow");
-
                 }
                 else
                 {
@@ -137,9 +121,8 @@ export class MobsDrawing extends DrawingUtils {
             }
 
 
-            if (this.settings.mobHp) {
-
-
+            if (this.settings.mobHp)
+            {
                 const textWidth = ctx.measureText(mobOne.health).width;
 
                 this.drawTextItems(point.x - textWidth /2, point.y + 24, mobOne.health, ctx, "12px", "yellow");
@@ -151,32 +134,19 @@ export class MobsDrawing extends DrawingUtils {
             }
         }
 
-        for (const mistsOne of mists) {
-
-
-
-            if (!this.settings.mistEnchants[mistsOne.enchant]) {
+        for (const mistsOne of mists)
+        {
+            if (!this.settings.mistEnchants[mistsOne.enchant])
+            {
                 continue;
-
             }
 
-            
-            if (this.settings.mistSolo && mistsOne.type == 0 || this.settings.mistDuo == true && mistsOne.type == 1) {
-
-
+            if (this.settings.mistSolo && mistsOne.type == 0 || this.settings.mistDuo == true && mistsOne.type == 1)
+            {
                 const point = this.transformPoint(mistsOne.hX, mistsOne.hY);
 
-                this.drawImageCustom(ctx, point.x, point.y, "mist_" + mistsOne.enchant, 30);
-               
+                this.DrawCustomImage(ctx, point.x, point.y, "mist_" + mistsOne.enchant, "Resources", 30);
             }
-   
-            
-            
-
         }
-
-
-
     }
-
 }
