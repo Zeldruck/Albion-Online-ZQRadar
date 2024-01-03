@@ -132,5 +132,9 @@ dist
 
 ## OURS
 images/
+# All the json config files
+config/
+
+# IDE
 .idea/
 .vscode/

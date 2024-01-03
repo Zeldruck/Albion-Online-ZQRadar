@@ -63,9 +63,8 @@ class MobsHandler {
     }
 
     NewMobEvent(parameters) {
-        const id = parseInt(parameters[0]);
-        let typeId = parseInt(parameters[1]);
-
+        const id = parseInt(parameters[0]); // entity id
+        let typeId = parseInt(parameters[1]); // real type id
 
 
         const loc = parameters[7];
@@ -110,41 +109,45 @@ class MobsHandler {
             rarity = 1;
         }
 
-        if (name != null ) {
+        if (name != null )
+        {
+            if (this.mistList.some(mist => mist.id === id))
+                return;
+
             this.addMist(id, posX, posY, name, enchant);
         }
-        else {
-            this.addMob(id, typeId, posX, posY, exp, 0, rarity, exp);
+        else
+        {
+            if (this.mobsList.some(mob => mob.id === id))
+                return;
+
+            this.addMob(id, typeId, posX, posY, exp, 0, rarity);
         }
     
 
     }
     
 
-    addMob(id, typeId, posX, posY, health, enchant, rarity) {
-  
-            const h = new Mob(id, typeId, posX, posY, health, enchant, rarity);
+    addMob(id, typeId, posX, posY, health, enchant, rarity)
+    {
+        const h = new Mob(id, typeId, posX, posY, health, enchant, rarity);
 
-            if (this.mobinfo[typeId]!=null) {
-                const mobsInfo = this.mobinfo[typeId];
-               
-                h.tier = mobsInfo[0];
-                h.type = mobsInfo[1];
-                h.name = mobsInfo[2];
-            }
+        if (this.mobinfo[typeId]!=null) {
+            const mobsInfo = this.mobinfo[typeId];
+            
+            h.tier = mobsInfo[0];
+            h.type = mobsInfo[1];
+            h.name = mobsInfo[2];
+        }
 
-            if (!this.mobsList.includes(h)) {
-                this.mobsList.push(h);
-            }
-     
+        this.mobsList.push(h);
     }
 
-    addMist(id, posX, posY, name, enchant) {
+    addMist(id, posX, posY, name, enchant)
+    {
         const d = new Mist(id, posX, posY, name, enchant);
 
-        if (!this.mistList.some(mist => mist.id === d.id)) {
-            this.mistList.push(d);
-        }
+        this.mistList.push(d);
     }
 
     removeMist(id) {
