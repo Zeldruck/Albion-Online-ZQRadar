@@ -22,28 +22,25 @@ class Settings
 
         this.ignoreList = [];
 
-        this.mobEnchants = [false, false, false, false, false];
-        this.mobTiers = [false, false, false, false, false, false, false, false];
-        this.mistEnchants = [false, false, false, false, false];
-        this.dungeonEnchants = [false, false, false, false, false];
-
+        
         this.dungeonSolo = false;
         this.dungeonDuo = false;
         this.mistSolo = false;
         this.mistDuo = false;
 
-        this.mobHp = false;
+        
+        this.enemiesHP = false;
+        this.enemiesID = false;
+        this.livingResourcesHP = false;
+        this.livingResourcesID = false;
 
-        this.mobOther = false;
-        this.mobSkinnable = false;
-        this.mobHarvestable = false;
-        this.mobBoss = false;
-        this.mobDevMode = false;
+        this.showEnemies = false;
 
 
         // Array or string delimited by ';'
         // Array => for & if
         // String => Find in string
+        /* Static ressources */
         this.harvestingFiberTiers = [false, false, false, false, false, false, false, false];
         this.harvestingFiberEnchants = [false, false, false, false, false, false];
 
@@ -59,10 +56,26 @@ class Settings
         this.harvestingRockTiers = [false, false, false, false, false, false, false, false];
         this.harvestingRockEnchants = [false, false, false, false, false, false];
 
+        /* Living ressources */
+        this.harvestingLivingFiberTiers = [false, false, false, false, false, false, false, false];
+        this.harvestingLivingFiberEnchants = [false, false, false, false, false, false];
 
-        this.harvestingSize = false;
-        this.drones = false;
+        this.harvestingLivingLogTiers = [false, false, false, false, false, false, false, false];
+        this.harvestingLivingLogEnchants = [false, false, false, false, false, false];
 
+        this.harvestingLivingHideTiers = [false, false, false, false, false, false, false, false];
+        this.harvestingLivingHideEnchants = [false, false, false, false, false, false];
+
+        this.harvestingLivingOreTiers = [false, false, false, false, false, false, false, false];
+        this.harvestingLivingOreEnchants = [false, false, false, false, false, false];
+
+        this.harvestingLivingRockTiers = [false, false, false, false, false, false, false, false];
+        this.harvestingLivingRockEnchants = [false, false, false, false, false, false];
+
+        this.mistEnchants = [false, false, false, false, false];
+        this.dungeonEnchants = [false, false, false, false, false];
+
+        this.enemiesEnchants = [false, false, false, false, false];
 
         this.chestGreen = false;
         this.chestBlue = false;
@@ -220,23 +233,21 @@ class Settings
     {
         this.showMapBackground = this.returnLocalBool("settingShowMap");
 
-
+        //#region Players
         this.settingDot = this.returnLocalBool("settingDot");
         this.settingNickname = this.returnLocalBool("settingNickname");
-        
-
-
         this.settingHealth = this.returnLocalBool("settingHealth");
         this.settingMounted = this.returnLocalBool("settingMounted");
-
         this.settingItems = this.returnLocalBool("settingItems");
         this.settingItemsDev = this.returnLocalBool("settingItemsDev");
-
-
         this.settingDistance = this.returnLocalBool("settingDistance");
         this.settingGuild = this.returnLocalBool("settingGuild");
         this.settingSound = this.returnLocalBool("settingSound");
+        //#endregion
 
+
+        //#region Resources
+        /* Static harvestables */
         // Tier
         this.harvestingFiberTiers[0] = this.returnLocalBool("settingRawFiberT1");
         this.harvestingFiberTiers[1] = this.returnLocalBool("settingRawFiberT2");
@@ -316,42 +327,123 @@ class Settings
         this.harvestingLogEnchants[2] = this.returnLocalBool("settingRawLogE2");
         this.harvestingLogEnchants[3] = this.returnLocalBool("settingRawLogE3");
         this.harvestingLogEnchants[4] = this.returnLocalBool("settingRawLogE4");
+
+
+        /* Living harvestables */
+        // Tier
+        this.harvestingLivingFiberTiers[0] = this.returnLocalBool("settingLivingFiberT1");
+        this.harvestingLivingFiberTiers[1] = this.returnLocalBool("settingLivingFiberT2");
+        this.harvestingLivingFiberTiers[2] = this.returnLocalBool("settingLivingFiberT3");
+        this.harvestingLivingFiberTiers[3] = this.returnLocalBool("settingLivingFiberT4");
+        this.harvestingLivingFiberTiers[4] = this.returnLocalBool("settingLivingFiberT5");
+        this.harvestingLivingFiberTiers[5] = this.returnLocalBool("settingLivingFiberT6");
+        this.harvestingLivingFiberTiers[6] = this.returnLocalBool("settingLivingFiberT7");
+        this.harvestingLivingFiberTiers[7] = this.returnLocalBool("settingLivingFiberT8");
+        // Enchant
+        this.harvestingLivingFiberEnchants[0] = this.returnLocalBool("settingLivingFiberE0");
+        this.harvestingLivingFiberEnchants[1] = this.returnLocalBool("settingLivingFiberE1");
+        this.harvestingLivingFiberEnchants[2] = this.returnLocalBool("settingLivingFiberE2");
+        this.harvestingLivingFiberEnchants[3] = this.returnLocalBool("settingLivingFiberE3");
+        this.harvestingLivingFiberEnchants[4] = this.returnLocalBool("settingLivingFiberE4");
+
+        // Tier
+        this.harvestingLivingRockTiers[0] = this.returnLocalBool("settingLivingRockT1");
+        this.harvestingLivingRockTiers[1] = this.returnLocalBool("settingLivingRockT2");
+        this.harvestingLivingRockTiers[2] = this.returnLocalBool("settingLivingRockT3");
+        this.harvestingLivingRockTiers[3] = this.returnLocalBool("settingLivingRockT4");
+        this.harvestingLivingRockTiers[4] = this.returnLocalBool("settingLivingRockT5");
+        this.harvestingLivingRockTiers[5] = this.returnLocalBool("settingLivingRockT6");
+        this.harvestingLivingRockTiers[6] = this.returnLocalBool("settingLivingRockT7");
+        this.harvestingLivingRockTiers[7] = this.returnLocalBool("settingLivingRockT8");
+        // Enchant
+        this.harvestingLivingRockEnchants[0] = this.returnLocalBool("settingLivingRockE0");
+        this.harvestingLivingRockEnchants[1] = this.returnLocalBool("settingLivingRockE1");
+        this.harvestingLivingRockEnchants[2] = this.returnLocalBool("settingLivingRockE2");
+        this.harvestingLivingRockEnchants[3] = this.returnLocalBool("settingLivingRockE3");
+        this.harvestingLivingRockEnchants[4] = this.returnLocalBool("settingLivingRockE4");
+
+        // Tier
+        this.harvestingLivingOreTiers[0] = this.returnLocalBool("settingLivingOreT1");
+        this.harvestingLivingOreTiers[1] = this.returnLocalBool("settingLivingOreT2");
+        this.harvestingLivingOreTiers[2] = this.returnLocalBool("settingLivingOreT3");
+        this.harvestingLivingOreTiers[3] = this.returnLocalBool("settingLivingOreT4");
+        this.harvestingLivingOreTiers[4] = this.returnLocalBool("settingLivingOreT5");
+        this.harvestingLivingOreTiers[5] = this.returnLocalBool("settingLivingOreT6");
+        this.harvestingLivingOreTiers[6] = this.returnLocalBool("settingLivingOreT7");
+        this.harvestingLivingOreTiers[7] = this.returnLocalBool("settingLivingOreT8");
+        // Enchant
+        this.harvestingLivingOreEnchants[0] = this.returnLocalBool("settingLivingOreE0");
+        this.harvestingLivingOreEnchants[1] = this.returnLocalBool("settingLivingOreE1");
+        this.harvestingLivingOreEnchants[2] = this.returnLocalBool("settingLivingOreE2");
+        this.harvestingLivingOreEnchants[3] = this.returnLocalBool("settingLivingOreE3");
+        this.harvestingLivingOreEnchants[4] = this.returnLocalBool("settingLivingOreE4");
+
+        // Tier
+        this.harvestingLivingHideTiers[0] = this.returnLocalBool("settingLivingHideT1");
+        this.harvestingLivingHideTiers[1] = this.returnLocalBool("settingLivingHideT2");
+        this.harvestingLivingHideTiers[2] = this.returnLocalBool("settingLivingHideT3");
+        this.harvestingLivingHideTiers[3] = this.returnLocalBool("settingLivingHideT4");
+        this.harvestingLivingHideTiers[4] = this.returnLocalBool("settingLivingHideT5");
+        this.harvestingLivingHideTiers[5] = this.returnLocalBool("settingLivingHideT6");
+        this.harvestingLivingHideTiers[6] = this.returnLocalBool("settingLivingHideT7");
+        this.harvestingLivingHideTiers[7] = this.returnLocalBool("settingLivingHideT8");
+        // Enchant
+        this.harvestingLivingHideEnchants[0] = this.returnLocalBool("settingLivingHideE0");
+        this.harvestingLivingHideEnchants[1] = this.returnLocalBool("settingLivingHideE1");
+        this.harvestingLivingHideEnchants[2] = this.returnLocalBool("settingLivingHideE2");
+        this.harvestingLivingHideEnchants[3] = this.returnLocalBool("settingLivingHideE3");
+        this.harvestingLivingHideEnchants[4] = this.returnLocalBool("settingLivingHideE4");
+
+        // Tier
+        this.harvestingLivingLogTiers[0] = this.returnLocalBool("settingLivingLogT1");
+        this.harvestingLivingLogTiers[1] = this.returnLocalBool("settingLivingLogT2");
+        this.harvestingLivingLogTiers[2] = this.returnLocalBool("settingLivingLogT3");
+        this.harvestingLivingLogTiers[3] = this.returnLocalBool("settingLivingLogT4");
+        this.harvestingLivingLogTiers[4] = this.returnLocalBool("settingLivingLogT5");
+        this.harvestingLivingLogTiers[5] = this.returnLocalBool("settingLivingLogT6");
+        this.harvestingLivingLogTiers[6] = this.returnLocalBool("settingLivingLogT7");
+        this.harvestingLivingLogTiers[7] = this.returnLocalBool("settingLivingLogT8");
+        // Enchant
+        this.harvestingLivingLogEnchants[0] = this.returnLocalBool("settingLivingLogE0");
+        this.harvestingLivingLogEnchants[1] = this.returnLocalBool("settingLivingLogE1");
+        this.harvestingLivingLogEnchants[2] = this.returnLocalBool("settingLivingLogE2");
+        this.harvestingLivingLogEnchants[3] = this.returnLocalBool("settingLivingLogE3");
+        this.harvestingLivingLogEnchants[4] = this.returnLocalBool("settingLivingLogE4");
+
+        this.livingResourcesHP = this.returnLocalBool("settingLivingResourcesHP");
+        this.livingResourcesID = this.returnLocalBool("settingLivingResourcesID");
+        //#endregion
+
+        //#region Enemies
+        this.enemiesEnchants[0] = this.returnLocalBool("settingEnemiesE0");
+        this.enemiesEnchants[1] = this.returnLocalBool("settingEnemiesE1");
+        this.enemiesEnchants[2] = this.returnLocalBool("settingEnemiesE2");
+        this.enemiesEnchants[3] = this.returnLocalBool("settingEnemiesE3");
+        this.enemiesEnchants[4] = this.returnLocalBool("settingEnemiesE4");
+
+        this.enemiesHP = this.returnLocalBool("settingEnemiesHP");
+        this.enemiesID = this.returnLocalBool("settingEnemiesID");
+
+        this.bossEnemies = this.returnLocalBool("settingBossEnemies");
+        this.droneEnemies = this.returnLocalBool("settingAvaloneDrones");
+        //#endregion
+
+
+        // TODO
+        // Mists beasts
+
+
+        this.showEnemies = this.returnLocalBool("settingShowEnemies");
+
         
-        this.harvestingSize = this.returnLocalBool("settingRawSize");
-        this.mobDevMode = this.returnLocalBool("settingMobDevMode");
-
-
-
-        this.mobTiers[0] = this.returnLocalBool("settingMobT1");
-        this.mobTiers[1] = this.returnLocalBool("settingMobT2");
-        this.mobTiers[2] = this.returnLocalBool("settingMobT3");
-        this.mobTiers[3] = this.returnLocalBool("settingMobT4");
-        this.mobTiers[4] = this.returnLocalBool("settingMobT5");
-        this.mobTiers[5] = this.returnLocalBool("settingMobT6");
-        this.mobTiers[6] = this.returnLocalBool("settingMobT7");
-        this.mobTiers[7] = this.returnLocalBool("settingMobT8");
-
-        this.mobEnchants[0] = this.returnLocalBool("settingMobE0");
-        this.mobEnchants[1] = this.returnLocalBool("settingMobE1");
-        this.mobEnchants[2] = this.returnLocalBool("settingMobE2");
-        this.mobEnchants[3] = this.returnLocalBool("settingMobE3");
-        this.mobEnchants[4] = this.returnLocalBool("settingMobE4");
-
-        this.mobHp = this.returnLocalBool("settingMobShowHp");
-        this.mobHarvestable = this.returnLocalBool("settingMobHarvestable");
-        this.mobOther = this.returnLocalBool("settingMobOther");
-        this.mobSkinnable = this.returnLocalBool("settingMobSkinnable");
-
-        this.mobBoss = this.returnLocalBool("settingBossesOtherBosses");
-        this.drones = this.returnLocalBool("settingBossesAvaloneDrones");
-
-        
-       
+        //#region Chests
         this.chestGreen = this.returnLocalBool("settingChestGreen");
         this.chestBlue = this.returnLocalBool("settingChestBlue");
         this.chestPurple = this.returnLocalBool("settingChestPurple");
         this.chestYellow = this.returnLocalBool("settingChestYellow");
+        //#endregion
 
+        //#region Mists
         this.mistSolo = this.returnLocalBool("settingMistSolo");
         this.mistDuo = this.returnLocalBool("settingMistDuo");
 
@@ -361,18 +453,19 @@ class Settings
         this.mistEnchants[2] = this.returnLocalBool("settingMistE2");
         this.mistEnchants[3] = this.returnLocalBool("settingMistE3");
         this.mistEnchants[4] = this.returnLocalBool("settingMistE4");
+        //#endregion
 
 
+        //#region Dungeons
         this.dungeonEnchants[0] = this.returnLocalBool("settingDungeonE0");
         this.dungeonEnchants[1] = this.returnLocalBool("settingDungeonE1");
         this.dungeonEnchants[2] = this.returnLocalBool("settingDungeonE2");
         this.dungeonEnchants[3] = this.returnLocalBool("settingDungeonE3");
         this.dungeonEnchants[4] = this.returnLocalBool("settingDungeonE4");
 
-
-
         this.dungeonSolo = this.returnLocalBool("settingDungeonSolo");
         this.dungeonDuo = this.returnLocalBool("settingDungeonDuo");
+        //#endregion
      
 
         this.ignoreList = JSON.parse(localStorage.getItem("ignoreList")) || [];
