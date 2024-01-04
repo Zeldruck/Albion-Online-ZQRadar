@@ -4,9 +4,27 @@
 [![GitHub Repo stars](https://img.shields.io/github/stars/Zeldruck/Albion-Online-ZQRadar?style=for-the-badge)]()
 
 ## ❓ What is ZQRadar?
+
 ZQRadar is a radar type tool for the game Albion Online.
 \
 Albion ZQRadar provides a real-time map, helping players detect other players, creatures, resources and more, nearby.
+
+## 🎯 Features
+
+- No injections, less risk of banning
+- Display a lot of information about other players (health, items, mounted or not, ...)
+- Display customizable resources (select tiers and enchantments for each)
+- Display customizable living resources (select tiers and enchantments for each)
+- Display customizable enemies
+- Display mist beasts
+- Display chests (types)
+- Display mist portals (solo/duo, enchantments)
+- Display dungeons (solo/duo, enchantments)
+- Display background map on radar
+
+And much more to come!
+\
+Join the [Discord](https://discord.gg/XAWjmzeaD3) to look at the to-do list.
 
 ## 🔰 How to run (Windows)
 
