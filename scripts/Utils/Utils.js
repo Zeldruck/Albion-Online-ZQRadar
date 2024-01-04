@@ -39,7 +39,7 @@ var map = new MapH(-1);
 const mapsDrawing = new MapDrawing(settings);
 
 const chestsHandler = new ChestsHandler();
-const mobsHandler = new MobsHandler();
+const mobsHandler = new MobsHandler(settings);
 mobsHandler.updateMobInfo(mobsInfo.moblist);
 
 
@@ -140,10 +140,9 @@ function onEvent(Parameters)
 
 
     }
-    else if (eventCode == 44) {
+    else if (eventCode == 44)
+    {
         mobsHandler.updateEnchantEvent(Parameters);
-
-
     }
     else if (eventCode == 86) {
         playersHandler.updateItems(id, Parameters);

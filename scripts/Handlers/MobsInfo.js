@@ -10,14 +10,14 @@ class MobsInfo{
 
     addItem(id, tier, type, loc)
     {
-        if (!this.moblist[id]) {
+        if (!this.moblist[id])
+        {
             this.moblist[id] = [];
         }
     
         this.moblist[id][0] = tier;
         this.moblist[id][1] = type;
         this.moblist[id][2] = loc;
-
     }
 
     initMobs()
@@ -187,6 +187,8 @@ class MobsInfo{
         this.addItem(423, 5, 0, 'wood');
         this.addItem(424, 5, 0, 'wood');
         this.addItem(425, 7, 0, 'wood');
+        this.addItem(427, 3, 0, 'rock');
+        this.addItem(428, 4, 0, 'rock');
         this.addItem(429, 5, 0, 'rock');
         this.addItem(430, 7, 0, 'rock');
         this.addItem(432, 5, 1, 'hide');
