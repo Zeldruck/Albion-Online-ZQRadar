@@ -34,11 +34,11 @@ Join the [Discord](https://discord.gg/XAWjmzeaD3) to look at the to-do list.
 - [Npcap 1.72](https://npcap.com/dist/npcap-1.72.exe)
 3. Download the source code of the latest release
 - [Releases](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases)
-4. Open the file `_INSTALL` and wait for the line:
+4. Open the file `_INSTALL.bat` and wait for the line:
 ```
 Press any key to continue . . .
 ```
-5. Open the file `_APP` and wait for the line:
+5. Open the file `_RUN.bat` and wait for the line:
 ```
 Server is running on http://localhost:5001
 ```
