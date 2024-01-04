@@ -1,12 +1,30 @@
 [![Discord](https://img.shields.io/discord/1191823969167352039?style=for-the-badge&logo=discord&label=Discord)](https://discord.gg/XAWjmzeaD3)
-![GitHub last commit (branch)](https://img.shields.io/github/last-commit/Zeldruck/Albion-Online-ZQRadar/main?style=for-the-badge&label=Last%20Commit)
+[![GitHub last commit (branch)](https://img.shields.io/github/last-commit/Zeldruck/Albion-Online-ZQRadar/main?style=for-the-badge&label=Last%20Commit)]()
 [![GitHub issues](https://img.shields.io/github/issues-raw/Zeldruck/Albion-Online-ZQRadar?style=for-the-badge&label=Issue)](https://github.com/Zeldruck/Albion-Online-ZQRadar/issues)
-![GitHub Repo stars](https://img.shields.io/github/stars/Zeldruck/Albion-Online-ZQRadar?style=for-the-badge)
+[![GitHub Repo stars](https://img.shields.io/github/stars/Zeldruck/Albion-Online-ZQRadar?style=for-the-badge)]()
 
 ## ❓ What is ZQRadar?
+
 ZQRadar is a radar type tool for the game Albion Online.
 \
 Albion ZQRadar provides a real-time map, helping players detect other players, creatures, resources and more, nearby.
+
+## 🎯 Features
+
+- No injections, less risk of banning
+- Display a lot of information about other players (health, items, mounted or not, ...)
+- Display customizable resources (select tiers and enchantments for each)
+- Display customizable living resources (select tiers and enchantments for each)
+- Display customizable enemies
+- Display mist beasts
+- Display chests (types)
+- Display mist portals (solo/duo, enchantments)
+- Display dungeons (solo/duo, enchantments)
+- Display background map on radar
+
+And much more to come!
+\
+Join the [Discord](https://discord.gg/XAWjmzeaD3) to look at the to-do list.
 
 ## 🔰 How to run (Windows)
 
@@ -14,17 +32,22 @@ Albion ZQRadar provides a real-time map, helping players detect other players, c
 - [Node.js v18.18.2 (64-bit)](https://nodejs.org/dist/v18.18.2/node-v18.18.2-x64.msi)
 2. Download Npcap:
 - [Npcap 1.72](https://npcap.com/dist/npcap-1.72.exe)
-3. Download the source code of the latest release
+3. Download Python 3.10.2:
+- [Python 3.10.2 (64-bit)](https://www.python.org/ftp/python/3.10.2/python-3.10.2-amd64.exe)
+4. Download Windows Build Tools:
+- [Windows Build Tools](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools)
+- And select `Desktop development with C++` (the first one normally), and install
+5. Download the source code of the latest release
 - [Releases](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases)
-4. Open the file `_INSTALL` and wait for the line:
+6. Open the file `_INSTALL.bat` and wait for the line:
 ```
 Press any key to continue . . .
 ```
-5. Open the file `_APP` and wait for the line:
+7. Open the file `_RUN.bat` and wait for the line:
 ```
 Server is running on http://localhost:5001
 ```
-6. You can now access the radar features by going to `http://localhost:5001` in your browser.
+8. You can now access the radar features by going to `http://localhost:5001` in your browser.
 
 ## ✨ Image Packs
 **⚠️(This is not mandatory for the radar to work)⚠️**
