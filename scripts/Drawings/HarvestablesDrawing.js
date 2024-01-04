@@ -57,7 +57,6 @@ export class HarvestablesDrawing extends DrawingUtils  {
             {
                 draw = "Logs_" + harvestableOne.tier + "_" + harvestableOne.charges;
             }
-
             else if (type >= 6 && type <= 10)
             {
                 draw = "rock_" + harvestableOne.tier + "_" + harvestableOne.charges;
@@ -72,7 +71,7 @@ export class HarvestablesDrawing extends DrawingUtils  {
                 draw = "ore_" + harvestableOne.tier + "_" + harvestableOne.charges;
             }
 
-            if (draw == undefined)
+            if (draw === undefined)
                 continue;
 
             /*if (this.settings.harvestingFiber && (type >= 11 && type <= 14)) {
@@ -105,7 +104,7 @@ export class HarvestablesDrawing extends DrawingUtils  {
             // Change Resources to Animals/LHarvestables (living harvestables)
             this.DrawCustomImage(ctx, point.x, point.y, draw, "Resources", 50);
 
-            // ???
+            // TODO
             /*if (this.settings.harvestingSize) {
 
                 this.drawText(point.x, point.y +25 + 10, harvestableOne.size, ctx);

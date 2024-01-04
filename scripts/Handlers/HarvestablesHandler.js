@@ -1,5 +1,16 @@
-﻿class Harvestable {
-    constructor(id, type, tier, posX, posY, charges, size) {
+﻿const HarvestableType = 
+{
+    Fiber: 'Fiber',
+    Hide: 'Hide',
+    Log: 'Log',
+    Ore: 'Ore',
+    Rock: 'Rock'
+};
+
+class Harvestable
+{
+    constructor(id, type, tier, posX, posY, charges, size)
+    {
         this.id = id;
         this.type = type;
         this.tier = tier;
@@ -12,19 +23,11 @@
         this.size = size;
     }
 
-    setCharges(charges) {
+    setCharges(charges)
+    {
         this.charges = charges;
     }
 }
-
-const HarvestableType = 
-{
-    Fiber: 'Fiber',
-    Hide: 'Hide',
-    Log: 'Log',
-    Ore: 'Ore',
-    Rock: 'Rock'
-};
 
 class HarvestablesHandler
 {
@@ -32,8 +35,6 @@ class HarvestablesHandler
     {
         this.harvestableList = [];
         this.settings = settings;
-
-        
     }
 
     addHarvestable(id, type, tier, posX, posY, charges, size)
@@ -74,18 +75,58 @@ class HarvestablesHandler
         }
 
         
-        const index = this.harvestableList.findIndex((item) => item.id === id);
+        var harvestable = this.harvestableList.find((item) => item.id === id);
 
-        if (index === -1)
+        if (!harvestable)
         {
             const h = new Harvestable(id, type, tier, posX, posY, charges, size);
             this.harvestableList.push(h);
             //console.log("New Harvestable: " + h.toString());
         } 
-        else // ???
+        else // update
         {
-            this.harvestableList[index].setCharges(charges);
+            harvestable.setCharges(charges);
         }
+    }
+
+    UpdateHarvestable(id, type, tier, posX, posY, charges, size)
+    {
+        switch (this.GetStringType(type))
+        {
+            case HarvestableType.Fiber:
+                if (!this.settings.harvestingFiberTiers[tier - 1] || !this.settings.harvestingFiberEnchants[charges]) return;
+                break;
+
+            case HarvestableType.Hide:
+                if (!this.settings.harvestingHideTiers[tier - 1] || !this.settings.harvestingHideEnchants[charges]) return;
+                break;
+
+            case HarvestableType.Log:
+                if (!this.settings.harvestingLogTiers[tier - 1] || !this.settings.harvestingLogEnchants[charges]) return;
+                break;
+
+            case HarvestableType.Ore:
+                if (!this.settings.harvestingOreTiers[tier - 1] || !this.settings.harvestingOreEnchants[charges]) return;
+                break;
+
+            case HarvestableType.Rock:
+                if (!this.settings.harvestingRockTiers[tier - 1] || !this.settings.harvestingRockEnchants[charges]) return;
+                break;
+
+            default:
+                return;
+        }
+
+        var harvestable = this.harvestableList.find((item) => item.id === id);
+
+        if (!harvestable)
+        {
+            this.addHarvestable(id, type, tier, posX, posY, charges, size);
+            return;
+        }
+
+        harvestable.charges = charges;
+        harvestable.size = size;
     }
 
     harvestFinished( Parameters)
@@ -100,28 +141,16 @@ class HarvestablesHandler
 
     // Normally work with everything
     // Good
-    newHarvestableObject(id, Parameters) // From dead monster harvestable
+    newHarvestableObject(id, Parameters) // Update
     {
         const type = Parameters[5];
         const tier = Parameters[7];
         const location = Parameters[8];
 
-        let enchant = 0;
-        let size = 0;
+        let enchant = Parameters[11] === undefined ? 0 : Parameters[11];
+        let size = Parameters[10] === undefined ? 0 : Parameters[10];
 
-        try
-        {
-            size = Parameters[10];
-        } 
-        catch (ignored) { }
-
-        try
-        {
-            enchant = Parameters[11];
-        } 
-        catch (ignored) { }
-
-        this.addHarvestable(id, type, tier, location[0], location[1], enchant, size);
+        this.UpdateHarvestable(id, type, tier, location[0], location[1], enchant, size);
     }
 
      base64ToArrayBuffer(base64)
@@ -139,7 +168,7 @@ class HarvestablesHandler
 
     // Normally work with everything 
     // Good
-    newSimpleHarvestableObject(Parameters) // Static harvestable objects
+    newSimpleHarvestableObject(Parameters) // New
     {
         const a0 = Parameters[0];
 
