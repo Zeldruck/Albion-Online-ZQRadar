@@ -38,9 +38,21 @@
             margin: 10px;
         }
 
-         #button {
+        #button {
             position: absolute;
             top: 10px;
+            background-color: #1a1c23;
+            color:white;
+            margin: 10px;
+            border: 1px solid gray;
+            padding: 8px 18px;
+            cursor: pointer;
+            left: 520px; /* Adjust the left position to be to the right of the canvases */
+        }
+
+        #logEnemiesList {
+            position: absolute;
+            top: 50px;
             background-color: #1a1c23;
             color:white;
             margin: 10px;
@@ -78,6 +90,7 @@
         <canvas id="ourPlayerCanvas" width="500" height="500"></canvas>
         <canvas id="thirdCanvas" width="500" height="500" ></canvas>
         <button id="button">Clear</button>
+        <button id="logEnemiesList">Log Enemies List</button>
  
     </div>
 
@@ -95,8 +108,7 @@
     <script src="/scripts/Utils/DrawingUtils.js"></script>
     <script src="/scripts/Utils/Settings.js"></script>
     
-    <script type = "module" src="/scripts/Utils/Utils.js"></script> 
-
+    <script type="module" src="/scripts/Utils/Utils.js"></script> 
 
 </body>
 </html>
