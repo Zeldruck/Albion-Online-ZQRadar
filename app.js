@@ -34,8 +34,13 @@ app.get('/home', (req, res) => {
   res.render('./layout', { mainContent: viewName});
 });
 
-app.get('/raw', (req, res) => {
-  const viewName = 'main/raw'; 
+app.get('/resources', (req, res) => {
+  const viewName = 'main/resources'; 
+  res.render('layout', { mainContent: viewName });
+});
+
+app.get('/enemies', (req, res) => {
+  const viewName = 'main/enemies'; 
   res.render('layout', { mainContent: viewName });
 });
 
