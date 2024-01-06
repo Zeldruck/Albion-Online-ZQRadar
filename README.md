@@ -32,6 +32,20 @@ Join the [Discord](https://discord.gg/XAWjmzeaD3) to look at the to-do list and 
 - [Node.js v18.18.2 (64-bit)](https://nodejs.org/dist/v18.18.2/node-v18.18.2-x64.msi)
 2. Download Npcap:
 - [Npcap 1.72](https://npcap.com/dist/npcap-1.72.exe)
+3. Download the the latest release
+- [Releases](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases)
+7. Open the file `_RUN.bat` and wait for the line:
+```
+Server is running on http://localhost:5001
+```
+8. You can now access the radar features by going to `http://localhost:5001` in your browser.
+
+## 👨‍💻 For the devs (Windows)
+
+1. Download Node.js v18.18.2:
+- [Node.js v18.18.2 (64-bit)](https://nodejs.org/dist/v18.18.2/node-v18.18.2-x64.msi)
+2. Download Npcap:
+- [Npcap 1.72](https://npcap.com/dist/npcap-1.72.exe)
 3. Download Python 3.10.2:
 - [Python 3.10.2 (64-bit)](https://www.python.org/ftp/python/3.10.2/python-3.10.2-amd64.exe)
 4. Download Windows Build Tools:
@@ -39,13 +53,13 @@ Join the [Discord](https://discord.gg/XAWjmzeaD3) to look at the to-do list and 
 - And select `Desktop development with C++` (the first one normally), and install
 5. Download the source code of the latest release
 - [Releases](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases)
-6. Open the file `_INSTALL.bat` and wait for the line:
+6. Run the following line:
 ```
-Press any key to continue . . .
+npm install
 ```
-7. Open the file `_RUN.bat` and wait for the line:
+7. Run the following line:
 ```
-Server is running on http://localhost:5001
+node app.js
 ```
 8. You can now access the radar features by going to `http://localhost:5001` in your browser.
 
