@@ -24,7 +24,7 @@ Albion ZQRadar provides a real-time map, helping players detect other players, c
 
 And much more to come!
 \
-Join the [Discord](https://discord.gg/XAWjmzeaD3) to look at the to-do list.
+Join the [Discord](https://discord.gg/XAWjmzeaD3) to look at the to-do list and be informed when a new version is released.
 
 ## 🔰 How to run (Windows)
 
