@@ -717,6 +717,7 @@
                     Debug
                 </h4>
 				
+				<!-- TODO -->
 				<label class="flex items-center space-x-2">
 					<input disabled type="checkbox" id="settingRawSize" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
 					<span class="dark:text-white ml-4">Show Size</span>
@@ -1256,36 +1257,5 @@
 			let settingLivingResourcesID = document.getElementById("settingLivingResourcesID");
 			settingLivingResourcesID.checked = returnLocalBool("settingLivingResourcesID");
 			settingLivingResourcesID.addEventListener("click", () => {localStorage.setItem("settingLivingResourcesID", settingLivingResourcesID.checked);});
-
-			/*let settingRawSize = document.getElementById("settingRawSize");
-			settingRawSize.checked = returnLocalBool("settingRawSize");
-			settingRawSize.addEventListener("click", () => {localStorage.setItem("settingRawSize", settingRawSize.checked);});*/
 			//#endregion
-
-			
-
-			/*
-			settingBossesCrystalSpider.checked = returnLocalBool("settingBossesCrystalSpider");
-			settingBossesFairyDragon.checked = returnLocalBool("settingBossesFairyDragon");
-			settingBossesVeilWeaver.checked = returnLocalBool("settingBossesVeilWeaver");
-			settingBossesGriffin.checked = returnLocalBool("settingBossesGriffin");
-
-			settingBossesOtherBosses.checked = returnLocalBool("settingBossesOtherBosses");
-			settingBossesAvaloneDrones.checked = returnLocalBool("settingBossesAvaloneDrones");
-
-
-			settingBossesCrystalSpider.addEventListener("click", () => {localStorage.setItem("settingBossesCrystalSpider", settingBossesCrystalSpider.checked);});
-			settingBossesFairyDragon.addEventListener("click", () => {localStorage.setItem("settingBossesFairyDragon", settingBossesFairyDragon.checked);});
-			settingBossesVeilWeaver.addEventListener("click", () => {localStorage.setItem("settingBossesVeilWeaver", settingBossesVeilWeaver.checked);});
-			settingBossesGriffin.addEventListener("click", () => {localStorage.setItem("settingBossesGriffin", settingBossesGriffin.checked);});
-
-			settingBossesOtherBosses.addEventListener("click", () => {localStorage.setItem("settingBossesOtherBosses", settingBossesOtherBosses.checked);});
-			settingBossesAvaloneDrones.addEventListener("click", () => {localStorage.setItem("settingBossesAvaloneDrones", settingBossesAvaloneDrones.checked);});
-			*/
-	
-
-
-
-
-
 </script>

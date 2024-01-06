@@ -2,13 +2,18 @@
 class Settings
 {
     constructor()
-    {       
+    {
+        //#region Initialization
         this.images = {};
         this.item_images = {}
         this.map_images = {}
+        //#endregion
 
+        //#region Maps
         this.showMapBackground = false;
+        //#endregion
 
+        //#region Players
         this.settingDot = false;
         this.settingNickname = false;
         this.settingHealth = false;
@@ -19,28 +24,14 @@ class Settings
         this.settingGuild = false;
         this.scale = 4.0;
         this.settingSound = false;
+        //#endregion
 
         this.ignoreList = [];
-
-        
-        this.dungeonSolo = false;
-        this.dungeonDuo = false;
-        this.mistSolo = false;
-        this.mistDuo = false;
-
-        
-        this.enemiesHP = false;
-        this.enemiesID = false;
-        this.livingResourcesHP = false;
-        this.livingResourcesID = false;
-
-        this.showEnemies = false;
-
 
         // Array or string delimited by ';'
         // Array => for & if
         // String => Find in string
-        /* Static ressources */
+        //#region Static ressources 
         this.harvestingFiberTiers = [false, false, false, false, false, false, false, false];
         this.harvestingFiberEnchants = [false, false, false, false, false, false];
 
@@ -55,8 +46,9 @@ class Settings
 
         this.harvestingRockTiers = [false, false, false, false, false, false, false, false];
         this.harvestingRockEnchants = [false, false, false, false, false, false];
+        //#endregion
 
-        /* Living ressources */
+        //#region Living ressources
         this.harvestingLivingFiberTiers = [false, false, false, false, false, false, false, false];
         this.harvestingLivingFiberEnchants = [false, false, false, false, false, false];
 
@@ -72,17 +64,43 @@ class Settings
         this.harvestingLivingRockTiers = [false, false, false, false, false, false, false, false];
         this.harvestingLivingRockEnchants = [false, false, false, false, false, false];
 
+        this.livingResourcesHP = false;
+        this.livingResourcesID = false;
+        //#endregion
+
+        //#region Dungeons
+        this.mistSolo = false;
+        this.mistDuo = false;
         this.mistEnchants = [false, false, false, false, false];
+
+        this.dungeonSolo = false;
+        this.dungeonDuo = false;
         this.dungeonEnchants = [false, false, false, false, false];
+        //#endregion
 
-        this.enemiesEnchants = [false, false, false, false, false];
+        //#region Enemies
+        this.enemyLevels = [false, false, false, false, false];
 
+        this.avaloneDrones = false;
+        this.showUnmanagedEnemies = false;
+
+        //#region Mists
+        this.bossCrystalSpider = false;
+        this.bossFairyDragon = false;
+        this.bossVeilWeaver = false;
+        this.bossGriffin = false;
+        //#endregion
+
+        this.enemiesHP = false;
+        this.enemiesID = false;
+        //#endregion
+
+        //#region Chests
         this.chestGreen = false;
         this.chestBlue = false;
         this.chestPurple = false;
         this.chestYellow = false;
-
-        
+        //#endregion  
     }
 
     preloadImageAndAddToList(path, container)
@@ -415,26 +433,27 @@ class Settings
         //#endregion
 
         //#region Enemies
-        this.enemiesEnchants[0] = this.returnLocalBool("settingEnemiesE0");
-        this.enemiesEnchants[1] = this.returnLocalBool("settingEnemiesE1");
-        this.enemiesEnchants[2] = this.returnLocalBool("settingEnemiesE2");
-        this.enemiesEnchants[3] = this.returnLocalBool("settingEnemiesE3");
-        this.enemiesEnchants[4] = this.returnLocalBool("settingEnemiesE4");
+        this.enemyLevels[0] = this.returnLocalBool("settingNormalEnemy");
+        this.enemyLevels[1] = this.returnLocalBool("settingMediumEnemy");
+        this.enemyLevels[2] = this.returnLocalBool("settingEnchantedEnemy");
+        this.enemyLevels[3] = this.returnLocalBool("settingMiniBossEnemy");
+        this.enemyLevels[4] = this.returnLocalBool("settingBossEnemy");
+
+        this.avaloneDrones = this.returnLocalBool("settingAvaloneDrones");
+        this.showUnmanagedEnemies = this.returnLocalBool("settingShowUnmanagedEnemies");
 
         this.enemiesHP = this.returnLocalBool("settingEnemiesHP");
         this.enemiesID = this.returnLocalBool("settingEnemiesID");
 
-        this.bossEnemies = this.returnLocalBool("settingBossEnemies");
-        this.droneEnemies = this.returnLocalBool("settingAvaloneDrones");
-        //#endregion
-
-
+        //#region Mists
         // TODO
         // Mists beasts
-
-
-        this.showEnemies = this.returnLocalBool("settingShowEnemies");
-
+        this.bossCrystalSpider = this.returnLocalBool("settingBossCrystalSpider");
+        this.bossFairyDragon = this.returnLocalBool("settingBossFairyDragon");
+        this.bossVeilWeaver = this.returnLocalBool("settingBossVeilWeaver");
+        this.bossGriffin = this.returnLocalBool("settingBossGriffin");
+        //#endregion
+        //#endregion
         
         //#region Chests
         this.chestGreen = this.returnLocalBool("settingChestGreen");
@@ -455,7 +474,6 @@ class Settings
         this.mistEnchants[4] = this.returnLocalBool("settingMistE4");
         //#endregion
 
-
         //#region Dungeons
         this.dungeonEnchants[0] = this.returnLocalBool("settingDungeonE0");
         this.dungeonEnchants[1] = this.returnLocalBool("settingDungeonE1");
@@ -466,10 +484,8 @@ class Settings
         this.dungeonSolo = this.returnLocalBool("settingDungeonSolo");
         this.dungeonDuo = this.returnLocalBool("settingDungeonDuo");
         //#endregion
-     
 
         this.ignoreList = JSON.parse(localStorage.getItem("ignoreList")) || [];
-
         
     }
 }
