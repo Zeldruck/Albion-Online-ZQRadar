@@ -131,7 +131,10 @@ dist
 
 
 ## OURS
-images/
+images/Enemies/
+images/Items/
+images/Maps/
+images/*.zip
 # All the json config files
 config/
 
