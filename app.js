@@ -19,7 +19,7 @@ const app = express();
 
 BigInt.prototype.toJSON = function() { return this.toString() }
 
-app.use(express.static(path.join(__dirname, 'views')));
+app.use(express.static(__dirname + '/views'));
 app.set('view engine', 'ejs');
 
 
