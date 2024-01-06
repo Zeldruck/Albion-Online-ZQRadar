@@ -74,8 +74,11 @@ class Settings
         this.mistEnchants = [false, false, false, false, false];
 
         this.dungeonSolo = false;
-        this.dungeonDuo = false;
+        this.dungeonGroup = false;
         this.dungeonEnchants = [false, false, false, false, false];
+
+        this.dungeonCorrupted = false;
+        this.dungeonHellgate = false;
         //#endregion
 
         //#region Enemies
@@ -262,7 +265,6 @@ class Settings
         this.settingGuild = this.returnLocalBool("settingGuild");
         this.settingSound = this.returnLocalBool("settingSound");
         //#endregion
-
 
         //#region Resources
         /* Static harvestables */
@@ -482,7 +484,9 @@ class Settings
         this.dungeonEnchants[4] = this.returnLocalBool("settingDungeonE4");
 
         this.dungeonSolo = this.returnLocalBool("settingDungeonSolo");
-        this.dungeonDuo = this.returnLocalBool("settingDungeonDuo");
+        this.dungeonGroup = this.returnLocalBool("settingDungeonDuo");
+        this.dungeonCorrupted = this.returnLocalBool("settingDungeonCorrupted");
+        this.dungeonHellgate = this.returnLocalBool("settingDungeonHellgate");
         //#endregion
 
         this.ignoreList = JSON.parse(localStorage.getItem("ignoreList")) || [];

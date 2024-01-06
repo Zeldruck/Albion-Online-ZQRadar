@@ -104,52 +104,47 @@
 				</label>
 				<label class="flex items-center space-x-2">
 					<input  type="checkbox" id="settingDungeonDuo" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-					<span class="dark:text-white ml-4">Duo</span>
+					<span class="dark:text-white ml-4">Group</span>
 				</label>
 
 				<h2 class="mt-4 text-2xl font-semibold text-gray-600 dark:text-gray-300">
 					Enchant
 				</h2>
-				<label for="disabled-checkbox" class="flex items-center space-x-2">
-					<input  type="checkbox" id="settingDungeonE0" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-					<span class="dark:text-white ml-4">E0</span>
-				</label>
+				<div class="flex">
+					<label class="flex items-center">
+						<input type="checkbox" id="settingDungeonE0" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E0</span>
+					</label>
+					<label  class="flex items-center ml-4">
+						<input type="checkbox" id="settingDungeonE1" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E1</span>
+					</label>
 
-				<label  for="disabled-checkbox" class="flex items-center space-x-2">
-					<input  type="checkbox" id="settingDungeonE1" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-					<span class="dark:text-white ml-4">E1</span>
-				</label>
-
-				<labe for="disabled-checkbox" l class="flex items-center space-x-2">
-					<input  type="checkbox" id="settingDungeonE2" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-					<span class="dark:text-white ml-4">E2</span>
-				</labe>
-				<label  for="disabled-checkbox" class="flex items-center space-x-2">
-					<input  type="checkbox" id="settingDungeonE3" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-					<span class="dark:text-white ml-4">E3</span>
-				</label>
-
-				<label class="flex items-center space-x-2">
-					<input  type="checkbox" id="settingDungeonE4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-					<span class="dark:text-white ml-4">E4</span>
-				</label>
+					<labe l class="flex items-center ml-4">
+						<input type="checkbox" id="settingDungeonE2" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E2</span>
+					</labe>
+					<label  class="flex items-center ml-4">
+						<input type="checkbox" id="settingDungeonE3" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E3</span>
+					</label>
+					<label class="flex items-center ml-4">
+						<input  type="checkbox" id="settingDungeonE4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						<span class="dark:text-white ml-2">E4</span>
+					</label>
+				</div>
 
 				<h2 class="mt-4 text-2xl font-semibold text-gray-600 dark:text-gray-300">
-					Corrupt
+					Other
 				</h2>
 
 				<label class="flex items-center space-x-2">
-					<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-					<span class="dark:text-white ml-4">Enabled</span>
+					<input type="checkbox" id="settingDungeonCorrupted" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+					<span class="dark:text-white ml-4">Corrupted</span>
 				</label>
-
-				<h2 class="mt-4 text-2xl font-semibold text-gray-600 dark:text-gray-300">
-					Hellgate
-				</h2>
-
 				<label class="flex items-center space-x-2">
-					<input disabled type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-					<span class="dark:text-white ml-4">Enabled</span>
+					<input type="checkbox" id="settingDungeonHellgate" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+					<span class="dark:text-white ml-4">Hellgate</span>
 				</label>
 
 
@@ -268,6 +263,9 @@
 			let settingDungeonE3 = document.getElementById("settingDungeonE3");
 			let settingDungeonE4 = document.getElementById("settingDungeonE4");
 
+			let settingDungeonCorrupted = document.getElementById("settingDungeonCorrupted");
+			let settingDungeonHellgate = document.getElementById("settingDungeonHellgate");
+
 
 			settingDungeonSolo.checked = returnLocalBool("settingDungeonSolo");
 			settingDungeonDuo.checked = returnLocalBool("settingDungeonDuo");
@@ -277,6 +275,9 @@
 			settingDungeonE2.checked = returnLocalBool("settingDungeonE2");
 			settingDungeonE3.checked = returnLocalBool("settingDungeonE3");
 			settingDungeonE4.checked = returnLocalBool("settingDungeonE4");
+
+			settingDungeonCorrupted.checked = returnLocalBool("settingDungeonCorrupted");
+			settingDungeonHellgate.checked = returnLocalBool("settingDungeonHellgate");
 
 
 
@@ -289,6 +290,7 @@
 				localStorage.setItem("settingDungeonDuo", settingDungeonDuo.checked);
 			});
 
+
 			settingDungeonE0.addEventListener("click", () => {
 				localStorage.setItem("settingDungeonE0", settingDungeonE0.checked);
 			});
@@ -296,7 +298,6 @@
 			settingDungeonE1.addEventListener("click", () => {
 				localStorage.setItem("settingDungeonE1", settingDungeonE1.checked);
 			});
-
 
 			settingDungeonE2.addEventListener("click", () => {
 				localStorage.setItem("settingDungeonE2", settingDungeonE2.checked);
@@ -308,6 +309,15 @@
 
 			settingDungeonE4.addEventListener("click", () => {
 				localStorage.setItem("settingDungeonE4", settingDungeonE4.checked);
+			});
+
+
+			settingDungeonCorrupted.addEventListener("click", () => {
+				localStorage.setItem("settingDungeonCorrupted", settingDungeonCorrupted.checked);
+			});
+
+			settingDungeonHellgate.addEventListener("click", () => {
+				localStorage.setItem("settingDungeonHellgate", settingDungeonHellgate.checked);
 			});
 
 </script>

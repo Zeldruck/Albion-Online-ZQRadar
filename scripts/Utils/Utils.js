@@ -27,7 +27,7 @@ const settings = new Settings();
 
 
 const harvestablesDrawing = new HarvestablesDrawing(settings);
-const dungeonsHandler = new DungeonsHandler();
+const dungeonsHandler = new DungeonsHandler(settings);
 
 var itemsInfo = new ItemsInfo();
 var mobsInfo = new MobsInfo();
@@ -101,72 +101,61 @@ function onEvent(Parameters)
     const id = parseInt(Parameters[0]);
     const eventCode = Parameters[252];
 
-    if (eventCode == 1) {
-
-
+    if (eventCode == 1)
+    {
         playersHandler.removePlayer(id);
         mobsHandler.removeMist(id);
         mobsHandler.removeMob(id);
-        dungeonsHandler.removeMob(id);
+        dungeonsHandler.RemoveDungeon(id);
         chestsHandler.removeChest(id);
     }
-    else if (eventCode == 3) {
-
-        
+    else if (eventCode == 3)
+    {        
         const posX = Parameters[4];
         const posY = Parameters[5];
         playersHandler.updatePlayerPosition(id, posX, posY);
         mobsHandler.updateMistPosition(id, posX, posY);
         mobsHandler.updateMobPosition(id, posX, posY);
-
-
     }
-    else if (eventCode == 27) {
+    else if (eventCode == 27)
+    {
         playersHandler.handleNewPlayerEvent(id, Parameters, settings.ignoreList, settings.settingSound);
-
     }
-    else if (eventCode == 36) {
-
+    else if (eventCode == 36)
+    {
         harvestablesHandler.newSimpleHarvestableObject(Parameters);
-
     }
-    else if (eventCode == 37) {
-
+    else if (eventCode == 37)
+    {
         harvestablesHandler.newHarvestableObject(id, Parameters);
     }
-    else if (eventCode == 58) {
-
+    else if (eventCode == 58)
+    {
         harvestablesHandler.harvestFinished(Parameters);
-
-
     }
     else if (eventCode == 44)
     {
         mobsHandler.updateEnchantEvent(Parameters);
     }
-    else if (eventCode == 86) {
+    else if (eventCode == 86)
+    {
         playersHandler.updateItems(id, Parameters);
-
-
     }
     else if (eventCode == 118)
     {
         mobsHandler.NewMobEvent(Parameters);
     }
-
-    else if (eventCode == 201) {
-
+    else if (eventCode == 201)
+    {
         playersHandler.handleMountedPlayerEvent(id, Parameters);
-
-
     }
-    else if (eventCode == 309) {
+    else if (eventCode == 309)
+    {
         dungeonsHandler.dungeonEvent(Parameters);
     }
-    else if (eventCode == 378) {
-
+    else if (eventCode == 378)
+    {
         chestsHandler.addChestEvent(Parameters);
-
     }
 };
 
@@ -210,7 +199,7 @@ function render() {
 
     mobsDrawing.invalidate(context, mobsHandler.mobsList, mobsHandler.mistList);
     chestsDrawing.invalidate(context, chestsHandler.chestsList);
-    dungeonsDrawing.invalidate(context, dungeonsHandler.dungeonList);
+    dungeonsDrawing.Draw(context, dungeonsHandler.dungeonList);
     playersDrawing.invalidate(context, playersHandler.playersInRange);
 
 }
