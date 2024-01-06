@@ -75,7 +75,11 @@
 
         const preloadedImage = this.settings.GetPreloadedImage(src, folder);
 
-        if (preloadedImage === null) return;
+        if (preloadedImage === null) 
+        {
+            this.drawFilledCircle(ctx, x, y, 10, "#4169E1");
+            return;
+        }
 
         if (preloadedImage)
         {

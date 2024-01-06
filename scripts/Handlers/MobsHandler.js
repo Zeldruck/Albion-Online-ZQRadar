@@ -2,9 +2,13 @@ const EnemyType =
 {
     LivingHarvestable: 0,
     LivingSkinnable: 1,
-    Enemy: 2, // ??? not sure
-    Boss: 3, // ??? not sure either
-    Drone: 4,
+    Enemy: 2,
+    MediumEnemy: 3,
+    EnchantedEnemy: 4,
+    MiniBoss: 5,
+    Boss: 6,
+    Drone: 7,
+    MistBoss: 8,
 };
 
 class Mob
@@ -166,11 +170,10 @@ class MobsHandler
             h.type = mobsInfo[1];
             h.name = mobsInfo[2];
 
-            // TODO
-            // better than this
             if (h.type == EnemyType.LivingSkinnable)
             {
-                /* If animal is enchanted, it'll probably never work and jump into this return
+                /* 
+                   If animal is enchanted, it'll probably never work and jump into this return
                    Because it's sending an event with normal animal with tier, ect
                    And after send another event to say, this animal is enchant Y
                    And it's the same with the other living harvestables
@@ -184,6 +187,9 @@ class MobsHandler
             }
             else if (h.type == EnemyType.LivingHarvestable)
             {
+                /* 
+                   Same as animals comment before
+                */
                 if (h.name == "ore")
                 {
                     if ((!this.settings.harvestingLivingOreTiers[h.tier-1] || !this.settings.harvestingLivingOreEnchants[enchant]))
@@ -200,7 +206,7 @@ class MobsHandler
                         return;
                     }
                 }
-                else if (h.name == "wood")
+                else if (h.name == "Logs")
                 {
                     if ((!this.settings.harvestingLivingLogTiers[h.tier-1] || !this.settings.harvestingLivingLogEnchants[enchant]))
                     {
@@ -217,19 +223,42 @@ class MobsHandler
                     }
                 }
             }
+            // Should do the work and handle all the enemies
+            else if (h.type >= EnemyType.Enemy && h.type <= EnemyType.Boss)
+            {
+                const offset = EnemyType.Enemy;
+
+                if (!this.settings.enemyLevels[h.type - offset])
+                    return;
+            }
+            else if (h.type == EnemyType.Drone)
+            {
+                if (!this.settings.avaloneDrones) return;
+            }
+            else if (h.type == EnemyType.MistBoss)
+            {
+                if (h.name == "CRYSTALSPIDER" && !this.settings.bossCrystalSpider) return;
+                else if (h.name == "FAIRYDRAGON" && !this.settings.settingBossFairyDragon) return;
+                else if (h.name == "VEILWEAVER" && !this.settings.bossVeilWeaver) return;
+                else if (h.name == "GRIFFIN" && !this.settings.bossGriffin) return;
+            }
+            // Unmanaged type
+            else if (!this.settings.showUnmanagedEnemies) return;
         }
+        // Unmanaged id
+        else if (!this.settings.showUnmanagedEnemies) return;
 
         this.mobsList.push(h);
     }
 
     removeMob(id)
     {
-        let pSize = this.mobsList.length;
+        const pSize = this.mobsList.length;
 
         this.mobsList = this.mobsList.filter((x) => x.id !== id);
 
         // That means we already removed the enemy, so it can't be in the other list
-        if (this.mobsList < pSize) return;
+        if (this.mobsList.length < pSize) return;
 
         this.harvestablesNotGood = this.harvestablesNotGood.filter((x) => x.id !== id);
     }
@@ -246,12 +275,13 @@ class MobsHandler
             return;
         }
 
-        enemy = this.harvestablesNotGood.find((enemy) => enemy.id === id);
+        // We don't need to update mobs we don't show yet
+        /*enemy = this.harvestablesNotGood.find((enemy) => enemy.id === id);
 
         if (!enemy) return;
 
         enemy.posX = posX;
-        enemy.posY = posY;
+        enemy.posY = posY;*/
     }
 
     updateEnchantEvent(parameters)
@@ -259,6 +289,7 @@ class MobsHandler
         const mobId = parameters[0];
         const enchantmentLevel = parameters[1];
 
+        // Check in this list for the harvestables & skinnables with the id
         var enemy = this.mobsList.find((mob) => mob.id == mobId);
 
         if (enemy)
@@ -268,7 +299,7 @@ class MobsHandler
         }
 
         // Else try in our not good list
-        enemy = this.harvestablesNotGood.find((mob) => mob.id == mobId);
+        var enemy = this.harvestablesNotGood.find((mob) => mob.id == mobId);
 
         if (!enemy) return;
 
@@ -299,7 +330,7 @@ class MobsHandler
 
                  hasToSwapFromList = true;
             }
-            else if (enemy.name == "wood")
+            else if (enemy.name == "Logs")
             {
                 if (!this.settings.harvestingLivingLogTiers[enemy.tier-1] || !this.settings.harvestingLivingLogEnchants[enemy.enchantmentLevel])
                     return;
