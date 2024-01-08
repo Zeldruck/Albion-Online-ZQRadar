@@ -104,9 +104,10 @@
          }
 
 
-         if (sound) {
+        if (sound)
+        {
 
-         }
+        }
 
          var positionArray = Parameters[13];
          const posX = positionArray[0];
@@ -117,18 +118,11 @@
          const initialHealth = Parameters[20];
          const items = Parameters[37];
 
-         this.addPlayer(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items);
-
-
-
+         this.addPlayer(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items, sound);
      }
 
-     handleMountedPlayerEvent(id, parameters) {
-
-       
-     
-
-   
+     handleMountedPlayerEvent(id, parameters)
+     {
           let  ten = parameters[10];
 
 
@@ -147,16 +141,17 @@
 
      }
 
-    addPlayer(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items) {
-        // Assume you have implemented a write lock mechanism
-        // SharedLocks.playerHandlerLock.writeLock().lock();
+    addPlayer(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items, sound)
+    {
         const existingPlayer = this.playersInRange.find(player => player.id === id);
      
-            if (!existingPlayer) {
-                const player = new Player(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items);
-                this.playersInRange.push(player);
-            }
-     
+        if (existingPlayer) return;
+
+        const player = new Player(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items);
+        this.playersInRange.push(player);
+
+        const audio = new Audio('/sounds/player.mp3');
+        audio.play();
     }
 
     updateLocalPlayerNextPosition(posX, posY) {
