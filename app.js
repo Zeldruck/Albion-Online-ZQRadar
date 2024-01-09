@@ -151,7 +151,7 @@ server.on('connection', () => {
 
 
   manager.on('event', (dictonary) =>
-  {    
+  {
     const dictionaryDataJSON = JSON.stringify(dictonary);
     server.clients.forEach(function(client) {
       client.send(JSON.stringify({ code : "event", dictionary: dictionaryDataJSON }))

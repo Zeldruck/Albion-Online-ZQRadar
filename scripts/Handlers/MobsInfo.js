@@ -39,8 +39,8 @@ class MobsInfo{
         this.addItem(440, 7, EnemyType.LivingSkinnable, "hide"); // Cougar
 
         // Highland
-        this.addItem(364, 5, EnemyType.LivingSkinnable, "hide"); // Rabbit
-        this.addItem(365, 7, EnemyType.LivingSkinnable, "hide"); // Marmot
+        this.addItem(364, 1, EnemyType.LivingSkinnable, "hide"); // Rabbit
+        this.addItem(365, 1, EnemyType.LivingSkinnable, "hide"); // Marmot
 
         // Forest biome + 15
         this.addItem(321, 1, EnemyType.LivingSkinnable, "hide"); // Rabbit
