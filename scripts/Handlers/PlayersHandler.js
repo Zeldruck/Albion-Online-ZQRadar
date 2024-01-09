@@ -150,6 +150,8 @@
         const player = new Player(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items);
         this.playersInRange.push(player);
 
+        if (!sound) return;
+
         const audio = new Audio('/sounds/player.mp3');
         audio.play();
     }
