@@ -39,15 +39,6 @@ class HarvestablesHandler
 
     addHarvestable(id, type, tier, posX, posY, charges, size)
     {
-        /*if (!this.settings.harvestingTiers[harvestableOne.tier - 1]) {
-            continue;
-        }
-
-
-        if (!this.settings.harvestingEnchants[harvestableOne.charges]) {
-            continue;
-        }*/
-
         switch (this.GetStringType(type))
         {
             case HarvestableType.Fiber:
