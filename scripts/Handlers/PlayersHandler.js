@@ -65,49 +65,26 @@
 
      }
 
-     handleNewPlayerEvent(id, Parameters, ignoreList, sound) {
-
-
+     handleNewPlayerEvent(id, Parameters, ignoreList, sound)
+     {
          const nickname = Parameters[1];
          const guildName = String(Parameters[8]); 
          const ally = String(Parameters[48]); 
 
-         let returnVal = false;
          ignoreList.forEach(item => {
-
-             if (item.type == "Player" && item.value.toLowerCase() == nickname.toLowerCase()) { 
-
-                 returnVal = true;
-             }
-             if (guildName != "undefined") {
-
-
-                 if (item.type == "Guild" && item.value.toLowerCase() == guildName.toLowerCase()) {
-
-                     returnVal = true;
-                 }
-             }
-             if (ally != "undefined") {
-
-                 if (item.type == "Ally" && item.value.toLowerCase() == ally.toLowerCase()) {
-
-                     returnVal = true;
-                 }
-             }
-
-
-
-
+            if (item.type == "Player" && item.value.toLowerCase() == nickname.toLowerCase())
+            { 
+                return;
+            }
+            if (guildName != "undefined" && item.type == "Guild" && item.value.toLowerCase() == guildName.toLowerCase())
+            {
+                return;
+            }
+            if (ally != "undefined" && item.type == "Ally" && item.value.toLowerCase() == ally.toLowerCase())
+            {
+                return;
+            }
          });
-         if (returnVal) {
-             return;
-         }
-
-
-        if (sound)
-        {
-
-        }
 
          var positionArray = Parameters[13];
          const posX = positionArray[0];
@@ -149,6 +126,8 @@
 
         const player = new Player(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items);
         this.playersInRange.push(player);
+
+        if (!sound) return;
 
         const audio = new Audio('/sounds/player.mp3');
         audio.play();

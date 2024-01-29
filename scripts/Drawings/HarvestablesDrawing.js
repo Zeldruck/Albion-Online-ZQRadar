@@ -61,7 +61,6 @@ export class HarvestablesDrawing extends DrawingUtils  {
             {
                 draw = "rock_" + harvestableOne.tier + "_" + harvestableOne.charges;
             }
-            
             else if (type >= 15 && type <= 22)
             {
                 draw = "hide_" + harvestableOne.tier + "_" + harvestableOne.charges;
@@ -103,6 +102,9 @@ export class HarvestablesDrawing extends DrawingUtils  {
             // TODO
             // Change Resources to Animals/LHarvestables (living harvestables)
             this.DrawCustomImage(ctx, point.x, point.y, draw, "Resources", 50);
+
+            if (this.settings.livingResourcesID)
+                this.drawText(point.x, point.y + 20, type.toString(), ctx);
 
             // TODO
             /*if (this.settings.harvestingSize) {
