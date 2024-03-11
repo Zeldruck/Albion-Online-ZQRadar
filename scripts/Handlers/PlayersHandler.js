@@ -86,14 +86,16 @@
             }
          });
 
-         var positionArray = Parameters[13];
+         var positionArray = Parameters[14];
          const posX = positionArray[0];
          const posY = positionArray[1];
   
    
-         const currentHealth = Parameters[19];
-         const initialHealth = Parameters[20];
+         const currentHealth = Parameters[20];
+         const initialHealth = Parameters[21];
          const items = Parameters[37];
+
+        console.log(Parameters);
 
          this.addPlayer(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items, sound);
      }
