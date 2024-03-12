@@ -6,7 +6,6 @@ const PhotonParser = require('./scripts/classes/PhotonPacketParser');
 var Cap = require('cap').Cap;
 var decoders = require('cap').decoders;
 const WebSocket = require('ws');
-const ip = require('ip');
 
 const fs = require("fs");
 
@@ -113,7 +112,11 @@ app.listen(port, () => {
 
 var c = new Cap();
 
-let adapterIp = fs.readFileSync('ip.txt', { encoding: 'utf-8', flag: 'r' });
+let adapterIp;
+
+if (fs.existsSync('ip.txt'))
+  adapterIp = fs.readFileSync('ip.txt', { encoding: 'utf-8', flag: 'r' })
+  
 
 if (!adapterIp)
 {
