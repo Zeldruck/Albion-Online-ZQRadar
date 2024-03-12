@@ -10,7 +10,7 @@ const ip = require('ip');
 
 const fs = require("fs");
 
-
+const { getAdapterIp } = require('./server-scripts/adapter-selector')
 
 
 
@@ -111,23 +111,13 @@ app.listen(port, () => {
 });
 
 
-
-const getActiveIP = () => {
-  const interfaces = ip.address();
-  return interfaces;
-};
-
-
 var c = new Cap();
 
 var device = null;
 
-var ipData = fs.readFileSync('ip.txt', { encoding: 'utf-8', flag: 'r' });
+const adapterIp = getAdapterIp()
 
-if (ipData)
-  device = Cap.findDevice(ipData);
-else
-  device = Cap.findDevice(getActiveIP());
+device = Cap.findDevice(adapterIp);
 
 const filter = 'udp and (dst port 5056 or src port 5056)';
 var bufSize =  4096;
