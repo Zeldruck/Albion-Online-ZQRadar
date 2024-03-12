@@ -93,9 +93,7 @@
    
          const currentHealth = Parameters[20];
          const initialHealth = Parameters[21];
-         const items = Parameters[37];
-
-        console.log(Parameters);
+         const items = Parameters[38];
 
          this.addPlayer(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items, sound);
      }
