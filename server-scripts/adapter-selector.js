@@ -46,7 +46,7 @@ const getAdapterIp = () => {
     }
 
     console.log();
-    console.log(`you have selected "${selectedName}"`);
+    console.log(`you have selected "${selectedName} - ${selectedIp}"`);
     console.log();
 
     return selectedIp;
