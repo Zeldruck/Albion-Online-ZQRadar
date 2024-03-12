@@ -113,11 +113,21 @@ app.listen(port, () => {
 
 var c = new Cap();
 
-var device = null;
+let adapterIp = fs.readFileSync('ip.txt', { encoding: 'utf-8', flag: 'r' });
 
-const adapterIp = getAdapterIp()
+if (!adapterIp)
+{
+  adapterIp = getAdapterIp()
+}
+else
+{
+  console.log();
+  console.log(`Using last adapter selected - ${adapterIp}`);
+  console.log('If you want to change adapter, delete the  "ip.txt"  file.');
+  console.log();
+}
 
-device = Cap.findDevice(adapterIp);
+const device = Cap.findDevice(adapterIp);
 
 const filter = 'udp and (dst port 5056 or src port 5056)';
 var bufSize =  4096;
