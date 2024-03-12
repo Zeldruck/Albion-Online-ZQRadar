@@ -137,27 +137,25 @@ var linkType = c.open(device, filter, bufSize, buffer);
 
 c.setMinBytes && c.setMinBytes(0);
 
+
+// setup Cap event listener on global level
+c.on('packet', function (nbytes, trunc) {
+  let ret = decoders.Ethernet(buffer);
+  ret = decoders.IPV4(buffer, ret.offset);
+  ret = decoders.UDP(buffer, ret.offset);
+
+  let payload = buffer.slice(ret.offset, nbytes);
+
+  // Parse the UDP payload
+  try {
+    manager.handle(payload);
+  }
+  catch { }
+});
+
 const server = new WebSocket.Server({ port: 5002, host: 'localhost'});
-server.on('connection', () => {
+server.on('listening', () => {
   console.log("openned");
-
-  c.on('packet', function(nbytes, trunc) {
-
-    let  ret = decoders.Ethernet(buffer);
-    ret = decoders.IPV4(buffer, ret.offset);
-    ret = decoders.UDP(buffer, ret.offset);
-
-    let payload = buffer.slice(ret.offset, nbytes);
-
-    // Parse the UDP payload
-    try
-    {
-        manager.handle(payload);
-    }
-    catch {}
-
-  });
-
 
   manager.on('event', (dictonary) =>
   {
@@ -185,6 +183,10 @@ server.on('connection', () => {
   });
 });
 
+server.on('close', () => {
+  console.log('closed')
+  manager.removeAllListeners()
+})
 
 
 
