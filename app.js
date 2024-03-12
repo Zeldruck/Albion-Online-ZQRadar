@@ -119,7 +119,16 @@ const getActiveIP = () => {
 
 
 var c = new Cap();
-var device = Cap.findDevice(getActiveIP());
+
+var device = null;
+
+var ipData = fs.readFileSync('ip.txt', { encoding: 'utf-8', flag: 'r' });
+
+if (ipData)
+  device = Cap.findDevice(ipData);
+else
+  device = Cap.findDevice(getActiveIP());
+
 const filter = 'udp and (dst port 5056 or src port 5056)';
 var bufSize =  4096;
 var buffer = Buffer.alloc(4096);
