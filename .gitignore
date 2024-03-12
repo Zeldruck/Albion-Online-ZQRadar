@@ -141,3 +141,4 @@ config/
 # IDE
 .idea/
 .vscode/
+ip.txt
