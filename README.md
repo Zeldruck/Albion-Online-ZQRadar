@@ -3,6 +3,8 @@
 [![GitHub issues](https://img.shields.io/github/issues-raw/Zeldruck/Albion-Online-ZQRadar?style=for-the-badge&label=Issue)](https://github.com/Zeldruck/Albion-Online-ZQRadar/issues)
 [![GitHub Repo stars](https://img.shields.io/github/stars/Zeldruck/Albion-Online-ZQRadar?style=for-the-badge)]()
 
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/F1F1VMA9G)
+
 ## ❓ What is ZQRadar?
 
 ZQRadar is a radar type tool for the game Albion Online.
@@ -71,9 +73,9 @@ You can download the Image Packs to enhance the radar.
 \
 **Packs:**
 - **Ressource Pack v1.0**: Installed by default
-- **Items Pack v1.0**: [Link](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases/tag/item-pack-v1.0)
-- **Animals & Harvestables Pack v0.0**: [Link](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases/)
-- **Enemies Pack v0.0**: [Link](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases/)
+- **Items Pack v1.1**: [Link](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases/tag/item-pack-v1.1)
+- **~~Animals & Harvestables Pack v0.0~~**: [Link](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases/)
+- **~~Enemies Pack v0.0~~**: [Link](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases/)
 - **Maps Pack v0.1**: [Link](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases/tag/map-pack-v0.1)
 
 \

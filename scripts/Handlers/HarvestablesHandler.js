@@ -120,14 +120,28 @@ class HarvestablesHandler
         harvestable.size = size;
     }
 
-    harvestFinished( Parameters)
+    harvestFinished(Parameters)
     {
 
         const id = Parameters[3];
         const count = Parameters[5];
 
         this.updateHarvestable(id, count);
+    }
 
+    HarvestUpdateEvent(Parameters)
+    {
+        if (Parameters[1] === undefined)
+        {
+            this.removeHarvestable(Parameters[0]);
+            return;
+        }
+        
+        var harvestable = this.harvestableList.find((item) => item.id === id);
+
+        if (!harvestable) return;
+
+        harvestable.size = Parameters[1];
     }
 
     // Normally work with everything
@@ -222,7 +236,6 @@ class HarvestablesHandler
 
     clear()
     {
-  
         this.harvestableList = [];
     }
 

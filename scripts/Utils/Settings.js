@@ -67,6 +67,8 @@ class Settings
         this.livingResourcesHP = false;
         this.livingResourcesID = false;
         //#endregion
+        this.resourceSize = false;
+
 
         //#region Dungeons
         this.mistSolo = false;
@@ -432,6 +434,7 @@ class Settings
 
         this.livingResourcesHP = this.returnLocalBool("settingLivingResourcesHP");
         this.livingResourcesID = this.returnLocalBool("settingLivingResourcesID");
+        this.resourceSize = this.returnLocalBool("settingRawSize");
         //#endregion
 
         //#region Enemies
