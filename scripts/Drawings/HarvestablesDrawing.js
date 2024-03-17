@@ -107,11 +107,10 @@ export class HarvestablesDrawing extends DrawingUtils  {
                 this.drawText(point.x, point.y + 20, type.toString(), ctx);
 
             // TODO
-            /*if (this.settings.harvestingSize) {
-
-                this.drawText(point.x, point.y +25 + 10, harvestableOne.size, ctx);
-
-            }*/
+            if (this.settings.resourceSize)
+            {
+                this.drawText(point.x, point.y - 20, harvestableOne.size, ctx);
+            }
         }
     }  
 }
