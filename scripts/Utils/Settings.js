@@ -7,6 +7,7 @@ class Settings
         this.images = {};
         this.item_images = {}
         this.map_images = {}
+        this.flag_images = {}
         //#endregion
 
         //#region Maps
@@ -191,6 +192,32 @@ class Settings
                     }
 
                     break;
+                
+                case "Flags":
+                    console.log('hellooo from flags')
+                    if (this.flag_images[path])
+                    {
+                        resolve();
+                    }
+                    else
+                    {
+                        const img = new Image();
+
+                        img.onload = () =>
+                        {
+                            this.flag_images[path] = img; 
+                            resolve();
+                        };
+
+                        img.onerror = () =>
+                        {
+                            this.flag_images[path] = null;
+                            reject();
+                        };
+
+                        img.src = path;
+                    }
+                    break;
 
                 default:
                     reject();
@@ -211,6 +238,9 @@ class Settings
 
             case "Items":
                 return this.item_images[path];
+            
+            case "Flags":
+                return this.flag_images[path];
 
             default:
                 return null;

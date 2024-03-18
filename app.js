@@ -97,6 +97,7 @@ app.use('/scripts/Utils', express.static(__dirname + '/scripts/Utils'));;
 app.use('/images/Resources', express.static(__dirname + '/images/Resources'));
 app.use('/images/Maps', express.static(__dirname + '/images/Maps'));
 app.use('/images/Items', express.static(__dirname + '/images/Items'));
+app.use('/images/Flags', express.static(__dirname + '/images/Flags'));
 app.use('/sounds', express.static(__dirname + '/sounds'));
 app.use('/config', express.static(__dirname + '/config'));
 

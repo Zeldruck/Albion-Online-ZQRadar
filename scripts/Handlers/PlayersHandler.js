@@ -1,7 +1,7 @@
 
 
  class Player {
-    constructor(posX, posY, id, nickname, guildName1, currentHealth, initialHealth, items) {
+    constructor(posX, posY, id, nickname, guildName1, currentHealth, initialHealth, items, flagId) {
         this.posX = posX;
         this.posY = posY;
         this.oldPosX = posX;
@@ -14,6 +14,7 @@
         this.currentHealth = currentHealth;
         this.initialHealth = initialHealth;
         this.items = items;
+        this.flagId = flagId;
         this.mounted = false; // Initialize mounted status as false
     }
 
@@ -90,8 +91,9 @@
         const currentHealth = Parameters[20];
         const initialHealth = Parameters[21];
         const items = Parameters[38];
+        const flagId = Parameters[51];
 
-        this.addPlayer(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items, sound);
+        this.addPlayer(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items, sound, flagId);
     }
 
     handleMountedPlayerEvent(id, parameters)
@@ -114,13 +116,13 @@
         }
     }
 
-    addPlayer(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items, sound)
+    addPlayer(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items, sound, flagId)
     {
         const existingPlayer = this.playersInRange.find(player => player.id === id);
      
         if (existingPlayer) return;
 
-        const player = new Player(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items);
+        const player = new Player(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items, flagId);
         this.playersInRange.push(player);
 
         if (!sound) return;
