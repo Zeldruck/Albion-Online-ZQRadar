@@ -70,6 +70,8 @@ class Settings
         //#endregion
         this.resourceSize = false;
 
+        this.showFish = false;
+
 
         //#region Dungeons
         this.mistSolo = false;
@@ -465,6 +467,7 @@ class Settings
         this.livingResourcesHP = this.returnLocalBool("settingLivingResourcesHP");
         this.livingResourcesID = this.returnLocalBool("settingLivingResourcesID");
         this.resourceSize = this.returnLocalBool("settingRawSize");
+        this.showFish = this.returnLocalBool("settingFishing");
         //#endregion
 
         //#region Enemies

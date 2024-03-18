@@ -21,4 +21,7 @@ export const EventCodes =
     NewLootChest: 378,
     NewMistsCagedWisp: 515,
     MistsWispCageOpened: 516,
+
+    FishingFinished: 342,
+    NewFishingZoneObject: 345,
 }

@@ -24,10 +24,12 @@
 }
 
  class PlayersHandler {
-    constructor() {
+    constructor(settings) {
         this.playersInRange = [];
         this.localPlayer = new Player();
         this.invalidate = false;
+
+        this.settings = settings;
     }
 
     getPlayersInRange() {
@@ -62,38 +64,34 @@
         }
     }
 
-    handleNewPlayerEvent(id, Parameters, ignoreList, sound)
+    handleNewPlayerEvent(Parameters)
     {
+        if (!this.settings.settingDot)
+            return;
+
+        /* General */
+        const id = Parameters[0];
         const nickname = Parameters[1];
         const guildName = String(Parameters[8]); 
-        const ally = String(Parameters[48]); 
+        const ally = String(Parameters[48]);         
 
-        ignoreList.forEach(item => {
-        if (item.type == "Player" && item.value.toLowerCase() == nickname.toLowerCase())
-        { 
-            return;
-        }
-        if (guildName != "undefined" && item.type == "Guild" && item.value.toLowerCase() == guildName.toLowerCase())
-        {
-            return;
-        }
-        if (ally != "undefined" && item.type == "Ally" && item.value.toLowerCase() == ally.toLowerCase())
-        {
-            return;
-        }
-        });
-
+        /* Position */
         var positionArray = Parameters[14];
         const posX = positionArray[0];
         const posY = positionArray[1];
 
-
+        /* Health */
         const currentHealth = Parameters[20];
         const initialHealth = Parameters[21];
+
+        /* Items & flag */
         const items = Parameters[38];
         const flagId = Parameters[51];
 
-        this.addPlayer(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items, sound, flagId);
+        if (this.settings.ignoreList.find(name => name === nickname.toUpperCase()))
+            return;
+
+        this.addPlayer(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items, this.settings.settingSound, flagId);
     }
 
     handleMountedPlayerEvent(id, parameters)

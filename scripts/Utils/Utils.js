@@ -6,10 +6,12 @@ import { ChestsDrawing } from '../Drawings/ChestsDrawing.js';
 import { DungeonsDrawing } from '../Drawings/DungeonsDrawing.js';
 import { MapDrawing } from '../Drawings/MapsDrawing.js';
 import { WispCageDrawing } from '../Drawings/WispCageDrawing.js';
+import { FishingDrawing } from '../Drawings/FishingDrawing.js';
 
 import { EventCodes } from './EventCodes.js';
 
 import { WispCageHandler } from '../Handlers/WispCageHandler.js';
+import { FishingHandler } from '../Handlers/FishingHandler.js';
 
 var canvasMap = document.getElementById("mapCanvas");
 var contextMap = canvasMap.getContext("2d");
@@ -49,10 +51,13 @@ mobsHandler.updateMobInfo(mobsInfo.moblist);
 
 
 const harvestablesHandler = new HarvestablesHandler(settings);
-const playersHandler = new PlayersHandler();
+const playersHandler = new PlayersHandler(settings);
 
 const wispCageHandler = new WispCageHandler(settings);
 const wispCageDrawing = new WispCageDrawing(settings);
+
+const fishingHandler = new FishingHandler(settings);
+const fishingDrawing = new FishingDrawing(settings);
 
 const chestsDrawing = new ChestsDrawing(settings);
 const mobsDrawing = new MobsDrawing(settings);
@@ -127,7 +132,7 @@ function onEvent(Parameters)
             break;
 
         case EventCodes.NewPlayer:
-            playersHandler.handleNewPlayerEvent(id, Parameters, settings.ignoreList, settings.settingSound);
+            playersHandler.handleNewPlayerEvent(Parameters);
             break;
 
         case EventCodes.NewSimpleHarvestableObjectList:
@@ -181,6 +186,16 @@ function onEvent(Parameters)
         case EventCodes.MistsWispCageOpened:
             wispCageHandler.CageOpenedEvent(Parameters);
             break;
+
+        // TODO
+        case EventCodes.NewFishingZoneObject:
+            fishingHandler.NewFishEvent(Parameters);
+            break;
+
+        // TODO
+        case EventCodes.FishingFinished:
+            fishingHandler.FishingEnd(Parameters);
+            break;
     
         default:
             break;
@@ -228,6 +243,7 @@ function render() {
     mobsDrawing.invalidate(context, mobsHandler.mobsList, mobsHandler.mistList);
     chestsDrawing.invalidate(context, chestsHandler.chestsList);
     wispCageDrawing.Draw(context, wispCageHandler.cages);
+    fishingDrawing.Draw(context, fishingHandler.fishes);
     dungeonsDrawing.Draw(context, dungeonsHandler.dungeonList);
     playersDrawing.invalidate(context, playersHandler.playersInRange);
 
@@ -263,6 +279,7 @@ function update() {
 
     chestsDrawing.interpolate(chestsHandler.chestsList, lpX, lpY, t);
     wispCageDrawing.Interpolate(wispCageHandler.cages, lpX, lpY, t);
+    fishingDrawing.Interpolate(fishingHandler.fishes, lpX, lpY, t);
     dungeonsDrawing.interpolate(dungeonsHandler.dungeonList, lpX, lpY, t);
     playersDrawing.interpolate(playersHandler.playersInRange, lpX, lpY, t);
 

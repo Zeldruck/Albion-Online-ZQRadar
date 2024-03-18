@@ -131,9 +131,11 @@ class HarvestablesHandler
 
     HarvestUpdateEvent(Parameters)
     {
+        const id = Parameters[0];
+
         if (Parameters[1] === undefined)
         {
-            this.removeHarvestable(Parameters[0]);
+            this.removeHarvestable(id);
             return;
         }
         
