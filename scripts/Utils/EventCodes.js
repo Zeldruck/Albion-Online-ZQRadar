@@ -20,5 +20,5 @@ export const EventCodes =
     NewRandomDungeon: 309,
     NewLootChest: 378,
     NewMistsCagedWisp: 515,
-
+    MistsWispCageOpened: 516,
 }

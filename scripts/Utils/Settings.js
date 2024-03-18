@@ -74,6 +74,7 @@ class Settings
         this.mistSolo = false;
         this.mistDuo = false;
         this.mistEnchants = [false, false, false, false, false];
+        this.wispCage = false;
 
         this.dungeonSolo = false;
         this.dungeonGroup = false;
@@ -470,6 +471,7 @@ class Settings
         //#region Mists
         this.mistSolo = this.returnLocalBool("settingMistSolo");
         this.mistDuo = this.returnLocalBool("settingMistDuo");
+        this.wispCage = this.returnLocalBool("settingCage");
 
 
         this.mistEnchants[0] = this.returnLocalBool("settingMistE0");
