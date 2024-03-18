@@ -103,69 +103,73 @@ function onEvent(Parameters)
     const id = parseInt(Parameters[0]);
     const eventCode = Parameters[252];
 
-    if (eventCode == EventCodes.Leave)
-    {
-        playersHandler.removePlayer(id);
-        mobsHandler.removeMist(id);
-        mobsHandler.removeMob(id);
-        dungeonsHandler.RemoveDungeon(id);
-        chestsHandler.removeChest(id);
-    }
-    else if (eventCode == EventCodes.Move)
-    {        
-        const posX = Parameters[4];
-        const posY = Parameters[5];
-        playersHandler.updatePlayerPosition(id, posX, posY);
-        mobsHandler.updateMistPosition(id, posX, posY);
-        mobsHandler.updateMobPosition(id, posX, posY);
-    }
-    else if (eventCode == EventCodes.NewPlayer)
-    {
-        playersHandler.handleNewPlayerEvent(id, Parameters, settings.ignoreList, settings.settingSound);
-    }
-    else if (eventCode == EventCodes.NewSimpleHarvestableObjectList)
-    {
-        harvestablesHandler.newSimpleHarvestableObject(Parameters);
-    }
-    else if (eventCode == EventCodes.NewHarvestableObject)
-    {
-        harvestablesHandler.newHarvestableObject(id, Parameters);
-    }
-    else if (eventCode == EventCodes.HarvestableChangeState)
-    {
-        harvestablesHandler.HarvestUpdateEvent(Parameters)
-    }
-    else if (eventCode == EventCodes.HarvestFinished)
-    {
-        harvestablesHandler.harvestFinished(Parameters);
-    }
-    else if (eventCode == EventCodes.MobChangeState)
-    {
-        mobsHandler.updateEnchantEvent(Parameters);
-    }
-    else if (eventCode == EventCodes.RegenerationHealthChanged)
-    {
-        playersHandler.UpdatePlayerHealth(Parameters);
-    }
-    else if (eventCode == EventCodes.CharacterEquipmentChanged)
-    {
-        playersHandler.updateItems(id, Parameters);
-    }
-    else if (eventCode == EventCodes.NewMob)
-    {
-        mobsHandler.NewMobEvent(Parameters);
-    }
-    else if (eventCode == EventCodes.Mounted)
-    {
-        playersHandler.handleMountedPlayerEvent(id, Parameters);
-    }
-    else if (eventCode == EventCodes.NewRandomDungeon)
-    {
-        dungeonsHandler.dungeonEvent(Parameters);
-    }
-    else if (eventCode == EventCodes.NewLootChest)
-    {
-        chestsHandler.addChestEvent(Parameters);
+    switch (eventCode) {
+        case EventCodes.Leave:
+            playersHandler.removePlayer(id);
+            mobsHandler.removeMist(id);
+            mobsHandler.removeMob(id);
+            dungeonsHandler.RemoveDungeon(id);
+            chestsHandler.removeChest(id);
+            break;
+
+        case EventCodes.Move:
+            const posX = Parameters[4];
+            const posY = Parameters[5];
+            playersHandler.updatePlayerPosition(id, posX, posY);
+            mobsHandler.updateMistPosition(id, posX, posY);
+            mobsHandler.updateMobPosition(id, posX, posY);
+            break;
+
+        case EventCodes.NewPlayer:
+            playersHandler.handleNewPlayerEvent(id, Parameters, settings.ignoreList, settings.settingSound);
+            break;
+
+        case EventCodes.NewSimpleHarvestableObjectList:
+            harvestablesHandler.newSimpleHarvestableObject(Parameters);
+            break;
+
+        case EventCodes.NewHarvestableObject:
+            harvestablesHandler.newHarvestableObject(id, Parameters);
+            break;
+
+        case EventCodes.HarvestableChangeState:
+            harvestablesHandler.HarvestUpdateEvent(Parameters);
+            break;
+
+        case EventCodes.HarvestFinished:
+            harvestablesHandler.harvestFinished(Parameters);
+            break;
+
+        case EventCodes.MobChangeState:
+            mobsHandler.updateEnchantEvent(Parameters);
+            break;
+
+        case EventCodes.RegenerationHealthChanged:
+            playersHandler.UpdatePlayerHealth(Parameters);
+            break;
+
+        case EventCodes.CharacterEquipmentChanged:
+            playersHandler.updateItems(id, Parameters);
+            break;
+
+        case EventCodes.NewMob:
+            mobsHandler.NewMobEvent(Parameters);
+            break;
+
+        case EventCodes.Mounted:
+            playersHandler.handleMountedPlayerEvent(id, Parameters);
+            break;
+
+        case EventCodes.NewRandomDungeon:
+            dungeonsHandler.dungeonEvent(Parameters);
+            break;
+
+        case EventCodes.NewLootChest:
+            chestsHandler.addChestEvent(Parameters);
+            break;
+    
+        default:
+            break;
     }
 };
 
