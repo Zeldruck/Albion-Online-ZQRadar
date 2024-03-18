@@ -195,7 +195,6 @@ class Settings
                     break;
                 
                 case "Flags":
-                    console.log('hellooo from flags')
                     if (this.flag_images[path])
                     {
                         resolve();
