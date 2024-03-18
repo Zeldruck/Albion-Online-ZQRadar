@@ -127,7 +127,7 @@ function onEvent(Parameters)
     {
         harvestablesHandler.newSimpleHarvestableObject(Parameters);
     }
-    else if (eventCode == EventCodes.NewSimpleHarvestableObject)
+    else if (eventCode == EventCodes.NewHarvestableObject)
     {
         harvestablesHandler.newHarvestableObject(id, Parameters);
     }

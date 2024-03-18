@@ -108,9 +108,8 @@ export class HarvestablesDrawing extends DrawingUtils  {
 
             // TODO
             if (this.settings.resourceSize)
-            {
                 this.drawText(point.x, point.y - 20, harvestableOne.size, ctx);
-            }
+            
         }
     }  
 }
