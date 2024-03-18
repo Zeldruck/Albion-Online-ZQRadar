@@ -5,8 +5,11 @@ import { MobsDrawing } from '../Drawings/MobsDrawing.js';
 import { ChestsDrawing } from '../Drawings/ChestsDrawing.js';
 import { DungeonsDrawing } from '../Drawings/DungeonsDrawing.js';
 import { MapDrawing } from '../Drawings/MapsDrawing.js';
+import { WispCageDrawing } from '../Drawings/WispCageDrawing.js';
 
-import {EventCodes} from './EventCodes.js';
+import { EventCodes } from './EventCodes.js';
+
+import { WispCageHandler } from '../Handlers/WispCageHandler.js';
 
 var canvasMap = document.getElementById("mapCanvas");
 var contextMap = canvasMap.getContext("2d");
@@ -47,6 +50,9 @@ mobsHandler.updateMobInfo(mobsInfo.moblist);
 
 const harvestablesHandler = new HarvestablesHandler(settings);
 const playersHandler = new PlayersHandler();
+
+const wispCageHandler = new WispCageHandler(settings);
+const wispCageDrawing = new WispCageDrawing(settings);
 
 const chestsDrawing = new ChestsDrawing(settings);
 const mobsDrawing = new MobsDrawing(settings);
@@ -103,69 +109,81 @@ function onEvent(Parameters)
     const id = parseInt(Parameters[0]);
     const eventCode = Parameters[252];
 
-    if (eventCode == EventCodes.Leave)
-    {
-        playersHandler.removePlayer(id);
-        mobsHandler.removeMist(id);
-        mobsHandler.removeMob(id);
-        dungeonsHandler.RemoveDungeon(id);
-        chestsHandler.removeChest(id);
-    }
-    else if (eventCode == EventCodes.Move)
-    {        
-        const posX = Parameters[4];
-        const posY = Parameters[5];
-        playersHandler.updatePlayerPosition(id, posX, posY);
-        mobsHandler.updateMistPosition(id, posX, posY);
-        mobsHandler.updateMobPosition(id, posX, posY);
-    }
-    else if (eventCode == EventCodes.NewPlayer)
-    {
-        playersHandler.handleNewPlayerEvent(id, Parameters, settings.ignoreList, settings.settingSound);
-    }
-    else if (eventCode == EventCodes.NewSimpleHarvestableObjectList)
-    {
-        harvestablesHandler.newSimpleHarvestableObject(Parameters);
-    }
-    else if (eventCode == EventCodes.NewHarvestableObject)
-    {
-        harvestablesHandler.newHarvestableObject(id, Parameters);
-    }
-    else if (eventCode == EventCodes.HarvestableChangeState)
-    {
-        harvestablesHandler.HarvestUpdateEvent(Parameters)
-    }
-    else if (eventCode == EventCodes.HarvestFinished)
-    {
-        harvestablesHandler.harvestFinished(Parameters);
-    }
-    else if (eventCode == EventCodes.MobChangeState)
-    {
-        mobsHandler.updateEnchantEvent(Parameters);
-    }
-    else if (eventCode == EventCodes.RegenerationHealthChanged)
-    {
-        playersHandler.UpdatePlayerHealth(Parameters);
-    }
-    else if (eventCode == EventCodes.CharacterEquipmentChanged)
-    {
-        playersHandler.updateItems(id, Parameters);
-    }
-    else if (eventCode == EventCodes.NewMob)
-    {
-        mobsHandler.NewMobEvent(Parameters);
-    }
-    else if (eventCode == EventCodes.Mounted)
-    {
-        playersHandler.handleMountedPlayerEvent(id, Parameters);
-    }
-    else if (eventCode == EventCodes.NewRandomDungeon)
-    {
-        dungeonsHandler.dungeonEvent(Parameters);
-    }
-    else if (eventCode == EventCodes.NewLootChest)
-    {
-        chestsHandler.addChestEvent(Parameters);
+    switch (eventCode) {
+        case EventCodes.Leave:
+            playersHandler.removePlayer(id);
+            mobsHandler.removeMist(id);
+            mobsHandler.removeMob(id);
+            dungeonsHandler.RemoveDungeon(id);
+            chestsHandler.removeChest(id);
+            break;
+
+        case EventCodes.Move:
+            const posX = Parameters[4];
+            const posY = Parameters[5];
+            playersHandler.updatePlayerPosition(id, posX, posY);
+            mobsHandler.updateMistPosition(id, posX, posY);
+            mobsHandler.updateMobPosition(id, posX, posY);
+            break;
+
+        case EventCodes.NewPlayer:
+            playersHandler.handleNewPlayerEvent(id, Parameters, settings.ignoreList, settings.settingSound);
+            break;
+
+        case EventCodes.NewSimpleHarvestableObjectList:
+            harvestablesHandler.newSimpleHarvestableObject(Parameters);
+            break;
+
+        case EventCodes.NewHarvestableObject:
+            harvestablesHandler.newHarvestableObject(id, Parameters);
+            break;
+
+        case EventCodes.HarvestableChangeState:
+            harvestablesHandler.HarvestUpdateEvent(Parameters);
+            break;
+
+        case EventCodes.HarvestFinished:
+            harvestablesHandler.harvestFinished(Parameters);
+            break;
+
+        case EventCodes.MobChangeState:
+            mobsHandler.updateEnchantEvent(Parameters);
+            break;
+
+        case EventCodes.RegenerationHealthChanged:
+            playersHandler.UpdatePlayerHealth(Parameters);
+            break;
+
+        case EventCodes.CharacterEquipmentChanged:
+            playersHandler.updateItems(id, Parameters);
+            break;
+
+        case EventCodes.NewMob:
+            mobsHandler.NewMobEvent(Parameters);
+            break;
+
+        case EventCodes.Mounted:
+            playersHandler.handleMountedPlayerEvent(id, Parameters);
+            break;
+
+        case EventCodes.NewRandomDungeon:
+            dungeonsHandler.dungeonEvent(Parameters);
+            break;
+
+        case EventCodes.NewLootChest:
+            chestsHandler.addChestEvent(Parameters);
+            break;
+
+        case EventCodes.NewMistsCagedWisp:
+            wispCageHandler.NewCageEvent(Parameters);
+            break;
+
+        case EventCodes.MistsWispCageOpened:
+            wispCageHandler.CageOpenedEvent(Parameters);
+            break;
+    
+        default:
+            break;
     }
 };
 
@@ -209,6 +227,7 @@ function render() {
 
     mobsDrawing.invalidate(context, mobsHandler.mobsList, mobsHandler.mistList);
     chestsDrawing.invalidate(context, chestsHandler.chestsList);
+    wispCageDrawing.Draw(context, wispCageHandler.cages);
     dungeonsDrawing.Draw(context, dungeonsHandler.dungeonList);
     playersDrawing.invalidate(context, playersHandler.playersInRange);
 
@@ -243,6 +262,7 @@ function update() {
 
 
     chestsDrawing.interpolate(chestsHandler.chestsList, lpX, lpY, t);
+    wispCageDrawing.Interpolate(wispCageHandler.cages, lpX, lpY, t);
     dungeonsDrawing.interpolate(dungeonsHandler.dungeonList, lpX, lpY, t);
     playersDrawing.interpolate(playersHandler.playersInRange, lpX, lpY, t);
 

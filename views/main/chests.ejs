@@ -1,5 +1,5 @@
 <div class="container px-6 mx-auto grid">
-	<div class="grid gap-6 mb-8 md:grid-cols-3 xl:grid-cols-3">
+	<div class="grid gap-6 mb-8 md:grid-cols-1 xl:grid-cols-1">
 		<div class="mt-4 flex items-start p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
 			<div>
 				<h2 class=" text-4xl font-semibold text-gray-600 dark:text-gray-300">
@@ -81,7 +81,15 @@
 					<input type="checkbox" id="settingMistE4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
 					<span class="dark:text-white ml-4">E4</span>
 				</label>
+			</div>
+		</div>
 
+		<div class="flex items-start p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+			<div>
+				<label class="flex items-center space-x-2">
+					<input type="checkbox" id="settingCage" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+					<span class="dark:text-white ml-4">Show wisp cages</span>
+				</label>
 			</div>
 		</div>
 
@@ -207,6 +215,12 @@
 			let settingMistE2 = document.getElementById("settingMistE2");
 			let settingMistE3 = document.getElementById("settingMistE3");
 			let settingMistE4 = document.getElementById("settingMistE4");
+
+			let settingCage = document.getElementById("settingCage");
+			settingCage.checked = returnLocalBool("settingCage");
+			settingCage.addEventListener("click", () => {
+				localStorage.setItem("settingCage", settingCage.checked);
+			});
 
 
 			settingMistSolo.checked = returnLocalBool("settingMistSolo");
