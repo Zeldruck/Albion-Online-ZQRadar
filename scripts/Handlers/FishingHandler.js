@@ -19,9 +19,10 @@ export class FishingHandler
         this.fishes = [];
     }
 
+    // TODO
     NewFishEvent(Parameters)
     {
-        //if (!this.settings.showFish) return;
+        if (!this.settings.showFish) return;
 
         if (Parameters[4] == undefined || Parameters[4] == "")
             return;
@@ -38,9 +39,10 @@ export class FishingHandler
         this.fishes.push(new Fish(id, Parameters[1][0], Parameters[1][1]));
     }
 
+    // TODO
     FishingEnd(Parameters)
     {
-        //if (!this.settings.showFish) return;
+        if (!this.settings.showFish) return;
 
         console.log("Fishing END:");
         console.log(Parameters);
@@ -51,7 +53,7 @@ export class FishingHandler
         if (!this.fishes.some(fish => fish.id === id))
             return;
 
-            this.RemoveCage(id);
+        this.RemoveFish(id);
     }
 
     RemoveFish(id)
