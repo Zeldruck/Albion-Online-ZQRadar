@@ -51,7 +51,7 @@ mobsHandler.updateMobInfo(mobsInfo.moblist);
 
 
 const harvestablesHandler = new HarvestablesHandler(settings);
-const playersHandler = new PlayersHandler();
+const playersHandler = new PlayersHandler(settings);
 
 const wispCageHandler = new WispCageHandler(settings);
 const wispCageDrawing = new WispCageDrawing(settings);
@@ -132,7 +132,7 @@ function onEvent(Parameters)
             break;
 
         case EventCodes.NewPlayer:
-            playersHandler.handleNewPlayerEvent(id, Parameters, settings.ignoreList, settings.settingSound);
+            playersHandler.handleNewPlayerEvent(Parameters);
             break;
 
         case EventCodes.NewSimpleHarvestableObjectList:
@@ -187,10 +187,12 @@ function onEvent(Parameters)
             wispCageHandler.CageOpenedEvent(Parameters);
             break;
 
+        // TODO
         case EventCodes.NewFishingZoneObject:
             fishingHandler.NewFishEvent(Parameters);
             break;
 
+        // TODO
         case EventCodes.FishingFinished:
             fishingHandler.FishingEnd(Parameters);
             break;
