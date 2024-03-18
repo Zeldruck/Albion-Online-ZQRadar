@@ -38,9 +38,15 @@ Join the [Discord](https://discord.gg/XAWjmzeaD3) to look at the to-do list and 
 - [Releases](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases)
 7. Open the file `_RUN.bat` and wait for the line:
 ```
-Server is running on http://localhost:5001
+Please select one of the adapter that you use to connect to the internet:
+  1. ******
+  2. ******
+  3. ******
+
+input the number here:
 ```
-8. You can now access the radar features by going to `http://localhost:5001` in your browser.
+8. Choose the right adapter and enter the number. 
+9. You can now access the radar features by going to `http://localhost:5001` in your browser.
 
 ## 👨‍💻 For the devs (Windows)
 
@@ -63,7 +69,17 @@ npm install
 ```
 node app.js
 ```
-8. You can now access the radar features by going to `http://localhost:5001` in your browser.
+8. You should see this:
+```
+Please select one of the adapter that you use to connect to the internet:
+  1. ******
+  2. ******
+  3. ******
+
+input the number here:
+```
+9. Choose the right adapter and enter the number. 
+10. You can now access the radar features by going to `http://localhost:5001` in your browser.
 
 ## ✨ Image Packs
 **⚠️(This is not mandatory for the radar to work)⚠️**
@@ -73,7 +89,7 @@ You can download the Image Packs to enhance the radar.
 \
 **Packs:**
 - **Ressource Pack v1.0**: Installed by default
-- **Items Pack v1.1**: [Link](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases/tag/item-pack-v1.1)
+- **Items Pack v1.2**: [Link](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases/tag/item-pack-v1.1)
 - **~~Animals & Harvestables Pack v0.0~~**: [Link](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases/)
 - **~~Enemies Pack v0.0~~**: [Link](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases/)
 - **Maps Pack v0.1**: [Link](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases/tag/map-pack-v0.1)
