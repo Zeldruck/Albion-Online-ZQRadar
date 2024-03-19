@@ -9,7 +9,8 @@ const WebSocket = require('ws');
 
 const fs = require("fs");
 
-const { getAdapterIp } = require('./server-scripts/adapter-selector')
+const { getAdapterIp } = require('./server-scripts/adapter-selector');
+const { downloadItemImage } = require('./server-scripts/image-downloader');
 
 
 
@@ -75,6 +76,17 @@ app.get('/settings', (req, res) => {
 });
 
 
+app.get('/images/Items/:fileName', async (req, res) => {
+  const fileName = req.params.fileName
+  const itemName = fileName.replace('.png', '')
+  const image = await downloadItemImage(itemName);
+
+  res.writeHead(200, {
+    'Content-Type': 'image/png',
+    'Content-Length': image.byteLength,
+  })
+  res.end(image)
+})
 
 
 app.get('/drawing', (req, res) => {
@@ -96,7 +108,7 @@ app.use('/scripts/Drawings', express.static(__dirname + '/scripts/Drawings'))
 app.use('/scripts/Utils', express.static(__dirname + '/scripts/Utils'));;
 app.use('/images/Resources', express.static(__dirname + '/images/Resources'));
 app.use('/images/Maps', express.static(__dirname + '/images/Maps'));
-app.use('/images/Items', express.static(__dirname + '/images/Items'));
+// app.use('/images/Items', express.static(__dirname + '/images/Items'));
 app.use('/images/Flags', express.static(__dirname + '/images/Flags'));
 app.use('/sounds', express.static(__dirname + '/sounds'));
 app.use('/config', express.static(__dirname + '/config'));
