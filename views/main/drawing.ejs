@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>ZQRadar Map</title>
-
+    <title>ZQRadar Drawing</title>
     <style>
         body{
             background-color: #121317;
@@ -76,14 +75,10 @@
             left: 0;
             border: 2px solid grey;
         }
-
     </style>
-
 </head>
 <body>
-
     <div id="canvasContainer">
-
         <canvas id="mapCanvas" width="500" height="500"></canvas>
         <canvas id="gridCanvas" width="500" height="500"></canvas>
         <canvas id="drawCanvas" width="500" height="500"></canvas>
@@ -91,10 +86,8 @@
         <canvas id="thirdCanvas" width="500" height="500" ></canvas>
         <button id="button">Clear</button>
         <button id="logEnemiesList">Log Enemies List</button>
- 
     </div>
 
- 
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/microsoft-signalr/3.1.10/signalr.min.js" ></script>
     <script src="/scripts/Handlers/HarvestablesHandler.js"></script>
@@ -109,6 +102,5 @@
     <script src="/scripts/Utils/Settings.js"></script>
     
     <script type="module" src="/scripts/Utils/Utils.js"></script> 
-
 </body>
 </html>

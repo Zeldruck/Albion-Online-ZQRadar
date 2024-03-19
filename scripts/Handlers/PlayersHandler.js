@@ -1,7 +1,4 @@
-import { name } from "ejs";
-
-
- class Player {
+class Player {
     constructor(posX, posY, id, nickname, guildName1, currentHealth, initialHealth, items, flagId) {
         this.posX = posX;
         this.posY = posY;
@@ -116,16 +113,13 @@ export class PlayersHandler {
             return;
         }
 
-        const ally = String(Parameters[48]);
+        const alliance = String(Parameters[49]);
 
-        console.log(Parameters);
-
-        // TODO
-        /*if (this.ignoreAlliances.find(name => name === ally.toUpperCase()))
+        if (this.ignoreAlliances.find(name => name === alliance.toUpperCase()))
         {
             this.alreadyIgnoredPlayers.push(nickname.toUpperCase());
             return;
-        }*/
+        }
 
         /* Position */
         var positionArray = Parameters[14];
