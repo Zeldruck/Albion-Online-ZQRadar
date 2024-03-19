@@ -527,6 +527,5 @@ class Settings
         //#endregion
 
         this.ignoreList = JSON.parse(localStorage.getItem("ignoreList")) || [];
-        
     }
 }

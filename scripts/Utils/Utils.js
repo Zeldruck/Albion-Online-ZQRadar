@@ -10,6 +10,7 @@ import { FishingDrawing } from '../Drawings/FishingDrawing.js';
 
 import { EventCodes } from './EventCodes.js';
 
+import { PlayersHandler } from '../Handlers/PlayersHandler.js';
 import { WispCageHandler } from '../Handlers/WispCageHandler.js';
 import { FishingHandler } from '../Handlers/FishingHandler.js';
 
