@@ -10,6 +10,7 @@ import { FishingDrawing } from '../Drawings/FishingDrawing.js';
 
 import { EventCodes } from './EventCodes.js';
 
+import { PlayersHandler } from '../Handlers/PlayersHandler.js';
 import { WispCageHandler } from '../Handlers/WispCageHandler.js';
 import { FishingHandler } from '../Handlers/FishingHandler.js';
 
@@ -296,18 +297,15 @@ function drawItems() {
     }
 
 }
-const intervalItems = 500;
+const intervalItems = 5000;
 setInterval(drawItems, intervalItems);
 
-function checkLocalStorage() {
-
-
+function checkLocalStorage()
+{
     settings.update(settings);
     setDrawingViews();
-
-
-
 }
+
 const interval = 300;
 setInterval(checkLocalStorage, interval)
 

@@ -1,6 +1,4 @@
-
-
- class Player {
+class Player {
     constructor(posX, posY, id, nickname, guildName1, currentHealth, initialHealth, items, flagId) {
         this.posX = posX;
         this.posY = posY;
@@ -23,23 +21,48 @@
     }
 }
 
- class PlayersHandler {
+export class PlayersHandler {
     constructor(settings) {
         this.playersInRange = [];
         this.localPlayer = new Player();
         this.invalidate = false;
 
         this.settings = settings;
+
+        this.ignorePlayers = [];
+        this.ignoreGuilds = [];
+        this.ignoreAlliances = [];
+
+        this.alreadyIgnoredPlayers = [];
+
+        this.settings.ignoreList.forEach((element) => {
+            const name = element['Name'];
+
+            switch (element['Type']) {
+                case 'Player':
+                    this.ignorePlayers.push(name);
+                    break;
+
+                case 'Guild':
+                    this.ignoreGuilds.push(name);
+                    break;
+
+                case 'Alliance':
+                    this.ignoreAlliances.push(name);
+                    break;
+            
+                default: // Default is player
+                    this.ignorePlayers.push(name);
+                    break;
+            }
+        });
     }
 
     getPlayersInRange() {
-        // Assume you have implemented a read lock mechanism
-        // SharedLocks.playerHandlerLock.readLock().lock();
         try {
             return [...this.playersInRange]; // Create a copy of the array
         } finally {
-            // Unlock mechanism
-            // SharedLocks.playerHandlerLock.readLock().unlock();
+
         }
     }
 
@@ -69,11 +92,34 @@
         if (!this.settings.settingDot)
             return;
 
+        if (this.alreadyIgnoredPlayers.find(name => name === nickname.toUpperCase()))
+            return;
+
         /* General */
         const id = Parameters[0];
         const nickname = Parameters[1];
+
+        if (this.ignorePlayers.find(name => name === nickname.toUpperCase()))
+        {
+            this.alreadyIgnoredPlayers.push(nickname.toUpperCase());
+            return;
+        }
+
         const guildName = String(Parameters[8]); 
-        const ally = String(Parameters[48]);         
+
+        if (this.ignoreGuilds.find(name => name === guildName.toUpperCase()))
+        {
+            this.alreadyIgnoredPlayers.push(nickname.toUpperCase());
+            return;
+        }
+
+        const alliance = String(Parameters[49]);
+
+        if (this.ignoreAlliances.find(name => name === alliance.toUpperCase()))
+        {
+            this.alreadyIgnoredPlayers.push(nickname.toUpperCase());
+            return;
+        }
 
         /* Position */
         var positionArray = Parameters[14];
@@ -87,9 +133,6 @@
         /* Items & flag */
         const items = Parameters[38];
         const flagId = Parameters[51];
-
-        if (this.settings.ignoreList.find(name => name === nickname.toUpperCase()))
-            return;
 
         this.addPlayer(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items, this.settings.settingSound, flagId);
     }
