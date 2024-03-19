@@ -110,6 +110,8 @@ class Settings
         this.chestPurple = false;
         this.chestYellow = false;
         //#endregion  
+
+        this.update();
     }
 
     preloadImageAndAddToList(path, container)
@@ -527,6 +529,5 @@ class Settings
         //#endregion
 
         this.ignoreList = JSON.parse(localStorage.getItem("ignoreList")) || [];
-        
     }
 }
