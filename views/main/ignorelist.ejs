@@ -1,8 +1,5 @@
-
- 
 <div class="h-full pb-16 overflow-y-auto">
   <div class="container grid px-6 mx-auto">
-    <!-- With actions -->
     <h2 class="my-6 text-2xl font-semibold text-gray-700 dark:text-gray-200">
         Ignore list
     </h2>
@@ -16,10 +13,9 @@
         />
       </label>
       <div class="relative mr-6">
-        <!-- Container for the button and SVG icon -->
         <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class="block w-full mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input" type="button">
           <div class="flex items-center">
-              <div id="dropdownDefaultText">Select</div>
+              <div id="dropdownDefaultText">Player</div>
               <div>
                   <svg
                       class="w-4 h-4"
@@ -47,6 +43,12 @@
         class="block mb-8 w-56 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
       >
         Add +
+      </button>
+      <button
+        id="resetButton"
+        class="block ml-6 mb-8 w-28 mt-1 text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+      >
+        Reset All
       </button>
     </div>
     <div class="w-full overflow-hidden rounded-lg shadow-xs">
@@ -101,11 +103,17 @@
   Array.from(drpMenu.children).forEach(element => {
     element.addEventListener("click", () => {
       dropdownDefaultText.textContent = element.textContent;
+      selectedType = element.textContent;
     }, false);
   });
 
+  let resetButton = document.getElementById("resetButton");
+  resetButton.addEventListener("click", () => {
+    removeAll();
+  });
 
-  const storedData = JSON.parse(localStorage.getItem("ignoreList")) || [];
+
+  let storedData = JSON.parse(localStorage.getItem("ignoreList")) || [];
 
   storedData.forEach(element => {
     addItem(element);
@@ -113,19 +121,24 @@
 
   function addItem(value)
   {
-    var tableBody = document.getElementById("tableBody");
+    const name = value['Name'];
+    let type = value['Type'];
+    if (!type)
+      type = 'Player';
+
+    let tableBody = document.getElementById("tableBody");
 
     // Create a new table row element.
-    var newRow = document.createElement("tr");
+    let newRow = document.createElement("tr");
     newRow.className = "text-gray-700 dark:text-gray-400";
 
     // Set the HTML content of the new row with the desired structure.
     newRow.innerHTML = `
       <td class="px-4 py-3 text-sm">
-        ${value}
+        ${name}
       </td>
       <td class="px-4 py-3 text-sm">
-        ${value}
+        ${type}
       </td>
       <td class="px-4 py-3">
         <div class="flex items-center space-x-4 text-sm">
@@ -177,17 +190,24 @@
     });
   }
 
+  function removeAll()
+  {
+    localStorage.setItem("ignoreList", "[]");
+    let tableBody = document.getElementById("tableBody");
+
+    Array.from(tableBody.children).forEach((element) => {
+      element.remove();
+    });
+  }
 
   const nameInput = document.getElementById("nameInput");
-
-  const buttonText = document.querySelector('[x-data="{ isOpen: false, buttonText: \'Select\' }"] [x-text="buttonText"]');
-
   const button = document.getElementById("addItem");
 
   button.addEventListener("click", function(event) {
-    const nValue = nameInput.value.toUpperCase();
-    storedData.push(nValue);
-    addItem(nValue)
+    const nValue = {"Name": nameInput.value.toUpperCase(), "Type": selectedType};
+    storedData.push(nValue); 
+
+    addItem(nValue);
 
     nameInput.value = "";
 
