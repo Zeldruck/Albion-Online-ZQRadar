@@ -130,6 +130,7 @@ export class PlayersDrawing extends DrawingUtils
             {
                 this.drawFilledCircle(context, point.x, point.y, 10, "red");
             }
+
             if (this.settings.settingMounted)
             {
                 if (playerOne.mounted)
@@ -138,12 +139,14 @@ export class PlayersDrawing extends DrawingUtils
                     //this.drawText(point.x, point.y +3, "M", context);
                 }
             }
+
             if (this.settings.settingNickname == true)
             {
                 space = space + 20;
                 this.drawTextItems(point.x, point.y + space, playerOne.nickname, context, "12px", "white");
                 //this.drawText(point.x, point.y + space, playerOne.nickname, context);
             }
+            
             if (this.settings.settingDistance)
             {
                 this.drawTextItems(point.x, point.y - 14, playerOne.distance + "m", context, "12px", "white");

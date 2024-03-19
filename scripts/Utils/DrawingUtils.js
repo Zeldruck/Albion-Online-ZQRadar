@@ -119,9 +119,11 @@
         let x = xTemp;
         let y = yTemp;
 
-        const textWidth = ctx.measureText(text).width;
+        const tS = ctx.measureText(text);
+        const width = tS.width;
+        const height = tS.actualBoundingBoxAscent + tS.actualBoundingBoxDescent;
 
-        ctx.fillText(text, x - textWidth / 2, y);
+        ctx.fillText(text, x - width/2, y + height/2);
     }
 
 
@@ -133,6 +135,10 @@
         let x = xTemp;
         let y = yTemp;
 
-        ctx.fillText(text, x , y);
+        const tS = ctx.measureText(text);
+        const width = tS.width;
+        const height = tS.actualBoundingBoxAscent + tS.actualBoundingBoxDescent;
+
+        ctx.fillText(text, x - width/2, y + height/2);
     }
 }

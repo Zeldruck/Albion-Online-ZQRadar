@@ -52,6 +52,15 @@
             />
           </div>
           <div class="mt-4">
+            <label class="mr-2 font-semibold text-gray-500 dark:text-gray-400" for="">Health size</label>
+            <input 
+              id=""
+              class="text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
+              style="width: 50px;"
+              value="60"
+            />
+          </div>
+          <div class="mt-4">
             <label class="mr-2 font-semibold text-gray-500 dark:text-gray-400" for="">Guild text size</label>
             <input 
               id=""
@@ -63,7 +72,7 @@
         </div>
         <div>
           <canvas id="mapCanvasPlayers" width="500" height="500" style="position: absolute;"></canvas>
-          <canvas id="gridCanvasPlayers" width="500" height="500" style="position: absolute;"></canvas>
+          <canvas id="gridCanvasPlayers" width="500" height="500" style="position: absolute; border: 2px solid grey"></canvas>
           <canvas id="drawCanvasPlayers" width="500" height="500" style="position: absolute;"></canvas>
         </div>
 			</div>
@@ -194,12 +203,7 @@
 </div>
 
 <script>
-  /*
-  <canvas id="mapCanvasPlayers" width="500" height="500" style="position: absolute;"></canvas>
-  <canvas id="gridCanvasPlayers" width="500" height="500" style="position: absolute;"></canvas>
-  <canvas id="drawCanvasPlayers" width="500" height="500" style="position: absolute;"></canvas>
-  */
-
+  //#region Players
   const mapCanvasPlayers = document.getElementById("mapCanvasPlayers");
   const mapPlayersContext = mapCanvasPlayers.getContext("2d");
   mapPlayersContext.fillStyle = '#1a1c23';
@@ -211,6 +215,82 @@
 
   const drawCanvasPlayers = document.getElementById("drawCanvasPlayers");
   const drawPlayersContext = drawCanvasPlayers.getContext("2d");
+
+  RefreshPlayersCanvas();
+
+  function RefreshPlayersCanvas()
+  {
+    const midX = drawCanvasPlayers.width / 2;
+    const midY = drawCanvasPlayers.height / 2;
+
+    // Our Player
+    DrawFilledCircle(drawPlayersContext, midX, midY, 10, "blue");
+
+    let pSpace = 0;
+    // Health bar
+    const hbP = 1; // percentage
+    const hbW = 60; // Width
+    const hbH = 7; // Height
+
+    // Player 1
+    let pX = midX + 50, pY = midY + 50;
+    DrawFilledCircle(drawPlayersContext, pX, pY, 10, "red"); 
+
+    this.DrawText(pX, pY, "M", drawPlayersContext, "12px", "white"); // Mounted
+
+    pSpace += 15;
+    this.DrawText(pX, pY + pSpace, "Nickname", drawPlayersContext, "12px", "white"); // Name
+
+    this.DrawText(pX, pY - 20, 80 + "m", drawPlayersContext, "12px", "white"); // Distance
+
+    pSpace += 12;
+    drawPlayersContext.fillStyle = "#121317";
+    drawPlayersContext.fillRect(pX - hbW/2, pY - hbH/2 + pSpace, hbW, hbH);
+    drawPlayersContext.fillStyle = "red";
+    drawPlayersContext.fillRect(pX - hbW/2, pY - hbH/2 + pSpace, hbW * hbP, hbH);
+
+
+    // Player 2
+    pSpace = 0;
+    pX = midX + 85, pY = midY - 50;
+    DrawFilledCircle(drawPlayersContext, midX + 85, midY + -50, 10, "red");
+
+    this.DrawText(pX, pY, "M", drawPlayersContext, "12px", "white"); // Mounted
+
+    pSpace += 15;
+    this.DrawText(pX, pY + pSpace, "Nickname", drawPlayersContext, "12px", "white"); //Name
+
+    this.DrawText(pX, pY - 20 , 80 + "m", drawPlayersContext, "12px", "white"); // Distance
+
+    pSpace += 12;
+    drawPlayersContext.fillStyle = "#121317";
+    drawPlayersContext.fillRect(pX - hbW/2, pY - hbH/2 + pSpace, hbW, hbH);
+    drawPlayersContext.fillStyle = "red";
+    drawPlayersContext.fillRect(pX - hbW/2, pY - hbH/2 + pSpace, hbW * hbP, hbH);
+
+
+    // Player 3
+    pSpace = 0;
+    pX = midX - 85, pY = midY + 75;
+    DrawFilledCircle(drawPlayersContext, midX + -85, midY + 75, 10, "red");
+
+    this.DrawText(pX, pY, "M", drawPlayersContext, "12px", "white"); // Mounted
+
+    pSpace += 15;
+    this.DrawText(pX, pY + pSpace, "Nickname", drawPlayersContext, "12px", "white"); //Name
+
+    this.DrawText(pX, pY - 20 , 80 + "m", drawPlayersContext, "12px", "white"); // Distance
+
+    pSpace += 12;
+    drawPlayersContext.fillStyle = "#121317";
+    drawPlayersContext.fillRect(pX - hbW/2, pY - hbH/2 + pSpace, hbW, hbH);
+    drawPlayersContext.fillStyle = "red";
+    drawPlayersContext.fillRect(pX - hbW/2, pY - hbH/2 + pSpace, hbW * hbP, hbH);
+  }
+
+
+  //#endregion
+
 
   function DrawGrid(canvas, context)
   {
@@ -235,4 +315,24 @@
     context.strokeStyle = "grey";
     context.stroke();
   }
+
+  function DrawFilledCircle(context, x, y, radius, color)
+  {
+    context.beginPath();
+    context.arc(x , y , radius, 0, 2 * Math.PI);
+    context.fillStyle = color;
+    context.fill();
+  }
+
+  function DrawText(x, y, text, ctx, size="12px", color="white", font="Arial")
+  {
+    ctx.font = size + " " + this.fontFamily;
+    ctx.fillStyle = color;
+
+    const tS = ctx.measureText(text);
+    const width = tS.width;
+    const height = tS.actualBoundingBoxAscent + tS.actualBoundingBoxDescent;
+
+    ctx.fillText(text, x - width/2, y + height/2);
+  }  
 </script>
