@@ -99,7 +99,8 @@ export class MobsDrawing extends DrawingUtils
             }
 
             if (drawId)
-                this.drawText(point.x, point.y - 20, mobOne.typeId, ctx);
+                this.drawTextItems(point.x, point.y - 20, mobOne.typeId, ctx, "12px", "white");
+                //this.drawText(point.x, point.y - 20, mobOne.typeId, ctx);
         }
 
         /* Mist portals */

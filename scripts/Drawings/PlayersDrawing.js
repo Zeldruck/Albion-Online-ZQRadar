@@ -36,10 +36,10 @@ export class PlayersDrawing extends DrawingUtils
             // Show more than few players 
             if (total > canvas.height) break; // Ecxeed canvas size
 
-            const flagId = playerOne.flagId || 0
-            const flagName = FactionFlagInfo[flagId]
-            this.DrawCustomImage(context, posX + 10, posY - 5, flagName, 'Flags', 20)
-            let posTemp = posX + 25
+            const flagId = playerOne.flagId || 0;
+            const flagName = FactionFlagInfo[flagId];
+            this.DrawCustomImage(context, posX + 10, posY - 5, flagName, 'Flags', 20);
+            let posTemp = posX + 25;
 
             const nickname = playerOne.nickname;
             this.drawTextItems(posTemp, posY, nickname, context, "14px", "white");
@@ -134,17 +134,20 @@ export class PlayersDrawing extends DrawingUtils
             {
                 if (playerOne.mounted)
                 {
-                    this.drawText(point.x, point.y +3, "M", context);
+                    this.drawTextItems(point.x, point.y+3, "M", context, "12px", "white");
+                    //this.drawText(point.x, point.y +3, "M", context);
                 }
             }
             if (this.settings.settingNickname == true)
             {
                 space = space + 20;
-                this.drawText(point.x, point.y + space, playerOne.nickname, context);
+                this.drawTextItems(point.x, point.y + space, playerOne.nickname, context, "12px", "white");
+                //this.drawText(point.x, point.y + space, playerOne.nickname, context);
             }
             if (this.settings.settingDistance)
             {
-                this.drawText(point.x, point.y - 14, playerOne.distance +"m", context);
+                this.drawTextItems(point.x, point.y - 14, playerOne.distance + "m", context, "12px", "white");
+                //this.drawText(point.x, point.y - 14, playerOne.distance +"m", context);
             }
 
             if (this.settings.settingHealth)
@@ -160,7 +163,7 @@ export class PlayersDrawing extends DrawingUtils
 
                 context.fillStyle = "red";
                 context.fillRect(point.x - width/2, point.y - height/2 + space, width * percent, height);
-             //   this.drawText(point.x, point.y + space, playerOne.currentHealth, context);
+                //this.drawText(point.x, point.y + space, playerOne.currentHealth, context);
             }
             if (this.settings.settingGuild)
             {
@@ -168,18 +171,19 @@ export class PlayersDrawing extends DrawingUtils
 
                 if (playerOne.guildName != "undefined")
                 {
-                    this.drawText(point.x, point.y + space, playerOne.guildName, context);
+                    this.drawTextItems(point.x, point.y + space, playerOne.guildName, context, "12px", "white");
+                    //this.drawText(point.x, point.y + space, playerOne.guildName, context);
                 }
             }
 
-            const flagId = playerOne.flagId || 0
-            const flagName = FactionFlagInfo[flagId]
-            const nicknameWidth = context.measureText(playerOne.nickname).width / 2
-            const healthWidth = 66 / 2
-            const farthest = Math.max(nicknameWidth, healthWidth)
-            const xPos = farthest + 10
-            const yPos = space / 2 + 5
-            this.DrawCustomImage(context, point.x + xPos, point.y + yPos, flagName, 'Flags', 20)
+            const flagId = playerOne.flagId || 0;
+            const flagName = FactionFlagInfo[flagId];
+            const nicknameWidth = context.measureText(playerOne.nickname).width / 2;
+            const healthWidth = 66 / 2;
+            const farthest = Math.max(nicknameWidth, healthWidth);
+            const xPos = farthest + 10;
+            const yPos = space / 2 + 5;
+            this.DrawCustomImage(context, point.x + xPos, point.y + yPos, flagName, 'Flags', 20);
         }
     }
 }

@@ -104,11 +104,13 @@ export class HarvestablesDrawing extends DrawingUtils  {
             this.DrawCustomImage(ctx, point.x, point.y, draw, "Resources", 50);
 
             if (this.settings.livingResourcesID)
-                this.drawText(point.x, point.y + 20, type.toString(), ctx);
+                this.drawTextItems(point.x, point.y + 20, type.toString(), ctx, "12px", "white");
+                //this.drawText(point.x, point.y + 20, type.toString(), ctx);
 
             // TODO
             if (this.settings.resourceSize)
-                this.drawText(point.x, point.y - 20, harvestableOne.size, ctx);
+                this.drawTextItems(point.x, point.y - 20, harvestableOne.size, ctx, "12px", "white");
+                //this.drawText(point.x, point.y - 20, harvestableOne.size, ctx);
             
         }
     }  

@@ -111,21 +111,21 @@
     }
 
 
-     drawText(xTemp, yTemp, text, ctx )
-     {
-         ctx.font = this.fontSize + " " + this.fontFamily;
-         ctx.fillStyle = this.textColor;
-  
-         let x = xTemp;
-         let y = yTemp;
+    drawText(xTemp, yTemp, text, ctx)
+    {
+        ctx.font = this.fontSize + " " + this.fontFamily;
+        ctx.fillStyle = this.textColor;
 
-         const textWidth = ctx.measureText(text).width;
+        let x = xTemp;
+        let y = yTemp;
 
-         ctx.fillText(text, x - textWidth / 2, y);
+        const textWidth = ctx.measureText(text).width;
+
+        ctx.fillText(text, x - textWidth / 2, y);
     }
 
 
-    drawTextItems(xTemp, yTemp, text, ctx , size , color)
+    drawTextItems(xTemp, yTemp, text, ctx, size, color)
     {
         ctx.font = size + " " + this.fontFamily;
         ctx.fillStyle = color;
