@@ -110,6 +110,8 @@ class Settings
         this.chestPurple = false;
         this.chestYellow = false;
         //#endregion  
+
+        this.update();
     }
 
     preloadImageAndAddToList(path, container)

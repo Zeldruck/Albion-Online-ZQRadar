@@ -297,18 +297,15 @@ function drawItems() {
     }
 
 }
-const intervalItems = 500;
+const intervalItems = 5000;
 setInterval(drawItems, intervalItems);
 
-function checkLocalStorage() {
-
-
+function checkLocalStorage()
+{
     settings.update(settings);
     setDrawingViews();
-
-
-
 }
+
 const interval = 300;
 setInterval(checkLocalStorage, interval)
 
