@@ -30,6 +30,7 @@ export class FishingDrawing extends DrawingUtils
             const point = this.transformPoint(fish.hX, fish.hY);
 
             this.DrawCustomImage(ctx, point.x, point.y, "fish", "Resources", 25);
+            this.drawText(point.x, point.y + 25, `${fish.sizeSpawned}/${fish.totalSize}`, ctx)
         }
     }
 }

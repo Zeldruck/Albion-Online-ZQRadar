@@ -121,6 +121,7 @@ function onEvent(Parameters)
             mobsHandler.removeMob(id);
             dungeonsHandler.RemoveDungeon(id);
             chestsHandler.removeChest(id);
+            fishingHandler.RemoveFish(id);
             break;
 
         case EventCodes.Move:
