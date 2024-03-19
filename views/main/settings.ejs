@@ -220,34 +220,46 @@
 
   function RefreshPlayersCanvas()
   {
+    drawPlayersContext.clearRect(0, 0, drawCanvasPlayers.width, drawCanvasPlayers.height);
+
+    
     const midX = drawCanvasPlayers.width / 2;
     const midY = drawCanvasPlayers.height / 2;
 
     // Our Player
     DrawFilledCircle(drawPlayersContext, midX, midY, 10, "blue");
 
+
+
     let pSpace = 0;
     // Health bar
     const hbP = 1; // percentage
-    const hbW = 60; // Width
-    const hbH = 7; // Height
+
+    let hbW = 60; // hb Width
+    let hbH = 7; // hb Height
+    let pDotRadius = 10;
+    let namePercent = 15 / 20; // <- 15 / 20 <- baseSpace / dotRadius*2
 
     // Player 1
     let pX = midX + 50, pY = midY + 50;
-    DrawFilledCircle(drawPlayersContext, pX, pY, 10, "red"); 
+    DrawFilledCircle(drawPlayersContext, pX, pY, pDotRadius, "red"); 
 
     this.DrawText(pX, pY, "M", drawPlayersContext, "12px", "white"); // Mounted
 
-    pSpace += 15;
+    pSpace += pDotRadius + 5;
     this.DrawText(pX, pY + pSpace, "Nickname", drawPlayersContext, "12px", "white"); // Name
 
-    this.DrawText(pX, pY - 20, 80 + "m", drawPlayersContext, "12px", "white"); // Distance
+    this.DrawText(pX, pY - pDotRadius-10, 80 + "m", drawPlayersContext, "12px", "white"); // Distance
 
-    pSpace += 12;
+    pSpace += hbH/2 + 8.5;
     drawPlayersContext.fillStyle = "#121317";
     drawPlayersContext.fillRect(pX - hbW/2, pY - hbH/2 + pSpace, hbW, hbH);
     drawPlayersContext.fillStyle = "red";
     drawPlayersContext.fillRect(pX - hbW/2, pY - hbH/2 + pSpace, hbW * hbP, hbH);
+
+    pSpace += 15;
+    this.DrawText(pX, pY + pSpace, "Guild Name", drawPlayersContext, "12px", "white");
+
 
 
     // Player 2
@@ -257,16 +269,20 @@
 
     this.DrawText(pX, pY, "M", drawPlayersContext, "12px", "white"); // Mounted
 
-    pSpace += 15;
+    pSpace += namePercent * pDotRadius*2;
     this.DrawText(pX, pY + pSpace, "Nickname", drawPlayersContext, "12px", "white"); //Name
 
-    this.DrawText(pX, pY - 20 , 80 + "m", drawPlayersContext, "12px", "white"); // Distance
+    this.DrawText(pX, pY - pDotRadius*2 , 80 + "m", drawPlayersContext, "12px", "white"); // Distance
 
     pSpace += 12;
     drawPlayersContext.fillStyle = "#121317";
     drawPlayersContext.fillRect(pX - hbW/2, pY - hbH/2 + pSpace, hbW, hbH);
     drawPlayersContext.fillStyle = "red";
     drawPlayersContext.fillRect(pX - hbW/2, pY - hbH/2 + pSpace, hbW * hbP, hbH);
+
+    pSpace = pSpace + 15;
+    this.DrawText(pX, pY + pSpace, "Guild Name", drawPlayersContext, "12px", "white");
+
 
 
     // Player 3
@@ -276,16 +292,19 @@
 
     this.DrawText(pX, pY, "M", drawPlayersContext, "12px", "white"); // Mounted
 
-    pSpace += 15;
+    pSpace += namePercent * pDotRadius*2;
     this.DrawText(pX, pY + pSpace, "Nickname", drawPlayersContext, "12px", "white"); //Name
 
-    this.DrawText(pX, pY - 20 , 80 + "m", drawPlayersContext, "12px", "white"); // Distance
+    this.DrawText(pX, pY - pDotRadius*2 , 80 + "m", drawPlayersContext, "12px", "white"); // Distance
 
     pSpace += 12;
     drawPlayersContext.fillStyle = "#121317";
     drawPlayersContext.fillRect(pX - hbW/2, pY - hbH/2 + pSpace, hbW, hbH);
     drawPlayersContext.fillStyle = "red";
     drawPlayersContext.fillRect(pX - hbW/2, pY - hbH/2 + pSpace, hbW * hbP, hbH);
+
+    pSpace = pSpace + 15;
+    this.DrawText(pX, pY + pSpace, "Guild Name", drawPlayersContext, "12px", "white");
   }
 
 
