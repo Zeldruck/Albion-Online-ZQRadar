@@ -18,7 +18,7 @@
           <div>
             <label class="mr-2 font-semibold text-gray-500 dark:text-gray-400" for="">Dot size</label>
             <input 
-              id=""
+              id="p-dot-size"
               class="text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
               style="width: 50px;"
               value="10"
@@ -27,7 +27,7 @@
           <div class="mt-4">
             <label class="mr-2 font-semibold text-gray-500 dark:text-gray-400" for="">Name text size</label>
             <input 
-              id=""
+              id="p-name-size"
               class="text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
               style="width: 50px;"
               value="12"
@@ -36,7 +36,7 @@
           <div class="mt-4">
             <label class="mr-2 font-semibold text-gray-500 dark:text-gray-400" for="">Mounted text size</label>
             <input 
-              id=""
+              id="p-mount-size"
               class="text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
               style="width: 50px;"
               value="12"
@@ -45,7 +45,7 @@
           <div class="mt-4">
             <label class="mr-2 font-semibold text-gray-500 dark:text-gray-400" for="">Distance text size</label>
             <input 
-              id=""
+              id="p-distance-size"
               class="text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
               style="width: 50px;"
               value="12"
@@ -54,7 +54,7 @@
           <div class="mt-4">
             <label class="mr-2 font-semibold text-gray-500 dark:text-gray-400" for="">Health size</label>
             <input 
-              id=""
+              id="p-health-size"
               class="text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
               style="width: 50px;"
               value="60"
@@ -63,17 +63,17 @@
           <div class="mt-4">
             <label class="mr-2 font-semibold text-gray-500 dark:text-gray-400" for="">Guild text size</label>
             <input 
-              id=""
+              id="p-guild-size"
               class="text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
               style="width: 50px;"
               value="12"
             />
           </div>
         </div>
-        <div>
-          <canvas id="mapCanvasPlayers" width="500" height="500" style="position: absolute;"></canvas>
-          <canvas id="gridCanvasPlayers" width="500" height="500" style="position: absolute; border: 2px solid grey"></canvas>
-          <canvas id="drawCanvasPlayers" width="500" height="500" style="position: absolute;"></canvas>
+        <div style="position: relative;">
+          <canvas id="mapCanvasPlayers" width="500" height="500" style="position: absolute; display: inline-block;"></canvas>
+          <canvas id="gridCanvasPlayers" width="500" height="500" style="position: absolute; border: 2px solid grey; display: inline-block;"></canvas>
+          <canvas id="drawCanvasPlayers" width="500" height="500" style="position: absolute; display: inline-block;"></canvas>
         </div>
 			</div>
 		</div>
@@ -216,13 +216,10 @@
   const drawCanvasPlayers = document.getElementById("drawCanvasPlayers");
   const drawPlayersContext = drawCanvasPlayers.getContext("2d");
 
-  RefreshPlayersCanvas();
-
-  function RefreshPlayersCanvas()
+  function RefreshPlayersCanvas(dotRadius, healthBarWidth, mountTextSize, nameTextSize, guildTextSize, distanceTextSize)
   {
     drawPlayersContext.clearRect(0, 0, drawCanvasPlayers.width, drawCanvasPlayers.height);
 
-    
     const midX = drawCanvasPlayers.width / 2;
     const midY = drawCanvasPlayers.height / 2;
 
@@ -232,81 +229,164 @@
 
 
     let pSpace = 0;
-    // Health bar
-    const hbP = 1; // percentage
+    const hbP = 1; // health bar percentage
+    const hbPercentSize = 7/60;
+    const hbHeight = healthBarWidth * hbPercentSize;
 
-    let hbW = 60; // hb Width
-    let hbH = 7; // hb Height
-    let pDotRadius = 10;
-    let namePercent = 15 / 20; // <- 15 / 20 <- baseSpace / dotRadius*2
 
     // Player 1
     let pX = midX + 50, pY = midY + 50;
-    DrawFilledCircle(drawPlayersContext, pX, pY, pDotRadius, "red"); 
+    DrawFilledCircle(drawPlayersContext, pX, pY, dotRadius, "red"); 
 
-    this.DrawText(pX, pY, "M", drawPlayersContext, "12px", "white"); // Mounted
+    this.DrawText(pX, pY, "M", drawPlayersContext, `${mountTextSize}px`, "white"); // Mounted
 
-    pSpace += pDotRadius + 5;
-    this.DrawText(pX, pY + pSpace, "Nickname", drawPlayersContext, "12px", "white"); // Name
+    pSpace += dotRadius + 5;
+    this.DrawText(pX, pY + pSpace, "Nickname", drawPlayersContext, `${nameTextSize}px`, "white"); // Name
 
-    this.DrawText(pX, pY - pDotRadius-10, 80 + "m", drawPlayersContext, "12px", "white"); // Distance
+    this.DrawText(pX, pY - dotRadius-10, 80 + "m", drawPlayersContext, `${distanceTextSize}px`, "white"); // Distance
 
-    pSpace += hbH/2 + 8.5;
+    pSpace += hbHeight/2 + 8.5;
     drawPlayersContext.fillStyle = "#121317";
-    drawPlayersContext.fillRect(pX - hbW/2, pY - hbH/2 + pSpace, hbW, hbH);
+    drawPlayersContext.fillRect(pX - healthBarWidth/2, pY - hbHeight/2 + pSpace, healthBarWidth, hbHeight);
     drawPlayersContext.fillStyle = "red";
-    drawPlayersContext.fillRect(pX - hbW/2, pY - hbH/2 + pSpace, hbW * hbP, hbH);
+    drawPlayersContext.fillRect(pX - healthBarWidth/2, pY - hbHeight/2 + pSpace, healthBarWidth * hbP, hbHeight);
 
     pSpace += 15;
-    this.DrawText(pX, pY + pSpace, "Guild Name", drawPlayersContext, "12px", "white");
+    this.DrawText(pX, pY + pSpace, "Guild Name", drawPlayersContext, `${guildTextSize}px`, "white");
 
 
 
     // Player 2
     pSpace = 0;
     pX = midX + 85, pY = midY - 50;
-    DrawFilledCircle(drawPlayersContext, midX + 85, midY + -50, 10, "red");
+    DrawFilledCircle(drawPlayersContext, pX, pY, dotRadius, "red"); 
 
-    this.DrawText(pX, pY, "M", drawPlayersContext, "12px", "white"); // Mounted
+    this.DrawText(pX, pY, "M", drawPlayersContext, `${mountTextSize}px`, "white"); // Mounted
 
-    pSpace += namePercent * pDotRadius*2;
-    this.DrawText(pX, pY + pSpace, "Nickname", drawPlayersContext, "12px", "white"); //Name
+    pSpace += dotRadius + 5;
+    this.DrawText(pX, pY + pSpace, "Nickname", drawPlayersContext, `${nameTextSize}px`, "white"); // Name
 
-    this.DrawText(pX, pY - pDotRadius*2 , 80 + "m", drawPlayersContext, "12px", "white"); // Distance
+    this.DrawText(pX, pY - dotRadius-10, 80 + "m", drawPlayersContext, `${distanceTextSize}px`, "white"); // Distance
 
-    pSpace += 12;
+    pSpace += hbHeight/2 + 8.5;
     drawPlayersContext.fillStyle = "#121317";
-    drawPlayersContext.fillRect(pX - hbW/2, pY - hbH/2 + pSpace, hbW, hbH);
+    drawPlayersContext.fillRect(pX - healthBarWidth/2, pY - hbHeight/2 + pSpace, healthBarWidth, hbHeight);
     drawPlayersContext.fillStyle = "red";
-    drawPlayersContext.fillRect(pX - hbW/2, pY - hbH/2 + pSpace, hbW * hbP, hbH);
+    drawPlayersContext.fillRect(pX - healthBarWidth/2, pY - hbHeight/2 + pSpace, healthBarWidth * hbP, hbHeight);
 
-    pSpace = pSpace + 15;
-    this.DrawText(pX, pY + pSpace, "Guild Name", drawPlayersContext, "12px", "white");
-
+    pSpace += 15;
+    this.DrawText(pX, pY + pSpace, "Guild Name", drawPlayersContext, `${guildTextSize}px`, "white");
 
 
     // Player 3
     pSpace = 0;
     pX = midX - 85, pY = midY + 75;
-    DrawFilledCircle(drawPlayersContext, midX + -85, midY + 75, 10, "red");
+    DrawFilledCircle(drawPlayersContext, pX, pY, dotRadius, "red"); 
 
-    this.DrawText(pX, pY, "M", drawPlayersContext, "12px", "white"); // Mounted
+    this.DrawText(pX, pY, "M", drawPlayersContext, `${mountTextSize}px`, "white"); // Mounted
 
-    pSpace += namePercent * pDotRadius*2;
-    this.DrawText(pX, pY + pSpace, "Nickname", drawPlayersContext, "12px", "white"); //Name
+    pSpace += dotRadius + 5;
+    this.DrawText(pX, pY + pSpace, "Nickname", drawPlayersContext, `${nameTextSize}px`, "white"); // Name
 
-    this.DrawText(pX, pY - pDotRadius*2 , 80 + "m", drawPlayersContext, "12px", "white"); // Distance
+    this.DrawText(pX, pY - dotRadius-10, 80 + "m", drawPlayersContext, `${distanceTextSize}px`, "white"); // Distance
 
-    pSpace += 12;
+    pSpace += hbHeight/2 + 8.5;
     drawPlayersContext.fillStyle = "#121317";
-    drawPlayersContext.fillRect(pX - hbW/2, pY - hbH/2 + pSpace, hbW, hbH);
+    drawPlayersContext.fillRect(pX - healthBarWidth/2, pY - hbHeight/2 + pSpace, healthBarWidth, hbHeight);
     drawPlayersContext.fillStyle = "red";
-    drawPlayersContext.fillRect(pX - hbW/2, pY - hbH/2 + pSpace, hbW * hbP, hbH);
+    drawPlayersContext.fillRect(pX - healthBarWidth/2, pY - hbHeight/2 + pSpace, healthBarWidth * hbP, hbHeight);
 
-    pSpace = pSpace + 15;
-    this.DrawText(pX, pY + pSpace, "Guild Name", drawPlayersContext, "12px", "white");
+    pSpace += 15;
+    this.DrawText(pX, pY + pSpace, "Guild Name", drawPlayersContext, `${guildTextSize}px`, "white");
   }
 
+  // Set default values with localStorage
+  let pDotSize = 10;
+  let pHealthBarWidth = 60;
+  let pMountTextSize = 12;
+  let pNameTextSize = 12;
+  let pGuildTextSize = 12;
+  let pDistanceTextSize = 12;
+
+  RefreshPlayersCanvas(pDotSize, pHealthBarWidth, pMountTextSize, pNameTextSize, pGuildTextSize, pDistanceTextSize);
+  
+  const pDotTextSize = document.getElementById("p-dot-size");
+  pDotTextSize.addEventListener("input", (e) => {
+    let val = e.target.value;
+    val = parseInt(val);
+
+    if (!val || val <= 0)
+      val = 10;
+
+    pDotSize = val;
+
+    RefreshPlayersCanvas(pDotSize, pHealthBarWidth, pMountTextSize, pNameTextSize, pGuildTextSize, pDistanceTextSize);
+  });
+
+  const pHealthBarSize = document.getElementById("p-health-size");
+  pHealthBarSize.addEventListener("input", (e) => {
+    let val = e.target.value;
+    val = parseInt(val);
+
+    if (!val || val <= 0)
+      val = 60;
+
+      pHealthBarWidth = val;
+
+    RefreshPlayersCanvas(pDotSize, pHealthBarWidth, pMountTextSize, pNameTextSize, pGuildTextSize, pDistanceTextSize);
+  });
+
+  const pMountSize = document.getElementById("p-mount-size");
+  pMountSize.addEventListener("input", (e) => {
+    let val = e.target.value;
+    val = parseInt(val);
+
+    if (!val || val <= 0)
+      val = 12;
+
+      pMountTextSize = val;
+
+    RefreshPlayersCanvas(pDotSize, pHealthBarWidth, pMountTextSize, pNameTextSize, pGuildTextSize, pDistanceTextSize);
+  });
+
+  const pNameSize = document.getElementById("p-name-size");
+  pNameSize.addEventListener("input", (e) => {
+    let val = e.target.value;
+    val = parseInt(val);
+
+    if (!val || val <= 0)
+      val = 12;
+
+      pNameTextSize = val;
+
+    RefreshPlayersCanvas(pDotSize, pHealthBarWidth, pMountTextSize, pNameTextSize, pGuildTextSize, pDistanceTextSize);
+  });
+
+  const pGuildSize = document.getElementById("p-guild-size");
+  pGuildSize.addEventListener("input", (e) => {
+    let val = e.target.value;
+    val = parseInt(val);
+
+    if (!val || val <= 0)
+      val = 12;
+
+      pGuildTextSize = val;
+
+    RefreshPlayersCanvas(pDotSize, pHealthBarWidth, pMountTextSize, pNameTextSize, pGuildTextSize, pDistanceTextSize);
+  });
+
+  const pDistanceSize = document.getElementById("p-distance-size");
+  pDistanceSize.addEventListener("input", (e) => {
+    let val = e.target.value;
+    val = parseInt(val);
+
+    if (!val || val <= 0)
+      val = 12;
+
+      pDistanceTextSize = val;
+
+    RefreshPlayersCanvas(pDotSize, pHealthBarWidth, pMountTextSize, pNameTextSize, pGuildTextSize, pDistanceTextSize);
+  });
 
   //#endregion
 
