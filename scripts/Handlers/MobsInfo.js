@@ -20,8 +20,6 @@ class MobsInfo{
 
     initMobs()
     {
-        
-
         //#region Hide        
         // Steppe biome +25
         this.addItem(349, 1, EnemyType.LivingSkinnable, "hide"); // Marmot
@@ -830,5 +828,28 @@ class MobsInfo{
         //this.addItem(1466, 4, EnemyType.Enemy, "UNDEADARCHER4");
         //#endregion
         */
+    
+        //#region Event Enemies
+        //#region EASTER
+        // Chests
+        this.addItem(692, 2, EnemyType.Events, "EVENTEASTERCHEST2");
+        this.addItem(693, 3, EnemyType.Events, "EVENTEASTERCHEST2");
+        this.addItem(694, 4, EnemyType.Events, "EVENTEASTERCHEST2");
+        this.addItem(695, 5, EnemyType.Events, "EVENTEASTERCHEST2");
+        this.addItem(696, 6, EnemyType.Events, "EVENTEASTERCHEST2");
+        this.addItem(697, 7, EnemyType.Events, "EVENTEASTERCHEST2");
+        this.addItem(698, 8, EnemyType.Events, "EVENTEASTERCHEST2");
+
+        // Enemies
+        this.addItem(632, 2, EnemyType.Events, "EVENTEASTERCHEST1");
+        this.addItem(633, 3, EnemyType.Events, "EVENTEASTERCHEST1");
+        this.addItem(634, 4, EnemyType.Events, "EVENTEASTERCHEST1");
+        this.addItem(635, 5, EnemyType.Events, "EVENTEASTERCHEST1");
+        this.addItem(636, 6, EnemyType.Events, "EVENTEASTERCHEST1");
+        this.addItem(637, 7, EnemyType.Events, "EVENTEASTERCHEST1");
+        this.addItem(638, 8, EnemyType.Events, "EVENTEASTERCHEST1");
+        //#endregion
+ 
+        //#endregion
     }
 }

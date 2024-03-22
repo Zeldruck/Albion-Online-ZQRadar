@@ -298,7 +298,7 @@ function drawItems() {
     }
 
 }
-const intervalItems = 5000;
+const intervalItems = 500;
 setInterval(drawItems, intervalItems);
 
 function checkLocalStorage()
