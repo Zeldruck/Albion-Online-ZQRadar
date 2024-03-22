@@ -9,6 +9,7 @@ const EnemyType =
     Boss: 6,
     Drone: 7,
     MistBoss: 8,
+    Events: 9,
 };
 
 class Mob
@@ -242,8 +243,14 @@ class MobsHandler
                 else if (h.name == "VEILWEAVER" && !this.settings.bossVeilWeaver) return;
                 else if (h.name == "GRIFFIN" && !this.settings.bossGriffin) return;
             }
+            // Events
+            else if (h.type == EnemyType.Events)
+            {
+                if (!this.settings.showEventEnemies) return;
+            }
             // Unmanaged type
             else if (!this.settings.showUnmanagedEnemies) return;
+            
         }
         // Unmanaged id
         else if (!this.settings.showUnmanagedEnemies) return;
