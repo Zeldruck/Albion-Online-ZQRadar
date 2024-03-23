@@ -241,9 +241,13 @@
     this.DrawText(pX, pY, "M", drawPlayersContext, `${mountTextSize}px`, "white"); // Mounted
 
     pSpace += dotRadius + 5;
+    let tHeight = CalculateTextHeight(drawPlayersContext, "Nickname", `${nameTextSize}px`);
+    pSpace += tHeight/2;
     this.DrawText(pX, pY + pSpace, "Nickname", drawPlayersContext, `${nameTextSize}px`, "white"); // Name
 
-    this.DrawText(pX, pY - dotRadius-10, 80 + "m", drawPlayersContext, `${distanceTextSize}px`, "white"); // Distance
+
+    tHeight = CalculateTextHeight(drawPlayersContext, "80m", `${distanceTextSize}px`);
+    this.DrawText(pX, pY - dotRadius-5-tHeight/2, "80m", drawPlayersContext, `${distanceTextSize}px`, "white"); // Distance
 
     pSpace += hbHeight/2 + 8.5;
     drawPlayersContext.fillStyle = "#121317";
@@ -251,8 +255,9 @@
     drawPlayersContext.fillStyle = "red";
     drawPlayersContext.fillRect(pX - healthBarWidth/2, pY - hbHeight/2 + pSpace, healthBarWidth * hbP, hbHeight);
 
-    pSpace += 15;
-    this.DrawText(pX, pY + pSpace, "Guild Name", drawPlayersContext, `${guildTextSize}px`, "white");
+    pSpace += 5 + hbHeight/2;
+    tHeight = CalculateTextHeight(drawPlayersContext, "Guild Name", `${guildTextSize}px`);
+    this.DrawText(pX, pY + pSpace + tHeight/2, "Guild Name", drawPlayersContext, `${guildTextSize}px`, "white");
 
 
 
@@ -264,9 +269,13 @@
     this.DrawText(pX, pY, "M", drawPlayersContext, `${mountTextSize}px`, "white"); // Mounted
 
     pSpace += dotRadius + 5;
+    tHeight = CalculateTextHeight(drawPlayersContext, "Nickname", `${nameTextSize}px`);
+    pSpace += tHeight/2;
     this.DrawText(pX, pY + pSpace, "Nickname", drawPlayersContext, `${nameTextSize}px`, "white"); // Name
 
-    this.DrawText(pX, pY - dotRadius-10, 80 + "m", drawPlayersContext, `${distanceTextSize}px`, "white"); // Distance
+
+    tHeight = CalculateTextHeight(drawPlayersContext, "80m", `${distanceTextSize}px`);
+    this.DrawText(pX, pY - dotRadius-5-tHeight/2, "80m", drawPlayersContext, `${distanceTextSize}px`, "white"); // Distance
 
     pSpace += hbHeight/2 + 8.5;
     drawPlayersContext.fillStyle = "#121317";
@@ -274,8 +283,9 @@
     drawPlayersContext.fillStyle = "red";
     drawPlayersContext.fillRect(pX - healthBarWidth/2, pY - hbHeight/2 + pSpace, healthBarWidth * hbP, hbHeight);
 
-    pSpace += 15;
-    this.DrawText(pX, pY + pSpace, "Guild Name", drawPlayersContext, `${guildTextSize}px`, "white");
+    pSpace += 5 + hbHeight/2;
+    tHeight = CalculateTextHeight(drawPlayersContext, "Guild Name", `${guildTextSize}px`);
+    this.DrawText(pX, pY + pSpace + tHeight/2, "Guild Name", drawPlayersContext, `${guildTextSize}px`, "white");
 
 
     // Player 3
@@ -286,9 +296,13 @@
     this.DrawText(pX, pY, "M", drawPlayersContext, `${mountTextSize}px`, "white"); // Mounted
 
     pSpace += dotRadius + 5;
+    tHeight = CalculateTextHeight(drawPlayersContext, "Nickname", `${nameTextSize}px`);
+    pSpace += tHeight/2;
     this.DrawText(pX, pY + pSpace, "Nickname", drawPlayersContext, `${nameTextSize}px`, "white"); // Name
 
-    this.DrawText(pX, pY - dotRadius-10, 80 + "m", drawPlayersContext, `${distanceTextSize}px`, "white"); // Distance
+
+    tHeight = CalculateTextHeight(drawPlayersContext, "80m", `${distanceTextSize}px`);
+    this.DrawText(pX, pY - dotRadius-5-tHeight/2, "80m", drawPlayersContext, `${distanceTextSize}px`, "white"); // Distance
 
     pSpace += hbHeight/2 + 8.5;
     drawPlayersContext.fillStyle = "#121317";
@@ -296,8 +310,9 @@
     drawPlayersContext.fillStyle = "red";
     drawPlayersContext.fillRect(pX - healthBarWidth/2, pY - hbHeight/2 + pSpace, healthBarWidth * hbP, hbHeight);
 
-    pSpace += 15;
-    this.DrawText(pX, pY + pSpace, "Guild Name", drawPlayersContext, `${guildTextSize}px`, "white");
+    pSpace += 5 + hbHeight/2;
+    tHeight = CalculateTextHeight(drawPlayersContext, "Guild Name", `${guildTextSize}px`);
+    this.DrawText(pX, pY + pSpace + tHeight/2, "Guild Name", drawPlayersContext, `${guildTextSize}px`, "white");
   }
 
   // Set default values with localStorage
@@ -433,5 +448,20 @@
     const height = tS.actualBoundingBoxAscent + tS.actualBoundingBoxDescent;
 
     ctx.fillText(text, x - width/2, y + height/2);
-  }  
+  }
+
+  function CalculateTextSize(ctx, text, size="12px", font="Arial")
+  {
+    ctx.font = size + " " + this.fontFamily;
+
+    return ctx.measureText(text);
+  }
+
+  function CalculateTextHeight(ctx, text, size="12px", font="Arial")
+  {
+    const tS = CalculateTextSize(ctx, text, size, font);
+    const height = tS.actualBoundingBoxAscent + tS.actualBoundingBoxDescent;
+
+    return height;
+  }
 </script>
