@@ -67,6 +67,13 @@
 
               <label class="flex items-center space-x-2">
 
+                <input type="checkbox" id="settingItemsAutoDownload"" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+                <span class="dark:text-white ml-4">Items Auto Download</span>
+
+              </label>
+
+              <label class="flex items-center space-x-2">
+
                 <input type="checkbox" id="settingDistance" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
                 <span class="dark:text-white ml-4">Distance</span>
 
@@ -106,6 +113,7 @@
           let settingMounted = document.getElementById("settingMounted");
           let settingItems = document.getElementById("settingItems");
           let settingItemsDev = document.getElementById("settingItemsDev");
+          let settingItemsAutoDownload = document.getElementById("settingItemsAutoDownload");
           let settingDistance = document.getElementById("settingDistance");
           let settingGuild = document.getElementById("settingGuild");
           let settingSound = document.getElementById("settingSound");
@@ -116,6 +124,7 @@
           settingMounted.checked = returnLocalBool("settingMounted");
           settingItems.checked =returnLocalBool("settingItems");
           settingItemsDev.checked = returnLocalBool("settingItemsDev");
+          settingItemsAutoDownload.checked = returnLocalBool("settingItemsAutoDownload");
           settingDistance.checked = returnLocalBool("settingDistance");
           settingGuild.checked = returnLocalBool("settingGuild");
           settingSound.checked = returnLocalBool("settingSound");
@@ -141,6 +150,10 @@
 
           settingItemsDev.addEventListener("click", () => {
               localStorage.setItem("settingItemsDev", settingItemsDev.checked);
+          });
+
+          settingItemsAutoDownload.addEventListener("click", () => {
+              localStorage.setItem("settingItemsAutoDownload", settingItemsAutoDownload.checked);
           });
 
           settingDistance.addEventListener("click", () => {

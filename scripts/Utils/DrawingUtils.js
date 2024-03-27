@@ -89,7 +89,14 @@
         {
             this.settings.preloadImageAndAddToList(src, folder)
             .then(() => console.log('Item loaded'))
-            .catch(() => console.log('Item not loaded'));
+            .catch(() => {
+                const autoDownload = this.settings.returnLocalBool('settingItemsAutoDownload')
+                if (!autoDownload) {
+                    console.log('Item not loaded')
+                    return;
+                }
+                this.settings.downloadAndPreloadImage(src, folder);
+            });
         }
     }
 

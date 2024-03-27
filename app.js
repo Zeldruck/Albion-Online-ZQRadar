@@ -76,7 +76,7 @@ app.get('/settings', (req, res) => {
 });
 
 
-app.get('/images/Items/:fileName', async (req, res) => {
+app.get('/retrieve-image/:fileName', async (req, res) => {
   const fileName = req.params.fileName
   const itemName = fileName.replace('.png', '')
   const image = await downloadItemImage(itemName);
@@ -108,7 +108,7 @@ app.use('/scripts/Drawings', express.static(__dirname + '/scripts/Drawings'))
 app.use('/scripts/Utils', express.static(__dirname + '/scripts/Utils'));;
 app.use('/images/Resources', express.static(__dirname + '/images/Resources'));
 app.use('/images/Maps', express.static(__dirname + '/images/Maps'));
-// app.use('/images/Items', express.static(__dirname + '/images/Items'));
+app.use('/images/Items', express.static(__dirname + '/images/Items'));
 app.use('/images/Flags', express.static(__dirname + '/images/Flags'));
 app.use('/sounds', express.static(__dirname + '/sounds'));
 app.use('/config', express.static(__dirname + '/config'));

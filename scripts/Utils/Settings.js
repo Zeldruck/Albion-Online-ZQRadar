@@ -249,6 +249,34 @@ class Settings
         }
     }
 
+    async downloadAndPreloadImage(path, container) {
+        switch (container) {
+            case 'Items':
+                const imageName = path.replace('/images/Items/', '');
+                const url = `/retrieve-image/${imageName}`
+                const blob = await (await fetch(url)).blob()
+                const objUrl = (window.URL || window.webkitURL).createObjectURL(blob)
+
+                return new Promise((res, rej) => {
+                    const img = new Image();
+                    img.onload = () => {
+                        this.item_images[path] = img; 
+                        res()
+                    };
+
+                    img.onerror = () => {
+                        this.item_images[path] = null;
+                        rej()
+                    };
+
+                    img.src = objUrl;
+                })
+                break;
+            default:
+                break;
+        }
+    }
+
     ClearPreloadedImages(container)
     {
         switch (container)
