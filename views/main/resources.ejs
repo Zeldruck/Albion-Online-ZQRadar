@@ -421,66 +421,77 @@
 				<h4 class="text-2xl font-semibold text-gray-600 dark:text-gray-300">
 					Dryad (Fiber)
 				</h4>
-
-				<div class="flex">
-
-					<label class="flex items-center">
-						<input type="checkbox" id="settingLivingFiberT1" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T1</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingFiberT2" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T2</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingFiberT3" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T3</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingFiberT4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T4</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingFiberT5" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T5</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingFiberT6" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T6</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingFiberT7" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T7</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingFiberT8" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T8</span>
-					</label>
-				</div>
-				
-				<div class="mt-4 flex">
-
-					<label class="flex items-center">
-						<input type="checkbox" id="settingLivingFiberE0" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E0</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingFiberE1" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E1</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingFiberE2" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E2</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingFiberE3" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E3</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingFiberE4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E4</span>
-					</label>
-
+				<div class="grid" id="matrix-static-rock" style="grid-template-columns: 1fr 90%; gap: 10px;">
+					<div class="grid" style="gap: 10px;">
+						<p class="dark:text-white" style="height: 20px;">E/T</p>
+						<p class="dark:text-white" style="height: 20px;">E0</p>
+						<p class="dark:text-white" style="height: 20px;">E1</p>
+						<p class="dark:text-white" style="height: 20px;">E2</p>
+						<p class="dark:text-white" style="height: 20px;">E3</p>
+						<p class="dark:text-white" style="height: 20px;">E4</p>
+					</div>
+					<div class="grid" style="gap: 10px;">
+						<div class="matrix-upper-texts grid" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T1</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T2</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T3</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T4</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T5</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T6</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T7</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T8</p>
+						</div>
+						<div class="grid" id="flp-e0" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="flp-e1" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="flp-e2" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="flp-e3" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="flp-e4" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -490,66 +501,77 @@
 				<h4 class="text-2xl font-semibold text-gray-600 dark:text-gray-300">
 					Animals (Hide)
 				</h4>
-
-				<div class="flex">
-
-					<label class="flex items-center">
-						<input type="checkbox" id="settingLivingHideT1" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T1</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingHideT2" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T2</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingHideT3" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T3</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingHideT4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T4</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingHideT5" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T5</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingHideT6" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T6</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingHideT7" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T7</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingHideT8" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T8</span>
-					</label>
-				</div>
-				
-				<div class="mt-4 flex">
-
-					<label class="flex items-center">
-						<input type="checkbox" id="settingLivingHideE0" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E0</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingHideE1" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E1</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingHideE2" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E2</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingHideE3" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E3</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingHideE4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E4</span>
-					</label>
-
+				<div class="grid" id="matrix-static-rock" style="grid-template-columns: 1fr 90%; gap: 10px;">
+					<div class="grid" style="gap: 10px;">
+						<p class="dark:text-white" style="height: 20px;">E/T</p>
+						<p class="dark:text-white" style="height: 20px;">E0</p>
+						<p class="dark:text-white" style="height: 20px;">E1</p>
+						<p class="dark:text-white" style="height: 20px;">E2</p>
+						<p class="dark:text-white" style="height: 20px;">E3</p>
+						<p class="dark:text-white" style="height: 20px;">E4</p>
+					</div>
+					<div class="grid" style="gap: 10px;">
+						<div class="matrix-upper-texts grid" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T1</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T2</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T3</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T4</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T5</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T6</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T7</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T8</p>
+						</div>
+						<div class="grid" id="hlp-e0" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="hlp-e1" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="hlp-e2" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="hlp-e3" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="hlp-e4" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -559,66 +581,77 @@
 				<h4 class="text-2xl font-semibold text-gray-600 dark:text-gray-300">
 					Spirit (Wood)
 				</h4>
-
-				<div class="flex">
-
-					<label class="flex items-center">
-						<input type="checkbox" id="settingLivingLogT1" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T1</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingLogT2" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T2</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingLogT3" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T3</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingLogT4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T4</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingLogT5" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T5</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingLogT6" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T6</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingLogT7" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T7</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingLogT8" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T8</span>
-					</label>
-				</div>
-				
-				<div class="mt-4 flex">
-
-					<label class="flex items-center">
-						<input type="checkbox" id="settingLivingLogE0" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E0</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingLogE1" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E1</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingLogE2" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E2</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingLogE3" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E3</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingLogE4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E4</span>
-					</label>
-
+				<div class="grid" id="matrix-static-rock" style="grid-template-columns: 1fr 90%; gap: 10px;">
+					<div class="grid" style="gap: 10px;">
+						<p class="dark:text-white" style="height: 20px;">E/T</p>
+						<p class="dark:text-white" style="height: 20px;">E0</p>
+						<p class="dark:text-white" style="height: 20px;">E1</p>
+						<p class="dark:text-white" style="height: 20px;">E2</p>
+						<p class="dark:text-white" style="height: 20px;">E3</p>
+						<p class="dark:text-white" style="height: 20px;">E4</p>
+					</div>
+					<div class="grid" style="gap: 10px;">
+						<div class="matrix-upper-texts grid" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T1</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T2</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T3</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T4</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T5</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T6</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T7</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T8</p>
+						</div>
+						<div class="grid" id="wlp-e0" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="wlp-e1" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="wlp-e2" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="wlp-e3" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="wlp-e4" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -628,66 +661,77 @@
 				<h4 class="text-2xl font-semibold text-gray-600 dark:text-gray-300">
 					Elemental (Ore)
 				</h4>
-
-				<div class="flex">
-
-					<label class="flex items-center">
-						<input type="checkbox" id="settingLivingOreT1" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T1</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingOreT2" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T2</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingOreT3" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T3</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingOreT4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T4</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingOreT5" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T5</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingOreT6" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T6</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingOreT7" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T7</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingOreT8" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T8</span>
-					</label>
-				</div>
-				
-				<div class="mt-4 flex">
-
-					<label class="flex items-center">
-						<input type="checkbox" id="settingLivingOreE0" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E0</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingOreE1" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E1</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingOreE2" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E2</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingOreE3" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E3</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingOreE4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E4</span>
-					</label>
-
+				<div class="grid" id="matrix-static-rock" style="grid-template-columns: 1fr 90%; gap: 10px;">
+					<div class="grid" style="gap: 10px;">
+						<p class="dark:text-white" style="height: 20px;">E/T</p>
+						<p class="dark:text-white" style="height: 20px;">E0</p>
+						<p class="dark:text-white" style="height: 20px;">E1</p>
+						<p class="dark:text-white" style="height: 20px;">E2</p>
+						<p class="dark:text-white" style="height: 20px;">E3</p>
+						<p class="dark:text-white" style="height: 20px;">E4</p>
+					</div>
+					<div class="grid" style="gap: 10px;">
+						<div class="matrix-upper-texts grid" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T1</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T2</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T3</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T4</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T5</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T6</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T7</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T8</p>
+						</div>
+						<div class="grid" id="olp-e0" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="olp-e1" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="olp-e2" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="olp-e3" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="olp-e4" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -697,66 +741,77 @@
 				<h4 class="text-2xl font-semibold text-gray-600 dark:text-gray-300">
 					Elemental (Rock)
 				</h4>
-
-				<div class="flex">
-
-					<label class="flex items-center">
-						<input type="checkbox" id="settingLivingRockT1" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T1</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingRockT2" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T2</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingRockT3" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T3</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingRockT4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T4</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingRockT5" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T5</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingRockT6" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T6</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingRockT7" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T7</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingRockT8" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">T8</span>
-					</label>
-				</div>
-				
-				<div class="mt-4 flex">
-
-					<label class="flex items-center">
-						<input type="checkbox" id="settingLivingRockE0" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E0</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingRockE1" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E1</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingRockE2" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E2</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingRockE3" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E3</span>
-					</label>
-					<label class="flex items-center ml-3">
-						<input type="checkbox" id="settingLivingRockE4" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-						<span class="dark:text-white ml-2">E4</span>
-					</label>
-
+				<div class="grid" id="matrix-static-rock" style="grid-template-columns: 1fr 90%; gap: 10px;">
+					<div class="grid" style="gap: 10px;">
+						<p class="dark:text-white" style="height: 20px;">E/T</p>
+						<p class="dark:text-white" style="height: 20px;">E0</p>
+						<p class="dark:text-white" style="height: 20px;">E1</p>
+						<p class="dark:text-white" style="height: 20px;">E2</p>
+						<p class="dark:text-white" style="height: 20px;">E3</p>
+						<p class="dark:text-white" style="height: 20px;">E4</p>
+					</div>
+					<div class="grid" style="gap: 10px;">
+						<div class="matrix-upper-texts grid" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T1</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T2</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T3</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T4</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T5</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T6</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T7</p>
+							<p class="dark:text-white" style="width: 20px; height: 20px;">T8</p>
+						</div>
+						<div class="grid" id="rlp-e0" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="rlp-e1" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="rlp-e2" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="rlp-e3" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+						<div class="grid" id="rlp-e4" style="grid-template-columns: repeat(8, 1fr); gap: 10px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+							<input type="checkbox" id="" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -823,6 +878,7 @@
 	}
 
 
+	//#region Static
 	//#region Static fiber
 	let sfEnchants = localStorage.getItem("settingStaticFiberEnchants") || {
 		'e0': [false, false, false, false, false, false, false, false],
@@ -1297,256 +1353,486 @@
 		})
 	}
 	//#endregion
+	//#endregion
 
-			//#region Living Resources - get
-			// Tier
-			const settingLivingFiberT1 = document.getElementById("settingLivingFiberT1");
-			const settingLivingFiberT2 = document.getElementById("settingLivingFiberT2");
-			const settingLivingFiberT3 = document.getElementById("settingLivingFiberT3");
-			const settingLivingFiberT4 = document.getElementById("settingLivingFiberT4");
-			const settingLivingFiberT5 = document.getElementById("settingLivingFiberT5");
-			const settingLivingFiberT6 = document.getElementById("settingLivingFiberT6");
-			const settingLivingFiberT7 = document.getElementById("settingLivingFiberT7");
-			const settingLivingFiberT8 = document.getElementById("settingLivingFiberT8");
-			// Enchant
-			const settingLivingFiberE0 = document.getElementById("settingLivingFiberE0");
-			const settingLivingFiberE1 = document.getElementById("settingLivingFiberE1");
-			const settingLivingFiberE2 = document.getElementById("settingLivingFiberE2");
-			const settingLivingFiberE3 = document.getElementById("settingLivingFiberE3");
-			const settingLivingFiberE4 = document.getElementById("settingLivingFiberE4");
+	//#region Living
+	//#region Living fiber
+	let lfEnchants = localStorage.getItem("settingLivingFiberEnchants") || {
+		'e0': [false, false, false, false, false, false, false, false],
+		'e1': [false, false, false, false, false, false, false, false],
+		'e2': [false, false, false, false, false, false, false, false],
+		'e3': [false, false, false, false, false, false, false, false],
+		'e4': [false, false, false, false, false, false, false, false],
+	};
 
-			// Tier
-			const settingLivingLogT1 = document.getElementById("settingLivingLogT1");
-			const settingLivingLogT2 = document.getElementById("settingLivingLogT2");
-			const settingLivingLogT3 = document.getElementById("settingLivingLogT3");
-			const settingLivingLogT4 = document.getElementById("settingLivingLogT4");
-			const settingLivingLogT5 = document.getElementById("settingLivingLogT5");
-			const settingLivingLogT6 = document.getElementById("settingLivingLogT6");
-			const settingLivingLogT7 = document.getElementById("settingLivingLogT7");
-			const settingLivingLogT8 = document.getElementById("settingLivingLogT8");
-			// Enchant
-			const settingLivingLogE0 = document.getElementById("settingLivingLogE0");
-			const settingLivingLogE1 = document.getElementById("settingLivingLogE1");
-			const settingLivingLogE2 = document.getElementById("settingLivingLogE2");
-			const settingLivingLogE3 = document.getElementById("settingLivingLogE3");
-			const settingLivingLogE4 = document.getElementById("settingLivingLogE4");
+	if (typeof lfEnchants !== 'object')
+		lfEnchants = JSON.parse(lfEnchants);
 
-			// Tier
-			const settingLivingOreT1 = document.getElementById("settingLivingOreT1");
-			const settingLivingOreT2 = document.getElementById("settingLivingOreT2");
-			const settingLivingOreT3 = document.getElementById("settingLivingOreT3");
-			const settingLivingOreT4 = document.getElementById("settingLivingOreT4");
-			const settingLivingOreT5 = document.getElementById("settingLivingOreT5");
-			const settingLivingOreT6 = document.getElementById("settingLivingOreT6");
-			const settingLivingOreT7 = document.getElementById("settingLivingOreT7");
-			const settingLivingOreT8 = document.getElementById("settingLivingOreT8");
-			// Enchant
-			const settingLivingOreE0 = document.getElementById("settingLivingOreE0");
-			const settingLivingOreE1 = document.getElementById("settingLivingOreE1");
-			const settingLivingOreE2 = document.getElementById("settingLivingOreE2");
-			const settingLivingOreE3 = document.getElementById("settingLivingOreE3");
-			const settingLivingOreE4 = document.getElementById("settingLivingOreE4");
-
-			// Tier
-			const settingLivingRockT1 = document.getElementById("settingLivingRockT1");
-			const settingLivingRockT2 = document.getElementById("settingLivingRockT2");
-			const settingLivingRockT3 = document.getElementById("settingLivingRockT3");
-			const settingLivingRockT4 = document.getElementById("settingLivingRockT4");
-			const settingLivingRockT5 = document.getElementById("settingLivingRockT5");
-			const settingLivingRockT6 = document.getElementById("settingLivingRockT6");
-			const settingLivingRockT7 = document.getElementById("settingLivingRockT7");
-			const settingLivingRockT8 = document.getElementById("settingLivingRockT8");
-			// Enchant
-			const settingLivingRockE0 = document.getElementById("settingLivingRockE0");
-			const settingLivingRockE1 = document.getElementById("settingLivingRockE1");
-			const settingLivingRockE2 = document.getElementById("settingLivingRockE2");
-			const settingLivingRockE3 = document.getElementById("settingLivingRockE3");
-			const settingLivingRockE4 = document.getElementById("settingLivingRockE4");
-
-			// Tier
-			const settingLivingHideT1 = document.getElementById("settingLivingHideT1");
-			const settingLivingHideT2 = document.getElementById("settingLivingHideT2");
-			const settingLivingHideT3 = document.getElementById("settingLivingHideT3");
-			const settingLivingHideT4 = document.getElementById("settingLivingHideT4");
-			const settingLivingHideT5 = document.getElementById("settingLivingHideT5");
-			const settingLivingHideT6 = document.getElementById("settingLivingHideT6");
-			const settingLivingHideT7 = document.getElementById("settingLivingHideT7");
-			const settingLivingHideT8 = document.getElementById("settingLivingHideT8");
-			// Enchant
-			const settingLivingHideE0 = document.getElementById("settingLivingHideE0");
-			const settingLivingHideE1 = document.getElementById("settingLivingHideE1");
-			const settingLivingHideE2 = document.getElementById("settingLivingHideE2");
-			const settingLivingHideE3 = document.getElementById("settingLivingHideE3");
-			const settingLivingHideE4 = document.getElementById("settingLivingHideE4");
-			//#endregion
+	const livingFiberParentE0 = document.getElementById("flp-e0");
+	const livingFiberParentE1 = document.getElementById("flp-e1");
+	const livingFiberParentE2 = document.getElementById("flp-e2");
+	const livingFiberParentE3 = document.getElementById("flp-e3");
+	const livingFiberParentE4 = document.getElementById("flp-e4");
 
 
+	for (let i = 0; i < livingFiberParentE0.children.length; i++)
+	{
+		const element = livingFiberParentE0.children[i];
+		const ind = i;
 
-			//#region Living Resources - checkbox
-			// Tier
-			settingLivingFiberT1.checked = returnLocalBool("settingLivingFiberT1");
-			settingLivingFiberT2.checked = returnLocalBool("settingLivingFiberT2");
-			settingLivingFiberT3.checked = returnLocalBool("settingLivingFiberT3");
-			settingLivingFiberT4.checked = returnLocalBool("settingLivingFiberT4");
-			settingLivingFiberT5.checked = returnLocalBool("settingLivingFiberT5");
-			settingLivingFiberT6.checked = returnLocalBool("settingLivingFiberT6");
-			settingLivingFiberT7.checked = returnLocalBool("settingLivingFiberT7");
-			settingLivingFiberT8.checked = returnLocalBool("settingLivingFiberT8");
-			// Enchant
-			settingLivingFiberE0.checked = returnLocalBool("settingLivingFiberE0");
-			settingLivingFiberE1.checked = returnLocalBool("settingLivingFiberE1");
-			settingLivingFiberE2.checked = returnLocalBool("settingLivingFiberE2");
-			settingLivingFiberE3.checked = returnLocalBool("settingLivingFiberE3");
-			settingLivingFiberE4.checked = returnLocalBool("settingLivingFiberE4");
+		if (element.nodeName != 'INPUT')
+			continue;
 
-			// Tier
-			settingLivingLogT1.checked = returnLocalBool("settingLivingLogT1");
-			settingLivingLogT2.checked = returnLocalBool("settingLivingLogT2");
-			settingLivingLogT3.checked = returnLocalBool("settingLivingLogT3");
-			settingLivingLogT4.checked = returnLocalBool("settingLivingLogT4");
-			settingLivingLogT5.checked = returnLocalBool("settingLivingLogT5");
-			settingLivingLogT6.checked = returnLocalBool("settingLivingLogT6");
-			settingLivingLogT7.checked = returnLocalBool("settingLivingLogT7");
-			settingLivingLogT8.checked = returnLocalBool("settingLivingLogT8");
-			// Enchant
-			settingLivingLogE0.checked = returnLocalBool("settingLivingLogE0");
-			settingLivingLogE1.checked = returnLocalBool("settingLivingLogE1");
-			settingLivingLogE2.checked = returnLocalBool("settingLivingLogE2");
-			settingLivingLogE3.checked = returnLocalBool("settingLivingLogE3");
-			settingLivingLogE4.checked = returnLocalBool("settingLivingLogE4");
+		element.checked = lfEnchants['e0'][i];
+		element.addEventListener("click", (e) => {
+			lfEnchants['e0'][ind] = !lfEnchants['e0'][ind];
+			localStorage.setItem("settingLivingFiberEnchants", JSON.stringify(lfEnchants))
+		})
+	}
+	
+	for (let i = 0; i < livingFiberParentE1.children.length; i++)
+	{
+		const element = livingFiberParentE1.children[i];
+		const ind = i;
 
-			// Tier
-			settingLivingOreT1.checked = returnLocalBool("settingLivingOreT1");
-			settingLivingOreT2.checked = returnLocalBool("settingLivingOreT2");
-			settingLivingOreT3.checked = returnLocalBool("settingLivingOreT3");
-			settingLivingOreT4.checked = returnLocalBool("settingLivingOreT4");
-			settingLivingOreT5.checked = returnLocalBool("settingLivingOreT5");
-			settingLivingOreT6.checked = returnLocalBool("settingLivingOreT6");
-			settingLivingOreT7.checked = returnLocalBool("settingLivingOreT7");
-			settingLivingOreT8.checked = returnLocalBool("settingLivingOreT8");
-			// Enchant
-			settingLivingOreE0.checked = returnLocalBool("settingLivingOreE0");
-			settingLivingOreE1.checked = returnLocalBool("settingLivingOreE1");
-			settingLivingOreE2.checked = returnLocalBool("settingLivingOreE2");
-			settingLivingOreE3.checked = returnLocalBool("settingLivingOreE3");
-			settingLivingOreE4.checked = returnLocalBool("settingLivingOreE4");
+		if (element.nodeName != 'INPUT')
+			continue;
 
-			// Tier
-			settingLivingRockT1.checked = returnLocalBool("settingLivingRockT1");
-			settingLivingRockT2.checked = returnLocalBool("settingLivingRockT2");
-			settingLivingRockT3.checked = returnLocalBool("settingLivingRockT3");
-			settingLivingRockT4.checked = returnLocalBool("settingLivingRockT4");
-			settingLivingRockT5.checked = returnLocalBool("settingLivingRockT5");
-			settingLivingRockT6.checked = returnLocalBool("settingLivingRockT6");
-			settingLivingRockT7.checked = returnLocalBool("settingLivingRockT7");
-			settingLivingRockT8.checked = returnLocalBool("settingLivingRockT8");
-			// Enchant
-			settingLivingRockE0.checked = returnLocalBool("settingLivingRockE0");
-			settingLivingRockE1.checked = returnLocalBool("settingLivingRockE1");
-			settingLivingRockE2.checked = returnLocalBool("settingLivingRockE2");
-			settingLivingRockE3.checked = returnLocalBool("settingLivingRockE3");
-			settingLivingRockE4.checked = returnLocalBool("settingLivingRockE4");
+		element.checked = lfEnchants['e1'][i];
+		element.addEventListener("click", (e) => {
+			lfEnchants['e1'][ind] = !lfEnchants['e1'][ind];
+			localStorage.setItem("settingLivingFiberEnchants", JSON.stringify(lfEnchants))
+		})
+	}
 
-			// Tier
-			settingLivingHideT1.checked = returnLocalBool("settingLivingHideT1");
-			settingLivingHideT2.checked = returnLocalBool("settingLivingHideT2");
-			settingLivingHideT3.checked = returnLocalBool("settingLivingHideT3");
-			settingLivingHideT4.checked = returnLocalBool("settingLivingHideT4");
-			settingLivingHideT5.checked = returnLocalBool("settingLivingHideT5");
-			settingLivingHideT6.checked = returnLocalBool("settingLivingHideT6");
-			settingLivingHideT7.checked = returnLocalBool("settingLivingHideT7");
-			settingLivingHideT8.checked = returnLocalBool("settingLivingHideT8");
-			// Enchant
-			settingLivingHideE0.checked = returnLocalBool("settingLivingHideE0");
-			settingLivingHideE1.checked = returnLocalBool("settingLivingHideE1");
-			settingLivingHideE2.checked = returnLocalBool("settingLivingHideE2");
-			settingLivingHideE3.checked = returnLocalBool("settingLivingHideE3");
-			settingLivingHideE4.checked = returnLocalBool("settingLivingHideE4");
-			//#endregion
+	for (let i = 0; i < livingFiberParentE2.children.length; i++)
+	{
+		const element = livingFiberParentE2.children[i];
+		const ind = i;
 
+		if (element.nodeName != 'INPUT')
+			continue;
 
-			//#region Living Resources - checkbox event listener
-			// Tier
-			settingLivingFiberT1.addEventListener("click", () => {localStorage.setItem("settingLivingFiberT1", settingLivingFiberT1.checked);});
-			settingLivingFiberT2.addEventListener("click", () => {localStorage.setItem("settingLivingFiberT2", settingLivingFiberT2.checked);});
-			settingLivingFiberT3.addEventListener("click", () => {localStorage.setItem("settingLivingFiberT3", settingLivingFiberT3.checked);});
-			settingLivingFiberT4.addEventListener("click", () => {localStorage.setItem("settingLivingFiberT4", settingLivingFiberT4.checked);});
-			settingLivingFiberT5.addEventListener("click", () => {localStorage.setItem("settingLivingFiberT5", settingLivingFiberT5.checked);});
-			settingLivingFiberT6.addEventListener("click", () => {localStorage.setItem("settingLivingFiberT6", settingLivingFiberT6.checked);});
-			settingLivingFiberT7.addEventListener("click", () => {localStorage.setItem("settingLivingFiberT7", settingLivingFiberT7.checked);});
-			settingLivingFiberT8.addEventListener("click", () => {localStorage.setItem("settingLivingFiberT8", settingLivingFiberT8.checked);});
-			// Enchant
-			settingLivingFiberE0.addEventListener("click", () => {localStorage.setItem("settingLivingFiberE0", settingLivingFiberE0.checked);});
-			settingLivingFiberE1.addEventListener("click", () => {localStorage.setItem("settingLivingFiberE1", settingLivingFiberE1.checked);});
-			settingLivingFiberE2.addEventListener("click", () => {localStorage.setItem("settingLivingFiberE2", settingLivingFiberE2.checked);});
-			settingLivingFiberE3.addEventListener("click", () => {localStorage.setItem("settingLivingFiberE3", settingLivingFiberE3.checked);});
-			settingLivingFiberE4.addEventListener("click", () => {localStorage.setItem("settingLivingFiberE4", settingLivingFiberE4.checked);});
+		element.checked = lfEnchants['e2'][i];
+		element.addEventListener("click", (e) => {
+			lfEnchants['e2'][ind] = !lfEnchants['e2'][ind];
+			localStorage.setItem("settingLivingFiberEnchants", JSON.stringify(lfEnchants))
+		})
+	}
+
+	for (let i = 0; i < livingFiberParentE3.children.length; i++)
+	{
+		const element = livingFiberParentE3.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = lfEnchants['e3'][i];
+		element.addEventListener("click", (e) => {
+			lfEnchants['e3'][ind] = !lfEnchants['e3'][ind];
+			localStorage.setItem("settingLivingFiberEnchants", JSON.stringify(lfEnchants))
+		})
+	}
+
+	for (let i = 0; i < livingFiberParentE4.children.length; i++)
+	{
+		const element = livingFiberParentE4.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = lfEnchants['e4'][i];
+		element.addEventListener("click", (e) => {
+			lfEnchants['e4'][ind] = !lfEnchants['e4'][ind];
+			localStorage.setItem("settingLivingFiberEnchants", JSON.stringify(lfEnchants))
+		})
+	}
+	//#endregion
 			
-			// Tier
-			settingLivingLogT1.addEventListener("click", () => {localStorage.setItem("settingLivingLogT1", settingLivingLogT1.checked);});
-			settingLivingLogT2.addEventListener("click", () => {localStorage.setItem("settingLivingLogT2", settingLivingLogT2.checked);});
-			settingLivingLogT3.addEventListener("click", () => {localStorage.setItem("settingLivingLogT3", settingLivingLogT3.checked);});
-			settingLivingLogT4.addEventListener("click", () => {localStorage.setItem("settingLivingLogT4", settingLivingLogT4.checked);});
-			settingLivingLogT5.addEventListener("click", () => {localStorage.setItem("settingLivingLogT5", settingLivingLogT5.checked);});
-			settingLivingLogT6.addEventListener("click", () => {localStorage.setItem("settingLivingLogT6", settingLivingLogT6.checked);});
-			settingLivingLogT7.addEventListener("click", () => {localStorage.setItem("settingLivingLogT7", settingLivingLogT7.checked);});
-			settingLivingLogT8.addEventListener("click", () => {localStorage.setItem("settingLivingLogT8", settingLivingLogT8.checked);});
-			// Enchant
-			settingLivingLogE0.addEventListener("click", () => {localStorage.setItem("settingLivingLogE0", settingLivingLogE0.checked);});
-			settingLivingLogE1.addEventListener("click", () => {localStorage.setItem("settingLivingLogE1", settingLivingLogE1.checked);});
-			settingLivingLogE2.addEventListener("click", () => {localStorage.setItem("settingLivingLogE2", settingLivingLogE2.checked);});
-			settingLivingLogE3.addEventListener("click", () => {localStorage.setItem("settingLivingLogE3", settingLivingLogE3.checked);});
-			settingLivingLogE4.addEventListener("click", () => {localStorage.setItem("settingLivingLogE4", settingLivingLogE4.checked);});
+	//#region Living hide
+	let lhEnchants = localStorage.getItem("settingLivingHideEnchants") || {
+		'e0': [false, false, false, false, false, false, false, false],
+		'e1': [false, false, false, false, false, false, false, false],
+		'e2': [false, false, false, false, false, false, false, false],
+		'e3': [false, false, false, false, false, false, false, false],
+		'e4': [false, false, false, false, false, false, false, false],
+	};
+
+	if (typeof lhEnchants !== 'object')
+		lhEnchants = JSON.parse(lhEnchants);
+
+	const livingHideParentE0 = document.getElementById("hlp-e0");
+	const livingHideParentE1 = document.getElementById("hlp-e1");
+	const livingHideParentE2 = document.getElementById("hlp-e2");
+	const livingHideParentE3 = document.getElementById("hlp-e3");
+	const livingHideParentE4 = document.getElementById("hlp-e4");
+
+
+	for (let i = 0; i < livingHideParentE0.children.length; i++)
+	{
+		const element = livingHideParentE0.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = lhEnchants['e0'][i];
+		element.addEventListener("click", (e) => {
+			lhEnchants['e0'][ind] = !lhEnchants['e0'][ind];
+			localStorage.setItem("settingLivingHideEnchants", JSON.stringify(lhEnchants))
+		})
+	}
+	
+	for (let i = 0; i < livingHideParentE1.children.length; i++)
+	{
+		const element = livingHideParentE1.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = lhEnchants['e1'][i];
+		element.addEventListener("click", (e) => {
+			lhEnchants['e1'][ind] = !lhEnchants['e1'][ind];
+			localStorage.setItem("settingLivingHideEnchants", JSON.stringify(lhEnchants))
+		})
+	}
+
+	for (let i = 0; i < livingHideParentE2.children.length; i++)
+	{
+		const element = livingHideParentE2.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = lhEnchants['e2'][i];
+		element.addEventListener("click", (e) => {
+			lhEnchants['e2'][ind] = !lhEnchants['e2'][ind];
+			localStorage.setItem("settingLivingHideEnchants", JSON.stringify(lhEnchants))
+		})
+	}
+
+	for (let i = 0; i < livingHideParentE3.children.length; i++)
+	{
+		const element = livingHideParentE3.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = lhEnchants['e3'][i];
+		element.addEventListener("click", (e) => {
+			lhEnchants['e3'][ind] = !lhEnchants['e3'][ind];
+			localStorage.setItem("settingLivingHideEnchants", JSON.stringify(lhEnchants))
+		})
+	}
+
+	for (let i = 0; i < livingHideParentE4.children.length; i++)
+	{
+		const element = livingHideParentE4.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = lhEnchants['e4'][i];
+		element.addEventListener("click", (e) => {
+			lhEnchants['e4'][ind] = !lhEnchants['e4'][ind];
+			localStorage.setItem("settingLivingHideEnchants", JSON.stringify(lhEnchants))
+		})
+	}
+	//#endregion
 			
-			// Tier
-			settingLivingOreT1.addEventListener("click", () => {localStorage.setItem("settingLivingOreT1", settingLivingOreT1.checked);});
-			settingLivingOreT2.addEventListener("click", () => {localStorage.setItem("settingLivingOreT2", settingLivingOreT2.checked);});
-			settingLivingOreT3.addEventListener("click", () => {localStorage.setItem("settingLivingOreT3", settingLivingOreT3.checked);});
-			settingLivingOreT4.addEventListener("click", () => {localStorage.setItem("settingLivingOreT4", settingLivingOreT4.checked);});
-			settingLivingOreT5.addEventListener("click", () => {localStorage.setItem("settingLivingOreT5", settingLivingOreT5.checked);});
-			settingLivingOreT6.addEventListener("click", () => {localStorage.setItem("settingLivingOreT6", settingLivingOreT6.checked);});
-			settingLivingOreT7.addEventListener("click", () => {localStorage.setItem("settingLivingOreT7", settingLivingOreT7.checked);});
-			settingLivingOreT8.addEventListener("click", () => {localStorage.setItem("settingLivingOreT8", settingLivingOreT8.checked);});
-			// Enchant
-			settingLivingOreE0.addEventListener("click", () => {localStorage.setItem("settingLivingOreE0", settingLivingOreE0.checked);});
-			settingLivingOreE1.addEventListener("click", () => {localStorage.setItem("settingLivingOreE1", settingLivingOreE1.checked);});
-			settingLivingOreE2.addEventListener("click", () => {localStorage.setItem("settingLivingOreE2", settingLivingOreE2.checked);});
-			settingLivingOreE3.addEventListener("click", () => {localStorage.setItem("settingLivingOreE3", settingLivingOreE3.checked);});
-			settingLivingOreE4.addEventListener("click", () => {localStorage.setItem("settingLivingOreE4", settingLivingOreE4.checked);});
+	//#region Living wood
+	let lwEnchants = localStorage.getItem("settingLivingWoodEnchants") || {
+		'e0': [false, false, false, false, false, false, false, false],
+		'e1': [false, false, false, false, false, false, false, false],
+		'e2': [false, false, false, false, false, false, false, false],
+		'e3': [false, false, false, false, false, false, false, false],
+		'e4': [false, false, false, false, false, false, false, false],
+	};
 
-			// Tier
-			settingLivingRockT1.addEventListener("click", () => {localStorage.setItem("settingLivingRockT1", settingLivingRockT1.checked);});
-			settingLivingRockT2.addEventListener("click", () => {localStorage.setItem("settingLivingRockT2", settingLivingRockT2.checked);});
-			settingLivingRockT3.addEventListener("click", () => {localStorage.setItem("settingLivingRockT3", settingLivingRockT3.checked);});
-			settingLivingRockT4.addEventListener("click", () => {localStorage.setItem("settingLivingRockT4", settingLivingRockT4.checked);});
-			settingLivingRockT5.addEventListener("click", () => {localStorage.setItem("settingLivingRockT5", settingLivingRockT5.checked);});
-			settingLivingRockT6.addEventListener("click", () => {localStorage.setItem("settingLivingRockT6", settingLivingRockT6.checked);});
-			settingLivingRockT7.addEventListener("click", () => {localStorage.setItem("settingLivingRockT7", settingLivingRockT7.checked);});
-			settingLivingRockT8.addEventListener("click", () => {localStorage.setItem("settingLivingRockT8", settingLivingRockT8.checked);});
-			// Enchant
-			settingLivingRockE0.addEventListener("click", () => {localStorage.setItem("settingLivingRockE0", settingLivingRockE0.checked);});
-			settingLivingRockE1.addEventListener("click", () => {localStorage.setItem("settingLivingRockE1", settingLivingRockE1.checked);});
-			settingLivingRockE2.addEventListener("click", () => {localStorage.setItem("settingLivingRockE2", settingLivingRockE2.checked);});
-			settingLivingRockE3.addEventListener("click", () => {localStorage.setItem("settingLivingRockE3", settingLivingRockE3.checked);});
-			settingLivingRockE4.addEventListener("click", () => {localStorage.setItem("settingLivingRockE4", settingLivingRockE4.checked);});
+	if (typeof lwEnchants !== 'object')
+		lwEnchants = JSON.parse(lwEnchants);
 
-			// Tier
-			settingLivingHideT1.addEventListener("click", () => {localStorage.setItem("settingLivingHideT1", settingLivingHideT1.checked);});
-			settingLivingHideT2.addEventListener("click", () => {localStorage.setItem("settingLivingHideT2", settingLivingHideT2.checked);});
-			settingLivingHideT3.addEventListener("click", () => {localStorage.setItem("settingLivingHideT3", settingLivingHideT3.checked);});
-			settingLivingHideT4.addEventListener("click", () => {localStorage.setItem("settingLivingHideT4", settingLivingHideT4.checked);});
-			settingLivingHideT5.addEventListener("click", () => {localStorage.setItem("settingLivingHideT5", settingLivingHideT5.checked);});
-			settingLivingHideT6.addEventListener("click", () => {localStorage.setItem("settingLivingHideT6", settingLivingHideT6.checked);});
-			settingLivingHideT7.addEventListener("click", () => {localStorage.setItem("settingLivingHideT7", settingLivingHideT7.checked);});
-			settingLivingHideT8.addEventListener("click", () => {localStorage.setItem("settingLivingHideT8", settingLivingHideT8.checked);});
-			// Enchant
-			settingLivingHideE0.addEventListener("click", () => {localStorage.setItem("settingLivingHideE0", settingLivingHideE0.checked);});
-			settingLivingHideE1.addEventListener("click", () => {localStorage.setItem("settingLivingHideE1", settingLivingHideE1.checked);});
-			settingLivingHideE2.addEventListener("click", () => {localStorage.setItem("settingLivingHideE2", settingLivingHideE2.checked);});
-			settingLivingHideE3.addEventListener("click", () => {localStorage.setItem("settingLivingHideE3", settingLivingHideE3.checked);});
-			settingLivingHideE4.addEventListener("click", () => {localStorage.setItem("settingLivingHideE4", settingLivingHideE4.checked);});
-			//#endregion
+	const livingWoodParentE0 = document.getElementById("wlp-e0");
+	const livingWoodParentE1 = document.getElementById("wlp-e1");
+	const livingWoodParentE2 = document.getElementById("wlp-e2");
+	const livingWoodParentE3 = document.getElementById("wlp-e3");
+	const livingWoodParentE4 = document.getElementById("wlp-e4");
 
+
+	for (let i = 0; i < livingWoodParentE0.children.length; i++)
+	{
+		const element = livingWoodParentE0.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = lwEnchants['e0'][i];
+		element.addEventListener("click", (e) => {
+			lwEnchants['e0'][ind] = !lwEnchants['e0'][ind];
+			localStorage.setItem("settingLivingWoodEnchants", JSON.stringify(lwEnchants))
+		})
+	}
+	
+	for (let i = 0; i < livingWoodParentE1.children.length; i++)
+	{
+		const element = livingWoodParentE1.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = lwEnchants['e1'][i];
+		element.addEventListener("click", (e) => {
+			lwEnchants['e1'][ind] = !lwEnchants['e1'][ind];
+			localStorage.setItem("settingLivingWoodEnchants", JSON.stringify(lwEnchants))
+		})
+	}
+
+	for (let i = 0; i < livingWoodParentE2.children.length; i++)
+	{
+		const element = livingWoodParentE2.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = lwEnchants['e2'][i];
+		element.addEventListener("click", (e) => {
+			lwEnchants['e2'][ind] = !lwEnchants['e2'][ind];
+			localStorage.setItem("settingLivingWoodEnchants", JSON.stringify(lwEnchants))
+		})
+	}
+
+	for (let i = 0; i < livingWoodParentE3.children.length; i++)
+	{
+		const element = livingWoodParentE3.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = lwEnchants['e3'][i];
+		element.addEventListener("click", (e) => {
+			lwEnchants['e3'][ind] = !lwEnchants['e3'][ind];
+			localStorage.setItem("settingLivingWoodEnchants", JSON.stringify(lwEnchants))
+		})
+	}
+
+	for (let i = 0; i < livingWoodParentE4.children.length; i++)
+	{
+		const element = livingWoodParentE4.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = lwEnchants['e4'][i];
+		element.addEventListener("click", (e) => {
+			lwEnchants['e4'][ind] = !lwEnchants['e4'][ind];
+			localStorage.setItem("settingLivingWoodEnchants", JSON.stringify(lwEnchants))
+		})
+	}
+	//#endregion
+	
+	//#region Living ore
+	let loEnchants = localStorage.getItem("settingLivingOreEnchants") || {
+		'e0': [false, false, false, false, false, false, false, false],
+		'e1': [false, false, false, false, false, false, false, false],
+		'e2': [false, false, false, false, false, false, false, false],
+		'e3': [false, false, false, false, false, false, false, false],
+		'e4': [false, false, false, false, false, false, false, false],
+	};
+
+	if (typeof loEnchants !== 'object')
+		loEnchants = JSON.parse(loEnchants);
+
+	const livingOreParentE0 = document.getElementById("olp-e0");
+	const livingOreParentE1 = document.getElementById("olp-e1");
+	const livingOreParentE2 = document.getElementById("olp-e2");
+	const livingOreParentE3 = document.getElementById("olp-e3");
+	const livingOreParentE4 = document.getElementById("olp-e4");
+
+
+	for (let i = 0; i < livingOreParentE0.children.length; i++)
+	{
+		const element = livingOreParentE0.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = loEnchants['e0'][i];
+		element.addEventListener("click", (e) => {
+			loEnchants['e0'][ind] = !loEnchants['e0'][ind];
+			localStorage.setItem("settingLivingOreEnchants", JSON.stringify(loEnchants))
+		})
+	}
+	
+	for (let i = 0; i < livingOreParentE1.children.length; i++)
+	{
+		const element = livingOreParentE1.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = loEnchants['e1'][i];
+		element.addEventListener("click", (e) => {
+			loEnchants['e1'][ind] = !loEnchants['e1'][ind];
+			localStorage.setItem("settingLivingOreEnchants", JSON.stringify(loEnchants))
+		})
+	}
+
+	for (let i = 0; i < livingOreParentE2.children.length; i++)
+	{
+		const element = livingOreParentE2.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = loEnchants['e2'][i];
+		element.addEventListener("click", (e) => {
+			loEnchants['e2'][ind] = !loEnchants['e2'][ind];
+			localStorage.setItem("settingLivingOreEnchants", JSON.stringify(loEnchants))
+		})
+	}
+
+	for (let i = 0; i < livingOreParentE3.children.length; i++)
+	{
+		const element = livingOreParentE3.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = loEnchants['e3'][i];
+		element.addEventListener("click", (e) => {
+			loEnchants['e3'][ind] = !loEnchants['e3'][ind];
+			localStorage.setItem("settingLivingOreEnchants", JSON.stringify(loEnchants))
+		})
+	}
+
+	for (let i = 0; i < livingOreParentE4.children.length; i++)
+	{
+		const element = livingOreParentE4.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = loEnchants['e4'][i];
+		element.addEventListener("click", (e) => {
+			loEnchants['e4'][ind] = !loEnchants['e4'][ind];
+			localStorage.setItem("settingLivingOreEnchants", JSON.stringify(loEnchants))
+		})
+	}
+	//#endregion
+
+	//#region Living rock
+	let lrEnchants = localStorage.getItem("settingLivingRockEnchants") || {
+		'e0': [false, false, false, false, false, false, false, false],
+		'e1': [false, false, false, false, false, false, false, false],
+		'e2': [false, false, false, false, false, false, false, false],
+		'e3': [false, false, false, false, false, false, false, false],
+		'e4': [false, false, false, false, false, false, false, false],
+	};
+
+	if (typeof lrEnchants !== 'object')
+		lrEnchants = JSON.parse(lrEnchants);
+
+	const livingRockParentE0 = document.getElementById("rlp-e0");
+	const livingRockParentE1 = document.getElementById("rlp-e1");
+	const livingRockParentE2 = document.getElementById("rlp-e2");
+	const livingRockParentE3 = document.getElementById("rlp-e3");
+	const livingRockParentE4 = document.getElementById("rlp-e4");
+
+
+	for (let i = 0; i < livingRockParentE0.children.length; i++)
+	{
+		const element = livingRockParentE0.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = lrEnchants['e0'][i];
+		element.addEventListener("click", (e) => {
+			lrEnchants['e0'][ind] = !lrEnchants['e0'][ind];
+			localStorage.setItem("settingLivingRockEnchants", JSON.stringify(lrEnchants))
+		})
+	}
+	
+	for (let i = 0; i < livingRockParentE1.children.length; i++)
+	{
+		const element = livingRockParentE1.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = lrEnchants['e1'][i];
+		element.addEventListener("click", (e) => {
+			lrEnchants['e1'][ind] = !lrEnchants['e1'][ind];
+			localStorage.setItem("settingLivingRockEnchants", JSON.stringify(lrEnchants))
+		})
+	}
+
+	for (let i = 0; i < livingRockParentE2.children.length; i++)
+	{
+		const element = livingRockParentE2.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = lrEnchants['e2'][i];
+		element.addEventListener("click", (e) => {
+			lrEnchants['e2'][ind] = !lrEnchants['e2'][ind];
+			localStorage.setItem("settingLivingRockEnchants", JSON.stringify(lrEnchants))
+		})
+	}
+
+	for (let i = 0; i < livingRockParentE3.children.length; i++)
+	{
+		const element = livingRockParentE3.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = lrEnchants['e3'][i];
+		element.addEventListener("click", (e) => {
+			lrEnchants['e3'][ind] = !lrEnchants['e3'][ind];
+			localStorage.setItem("settingLivingRockEnchants", JSON.stringify(lrEnchants))
+		})
+	}
+
+	for (let i = 0; i < livingRockParentE4.children.length; i++)
+	{
+		const element = livingRockParentE4.children[i];
+		const ind = i;
+
+		if (element.nodeName != 'INPUT')
+			continue;
+
+		element.checked = lrEnchants['e4'][i];
+		element.addEventListener("click", (e) => {
+			lrEnchants['e4'][ind] = !lrEnchants['e4'][ind];
+			localStorage.setItem("settingLivingRockEnchants", JSON.stringify(lrEnchants))
+		})
+	}
+	//#endregion
+	//#endregion
+
+		
 			//#region Other
 			let settingFishing = document.getElementById("settingFishing");
 			settingFishing.checked = returnLocalBool("settingFishing");
