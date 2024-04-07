@@ -84,20 +84,54 @@ class Settings
         //#endregion
 
         //#region Living ressources
-        this.harvestingLivingFiberTiers = [false, false, false, false, false, false, false, false];
-        this.harvestingLivingFiberEnchants = [false, false, false, false, false, false];
+        /* 
+        {
+            'e0': [false, false, false, false, false, false, false, false],
+            'e1': [false, false, false, false, false, false, false, false],
+            'e2': [false, false, false, false, false, false, false, false],
+            'e3': [false, false, false, false, false, false, false, false],
+            'e4': [false, false, false, false, false, false, false, false],
+        };
+        */
+        this.harvestingLivingFiber = {
+            'e0': [false, false, false, false, false, false, false, false],
+            'e1': [false, false, false, false, false, false, false, false],
+            'e2': [false, false, false, false, false, false, false, false],
+            'e3': [false, false, false, false, false, false, false, false],
+            'e4': [false, false, false, false, false, false, false, false],
+        };
 
-        this.harvestingLivingLogTiers = [false, false, false, false, false, false, false, false];
-        this.harvestingLivingLogEnchants = [false, false, false, false, false, false];
+        this.harvestingLivingWood = {
+            'e0': [false, false, false, false, false, false, false, false],
+            'e1': [false, false, false, false, false, false, false, false],
+            'e2': [false, false, false, false, false, false, false, false],
+            'e3': [false, false, false, false, false, false, false, false],
+            'e4': [false, false, false, false, false, false, false, false],
+        };
 
-        this.harvestingLivingHideTiers = [false, false, false, false, false, false, false, false];
-        this.harvestingLivingHideEnchants = [false, false, false, false, false, false];
+        this.harvestingLivingHide = {
+            'e0': [false, false, false, false, false, false, false, false],
+            'e1': [false, false, false, false, false, false, false, false],
+            'e2': [false, false, false, false, false, false, false, false],
+            'e3': [false, false, false, false, false, false, false, false],
+            'e4': [false, false, false, false, false, false, false, false],
+        };
 
-        this.harvestingLivingOreTiers = [false, false, false, false, false, false, false, false];
-        this.harvestingLivingOreEnchants = [false, false, false, false, false, false];
+        this.harvestingLivingOre = {
+            'e0': [false, false, false, false, false, false, false, false],
+            'e1': [false, false, false, false, false, false, false, false],
+            'e2': [false, false, false, false, false, false, false, false],
+            'e3': [false, false, false, false, false, false, false, false],
+            'e4': [false, false, false, false, false, false, false, false],
+        };
 
-        this.harvestingLivingRockTiers = [false, false, false, false, false, false, false, false];
-        this.harvestingLivingRockEnchants = [false, false, false, false, false, false];
+        this.harvestingLivingRock = {
+            'e0': [false, false, false, false, false, false, false, false],
+            'e1': [false, false, false, false, false, false, false, false],
+            'e2': [false, false, false, false, false, false, false, false],
+            'e3': [false, false, false, false, false, false, false, false],
+            'e4': [false, false, false, false, false, false, false, false],
+        };
 
         this.livingResourcesHP = false;
         this.livingResourcesID = false;
@@ -363,86 +397,29 @@ class Settings
         //#endregion
 
 
-        /* Living harvestables */
-        // Tier
-        this.harvestingLivingFiberTiers[0] = this.returnLocalBool("settingLivingFiberT1");
-        this.harvestingLivingFiberTiers[1] = this.returnLocalBool("settingLivingFiberT2");
-        this.harvestingLivingFiberTiers[2] = this.returnLocalBool("settingLivingFiberT3");
-        this.harvestingLivingFiberTiers[3] = this.returnLocalBool("settingLivingFiberT4");
-        this.harvestingLivingFiberTiers[4] = this.returnLocalBool("settingLivingFiberT5");
-        this.harvestingLivingFiberTiers[5] = this.returnLocalBool("settingLivingFiberT6");
-        this.harvestingLivingFiberTiers[6] = this.returnLocalBool("settingLivingFiberT7");
-        this.harvestingLivingFiberTiers[7] = this.returnLocalBool("settingLivingFiberT8");
-        // Enchant
-        this.harvestingLivingFiberEnchants[0] = this.returnLocalBool("settingLivingFiberE0");
-        this.harvestingLivingFiberEnchants[1] = this.returnLocalBool("settingLivingFiberE1");
-        this.harvestingLivingFiberEnchants[2] = this.returnLocalBool("settingLivingFiberE2");
-        this.harvestingLivingFiberEnchants[3] = this.returnLocalBool("settingLivingFiberE3");
-        this.harvestingLivingFiberEnchants[4] = this.returnLocalBool("settingLivingFiberE4");
+        //#region Living Harvestables
 
-        // Tier
-        this.harvestingLivingRockTiers[0] = this.returnLocalBool("settingLivingRockT1");
-        this.harvestingLivingRockTiers[1] = this.returnLocalBool("settingLivingRockT2");
-        this.harvestingLivingRockTiers[2] = this.returnLocalBool("settingLivingRockT3");
-        this.harvestingLivingRockTiers[3] = this.returnLocalBool("settingLivingRockT4");
-        this.harvestingLivingRockTiers[4] = this.returnLocalBool("settingLivingRockT5");
-        this.harvestingLivingRockTiers[5] = this.returnLocalBool("settingLivingRockT6");
-        this.harvestingLivingRockTiers[6] = this.returnLocalBool("settingLivingRockT7");
-        this.harvestingLivingRockTiers[7] = this.returnLocalBool("settingLivingRockT8");
-        // Enchant
-        this.harvestingLivingRockEnchants[0] = this.returnLocalBool("settingLivingRockE0");
-        this.harvestingLivingRockEnchants[1] = this.returnLocalBool("settingLivingRockE1");
-        this.harvestingLivingRockEnchants[2] = this.returnLocalBool("settingLivingRockE2");
-        this.harvestingLivingRockEnchants[3] = this.returnLocalBool("settingLivingRockE3");
-        this.harvestingLivingRockEnchants[4] = this.returnLocalBool("settingLivingRockE4");
+        this.harvestingLivingFiber = localStorage.getItem("settingLivingFiberEnchants") || this.harvestingLivingFiber;
+        if (typeof this.harvestingLivingFiber !== 'object')
+            this.harvestingLivingFiber = JSON.parse(this.harvestingLivingFiber);
 
-        // Tier
-        this.harvestingLivingOreTiers[0] = this.returnLocalBool("settingLivingOreT1");
-        this.harvestingLivingOreTiers[1] = this.returnLocalBool("settingLivingOreT2");
-        this.harvestingLivingOreTiers[2] = this.returnLocalBool("settingLivingOreT3");
-        this.harvestingLivingOreTiers[3] = this.returnLocalBool("settingLivingOreT4");
-        this.harvestingLivingOreTiers[4] = this.returnLocalBool("settingLivingOreT5");
-        this.harvestingLivingOreTiers[5] = this.returnLocalBool("settingLivingOreT6");
-        this.harvestingLivingOreTiers[6] = this.returnLocalBool("settingLivingOreT7");
-        this.harvestingLivingOreTiers[7] = this.returnLocalBool("settingLivingOreT8");
-        // Enchant
-        this.harvestingLivingOreEnchants[0] = this.returnLocalBool("settingLivingOreE0");
-        this.harvestingLivingOreEnchants[1] = this.returnLocalBool("settingLivingOreE1");
-        this.harvestingLivingOreEnchants[2] = this.returnLocalBool("settingLivingOreE2");
-        this.harvestingLivingOreEnchants[3] = this.returnLocalBool("settingLivingOreE3");
-        this.harvestingLivingOreEnchants[4] = this.returnLocalBool("settingLivingOreE4");
+        this.harvestingLivingHide = localStorage.getItem("settingLivingHideEnchants") || this.harvestingLivingHide;
+        if (typeof this.harvestingLivingHide !== 'object')
+            this.harvestingLivingHide = JSON.parse(this.harvestingLivingHide);
+        
+        this.harvestingLivingOre = localStorage.getItem("settingLivingOreEnchants") || this.harvestingLivingOre;
+        if (typeof this.harvestingLivingOre !== 'object')
+            this.harvestingLivingOre = JSON.parse(this.harvestingLivingOre);
 
-        // Tier
-        this.harvestingLivingHideTiers[0] = this.returnLocalBool("settingLivingHideT1");
-        this.harvestingLivingHideTiers[1] = this.returnLocalBool("settingLivingHideT2");
-        this.harvestingLivingHideTiers[2] = this.returnLocalBool("settingLivingHideT3");
-        this.harvestingLivingHideTiers[3] = this.returnLocalBool("settingLivingHideT4");
-        this.harvestingLivingHideTiers[4] = this.returnLocalBool("settingLivingHideT5");
-        this.harvestingLivingHideTiers[5] = this.returnLocalBool("settingLivingHideT6");
-        this.harvestingLivingHideTiers[6] = this.returnLocalBool("settingLivingHideT7");
-        this.harvestingLivingHideTiers[7] = this.returnLocalBool("settingLivingHideT8");
-        // Enchant
-        this.harvestingLivingHideEnchants[0] = this.returnLocalBool("settingLivingHideE0");
-        this.harvestingLivingHideEnchants[1] = this.returnLocalBool("settingLivingHideE1");
-        this.harvestingLivingHideEnchants[2] = this.returnLocalBool("settingLivingHideE2");
-        this.harvestingLivingHideEnchants[3] = this.returnLocalBool("settingLivingHideE3");
-        this.harvestingLivingHideEnchants[4] = this.returnLocalBool("settingLivingHideE4");
+        this.harvestingLivingWood = localStorage.getItem("settingLivingWoodEnchants") || this.harvestingLivingWood;
+        if (typeof this.harvestingLivingWood !== 'object')
+            this.harvestingLivingWood = JSON.parse(this.harvestingLivingWood);
 
-        // Tier
-        this.harvestingLivingLogTiers[0] = this.returnLocalBool("settingLivingLogT1");
-        this.harvestingLivingLogTiers[1] = this.returnLocalBool("settingLivingLogT2");
-        this.harvestingLivingLogTiers[2] = this.returnLocalBool("settingLivingLogT3");
-        this.harvestingLivingLogTiers[3] = this.returnLocalBool("settingLivingLogT4");
-        this.harvestingLivingLogTiers[4] = this.returnLocalBool("settingLivingLogT5");
-        this.harvestingLivingLogTiers[5] = this.returnLocalBool("settingLivingLogT6");
-        this.harvestingLivingLogTiers[6] = this.returnLocalBool("settingLivingLogT7");
-        this.harvestingLivingLogTiers[7] = this.returnLocalBool("settingLivingLogT8");
-        // Enchant
-        this.harvestingLivingLogEnchants[0] = this.returnLocalBool("settingLivingLogE0");
-        this.harvestingLivingLogEnchants[1] = this.returnLocalBool("settingLivingLogE1");
-        this.harvestingLivingLogEnchants[2] = this.returnLocalBool("settingLivingLogE2");
-        this.harvestingLivingLogEnchants[3] = this.returnLocalBool("settingLivingLogE3");
-        this.harvestingLivingLogEnchants[4] = this.returnLocalBool("settingLivingLogE4");
+        this.harvestingLivingRock = localStorage.getItem("settingLivingRockEnchants") || this.harvestingLivingRock;
+        if (typeof this.harvestingLivingRock !== 'object')
+            this.harvestingLivingRock = JSON.parse(this.harvestingLivingRock);
+
+        //#endregion
 
         this.livingResourcesHP = this.returnLocalBool("settingLivingResourcesHP");
         this.livingResourcesID = this.returnLocalBool("settingLivingResourcesID");

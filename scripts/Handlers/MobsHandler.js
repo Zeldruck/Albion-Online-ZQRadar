@@ -191,37 +191,37 @@ class MobsHandler
                 /* 
                    Same as animals comment before
                 */
-                if (h.name == "ore")
-                {
-                    if ((!this.settings.harvestingLivingOreTiers[h.tier-1] || !this.settings.harvestingLivingOreEnchants[enchant]))
-                    {
-                        this.harvestablesNotGood.push(h);
-                        return;
-                    }
+                let iG = true;
+
+                switch (h.name) {
+                    case "fiber":
+                        if (!this.settings.harvestingLivingFiber[`e${enchant}`][h.tier-1]) iG = false;
+                        break;
+
+                    case "hide":
+                        if (!this.settings.harvestingLivingHide[`e${enchant}`][h.tier-1]) iG = false;
+                        break;
+
+                    case "Logs":
+                        if (!this.settings.harvestingLivingWood[`e${enchant}`][h.tier-1]) iG = false;
+                        break;
+
+                    case "ore":
+                        if (!this.settings.harvestingLivingOre[`e${enchant}`][h.tier-1]) iG = false;
+                        break;
+                    
+                    case "rock":
+                        if (!this.settings.harvestingLivingRock[`e${enchant}`][h.tier-1]) iG = false;
+                        break;
+                
+                    default:
+                        break;
                 }
-                else if (h.name == "rock")
+
+                if (!iG)
                 {
-                    if ((!this.settings.harvestingLivingRockTiers[h.tier-1] || !this.settings.harvestingLivingRockEnchants[enchant]))
-                    {
-                        this.harvestablesNotGood.push(h);
-                        return;
-                    }
-                }
-                else if (h.name == "Logs")
-                {
-                    if ((!this.settings.harvestingLivingLogTiers[h.tier-1] || !this.settings.harvestingLivingLogEnchants[enchant]))
-                    {
-                        this.harvestablesNotGood.push(h);
-                        return;
-                    }
-                }
-                else if (h.name == "fiber")
-                {
-                    if ((!this.settings.harvestingLivingFiberTiers[h.tier-1] || !this.settings.harvestingLivingFiberEnchants[enchant]))
-                    {
-                        this.harvestablesNotGood.push(h);
-                        return;
-                    }
+                    this.harvestablesNotGood.push(h);
+                    return;
                 }
             }
             // Should do the work and handle all the enemies
@@ -306,7 +306,7 @@ class MobsHandler
         }
 
         // Else try in our not good list
-        var enemy = this.harvestablesNotGood.find((mob) => mob.id == mobId);
+        enemy = this.harvestablesNotGood.find((mob) => mob.id == mobId);
 
         if (!enemy) return;
 
@@ -316,40 +316,51 @@ class MobsHandler
 
         if (enemy.type == EnemyType.LivingSkinnable)
         {
-            if (!this.settings.harvestingLivingHideTiers[enemy.tier-1] && !this.settings.harvestingLivingHideEnchants[enemy.enchantmentLevel])
+            if (!this.settings.harvestingLivingHide[`e${enemy.enchantmentLevel}`][enemy.tier-1])
                 return;
 
             hasToSwapFromList = true;
         }
         else if (enemy.type == EnemyType.LivingHarvestable)
         {
-            if (enemy.name == "ore")
-            {
-                if (!this.settings.harvestingLivingOreTiers[enemy.tier-1] || !this.settings.harvestingLivingOreEnchants[enemy.enchantmentLevel])
-                    return;
+            switch (enemy.name) {
+                case "fiber":
+                    if (!this.settings.harvestingLivingFiber[`e${enemy.enchantmentLevel}`][enemy.tier-1])
+                        return;
 
-                hasToSwapFromList = true;
-            }
-            else if (enemy.name == "rock")
-            {
-                if (!this.settings.harvestingLivingRockTiers[enemy.tier-1] || !this.settings.harvestingLivingRockEnchants[enemy.enchantmentLevel])
-                    return;
+                    hasToSwapFromList = true;
+                    break;
 
-                 hasToSwapFromList = true;
-            }
-            else if (enemy.name == "Logs")
-            {
-                if (!this.settings.harvestingLivingLogTiers[enemy.tier-1] || !this.settings.harvestingLivingLogEnchants[enemy.enchantmentLevel])
-                    return;
+                case "hide":
+                    if (!this.settings.harvestingLivingHide[`e${enemy.enchantmentLevel}`][enemy.tier-1])
+                        return;
 
-                hasToSwapFromList = true;
-            }
-            else if (enemy.name == "fiber")
-            {
-                if (!this.settings.harvestingLivingFiberTiers[enemy.tier-1] || !this.settings.harvestingLivingFiberEnchants[enemy.enchantmentLevel])
-                    return;
+                    hasToSwapFromList = true;
+                    break;
 
-                hasToSwapFromList = true;
+                case "Logs":
+                    if (!this.settings.harvestingLivingWood[`e${enemy.enchantmentLevel}`][enemy.tier-1])
+                        return;
+
+                    hasToSwapFromList = true;
+                    break;
+
+                case "ore":
+                    if (!this.settings.harvestingLivingOre[`e${enemy.enchantmentLevel}`][enemy.tier-1])
+                        return;
+
+                    hasToSwapFromList = true;
+                    break;
+                
+                case "rock":
+                    if (!this.settings.harvestingLivingRock[`e${enemy.enchantmentLevel}`][enemy.tier-1])
+                        return;
+
+                    hasToSwapFromList = true;
+                    break;
+            
+                default:
+                    break;
             }
         }
 
