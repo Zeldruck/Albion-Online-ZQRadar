@@ -131,7 +131,17 @@ else
   console.log();
 }
 
-const device = Cap.findDevice(adapterIp);
+let device = Cap.findDevice(adapterIp);
+
+if (device == undefined)
+{
+  console.log();
+  console.log(`Last adapter is not working, please choose a new one.`);
+  console.log();
+
+  adapterIp = getAdapterIp();
+  device = Cap.findDevice(adapterIp);
+}
 
 const filter = 'udp and (dst port 5056 or src port 5056)';
 var bufSize =  4096;
