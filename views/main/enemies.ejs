@@ -75,10 +75,6 @@
                     <input type="checkbox" id="settingShowUnmanagedEnemies" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
                     <span class="dark:text-white ml-2">Show enemies with unmanaged ids?</span>
                 </label>
-                <label class="flex items-center">
-                    <input type="checkbox" id="settingShowEventEnemies" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
-                    <span class="dark:text-white ml-2">Event enemies</span>
-                </label>
 			</div>
 		</div>
 
@@ -190,9 +186,7 @@
         settingAllEnemies.checked = !settingAllEnemies.checked;
         localStorage.setItem("settingAllEnemies", settingAllEnemies.checked);
     }
-    //#endregion
 
-    //#region Other
     const settingAvaloneDrones = document.getElementById("settingAvaloneDrones");
     settingAvaloneDrones.checked = returnLocalBool("settingAvaloneDrones");
     settingAvaloneDrones.addEventListener("click", () => {localStorage.setItem("settingAvaloneDrones", settingAvaloneDrones.checked);});
@@ -200,11 +194,6 @@
     const settingShowUnmanagedEnemies = document.getElementById("settingShowUnmanagedEnemies");
     settingShowUnmanagedEnemies.checked = returnLocalBool("settingShowUnmanagedEnemies");
     settingShowUnmanagedEnemies.addEventListener("click", () => {localStorage.setItem("settingShowUnmanagedEnemies", settingShowUnmanagedEnemies.checked);});
-
-    const settingShowEventEnemies = document.getElementById("settingShowEventEnemies");
-    settingShowEventEnemies.checked = returnLocalBool("settingShowEventEnemies");
-    settingShowEventEnemies.addEventListener("click", () => {localStorage.setItem("settingShowEventEnemies", settingShowEventEnemies.checked);});
-
     //#endregion
 
     //#region Mists

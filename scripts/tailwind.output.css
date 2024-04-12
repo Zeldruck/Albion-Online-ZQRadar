@@ -2086,3 +2086,9 @@ img, video {
 {
     cursor: pointer;
 }
+
+.glowing-effect {
+    --bg-opacity: 1;
+    background-color: #7e3af2; /* Purple background */
+    box-shadow: 0 0 8px rgba(126, 58, 242, 0.6); /* Glowing effect */
+}

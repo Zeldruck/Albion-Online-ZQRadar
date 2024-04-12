@@ -84,14 +84,6 @@ export class MobsDrawing extends DrawingUtils
                 drawHp = this.settings.enemiesHP;
                 drawId = this.settings.enemiesID;
             }
-            else if (mobOne.type == EnemyType.Events)
-            {
-                imageName = mobOne.name;
-                imageFolder = "Resources";
-
-                drawHp = this.settings.enemiesHP;
-                drawId = this.settings.enemiesID;
-            }
 
             if (imageName !== undefined && imageFolder !== undefined)
                 this.DrawCustomImage(ctx, point.x, point.y, imageName, imageFolder, 40);

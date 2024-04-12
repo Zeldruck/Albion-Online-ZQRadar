@@ -58,5 +58,6 @@ function data() {
       this.isModalOpen = false
       this.trapCleanup()
     },
+    currentPath: window.location.pathname, // Add this line
   }
 }

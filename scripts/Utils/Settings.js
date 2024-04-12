@@ -92,7 +92,6 @@ class Settings
 
         this.avaloneDrones = false;
         this.showUnmanagedEnemies = false;
-        this.showEventEnemies = false;
 
         //#region Mists
         this.bossCrystalSpider = false;
@@ -482,7 +481,6 @@ class Settings
 
         this.avaloneDrones = this.returnLocalBool("settingAvaloneDrones");
         this.showUnmanagedEnemies = this.returnLocalBool("settingShowUnmanagedEnemies");
-        this.showEventEnemies = this.returnLocalBool("settingShowEventEnemies");
 
         this.enemiesHP = this.returnLocalBool("settingEnemiesHP");
         this.enemiesID = this.returnLocalBool("settingEnemiesID");
