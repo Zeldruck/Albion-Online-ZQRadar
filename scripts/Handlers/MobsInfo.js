@@ -841,13 +841,13 @@ class MobsInfo{
         this.addItem(698, 8, EnemyType.Events, "EVENTEASTERCHEST2");
 
         // Enemies
-        this.addItem(632, 2, EnemyType.Events, "EVENTEASTERCHEST1");
-        this.addItem(633, 3, EnemyType.Events, "EVENTEASTERCHEST1");
-        this.addItem(634, 4, EnemyType.Events, "EVENTEASTERCHEST1");
-        this.addItem(635, 5, EnemyType.Events, "EVENTEASTERCHEST1");
-        this.addItem(636, 6, EnemyType.Events, "EVENTEASTERCHEST1");
-        this.addItem(637, 7, EnemyType.Events, "EVENTEASTERCHEST1");
-        this.addItem(638, 8, EnemyType.Events, "EVENTEASTERCHEST1");
+        this.addItem(732, 2, EnemyType.Events, "EVENTEASTERCHEST1");
+        this.addItem(733, 3, EnemyType.Events, "EVENTEASTERCHEST1");
+        this.addItem(734, 4, EnemyType.Events, "EVENTEASTERCHEST1");
+        this.addItem(735, 5, EnemyType.Events, "EVENTEASTERCHEST1");
+        this.addItem(736, 6, EnemyType.Events, "EVENTEASTERCHEST1");
+        this.addItem(737, 7, EnemyType.Events, "EVENTEASTERCHEST1");
+        this.addItem(738, 8, EnemyType.Events, "EVENTEASTERCHEST1");
         //#endregion
  
         //#endregion
