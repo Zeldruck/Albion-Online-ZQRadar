@@ -42,23 +42,23 @@ class HarvestablesHandler
         switch (this.GetStringType(type))
         {
             case HarvestableType.Fiber:
-                if (!this.settings.harvestingFiberTiers[tier - 1] || !this.settings.harvestingFiberEnchants[charges]) return;
+                if (!this.settings.harvestingStaticFiber[`e${charges}`][tier-1]) return;
                 break;
 
             case HarvestableType.Hide:
-                if (!this.settings.harvestingHideTiers[tier - 1] || !this.settings.harvestingHideEnchants[charges]) return;
+                if (!this.settings.harvestingStaticHide[`e${charges}`][tier-1]) return;
                 break;
 
             case HarvestableType.Log:
-                if (!this.settings.harvestingLogTiers[tier - 1] || !this.settings.harvestingLogEnchants[charges]) return;
+                if (!this.settings.harvestingStaticWood[`e${charges}`][tier-1]) return;
                 break;
 
             case HarvestableType.Ore:
-                if (!this.settings.harvestingOreTiers[tier - 1] || !this.settings.harvestingOreEnchants[charges]) return;
+                if (!this.settings.harvestingStaticOre[`e${charges}`][tier-1]) return;
                 break;
 
             case HarvestableType.Rock:
-                if (!this.settings.harvestingRockTiers[tier - 1] || !this.settings.harvestingRockEnchants[charges]) return;
+                if (!this.settings.harvestingStaticRock[`e${charges}`][tier-1]) return;
                 break;
 
             default:
@@ -85,23 +85,23 @@ class HarvestablesHandler
         switch (this.GetStringType(type))
         {
             case HarvestableType.Fiber:
-                if (!this.settings.harvestingFiberTiers[tier - 1] || !this.settings.harvestingFiberEnchants[charges]) return;
+                if (!this.settings.harvestingStaticFiber[`e${charges}`][tier-1]) return;
                 break;
 
             case HarvestableType.Hide:
-                if (!this.settings.harvestingHideTiers[tier - 1] || !this.settings.harvestingHideEnchants[charges]) return;
+                if (!this.settings.harvestingStaticHide[`e${charges}`][tier-1]) return;
                 break;
 
             case HarvestableType.Log:
-                if (!this.settings.harvestingLogTiers[tier - 1] || !this.settings.harvestingLogEnchants[charges]) return;
+                if (!this.settings.harvestingStaticWood[`e${charges}`][tier-1]) return;
                 break;
 
             case HarvestableType.Ore:
-                if (!this.settings.harvestingOreTiers[tier - 1] || !this.settings.harvestingOreEnchants[charges]) return;
+                if (!this.settings.harvestingStaticOre[`e${charges}`][tier-1]) return;
                 break;
 
             case HarvestableType.Rock:
-                if (!this.settings.harvestingRockTiers[tier - 1] || !this.settings.harvestingRockEnchants[charges]) return;
+                if (!this.settings.harvestingStaticRock[`e${charges}`][tier-1]) return;
                 break;
 
             default:
@@ -160,8 +160,8 @@ class HarvestablesHandler
         this.UpdateHarvestable(id, type, tier, location[0], location[1], enchant, size);
     }
 
-     base64ToArrayBuffer(base64)
-     {
+    base64ToArrayBuffer(base64)
+    {
         var binaryString = atob(base64);
         var bytes = new Uint8Array(binaryString.length);
 
