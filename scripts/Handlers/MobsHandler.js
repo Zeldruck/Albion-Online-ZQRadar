@@ -180,7 +180,7 @@ class MobsHandler
                    And it's the same with the other living harvestables
                    But keep that in case it changes
                 */
-                if ((!this.settings.harvestingLivingHideTiers[h.tier-1] || !this.settings.harvestingLivingHideEnchants[enchant]))
+                if (!this.settings.harvestingLivingHide[`e${enchant}`][h.tier-1])
                 {
                     this.harvestablesNotGood.push(h);
                     return;
