@@ -156,30 +156,30 @@ class MobsInfo{
 
         //#region Rock
         // Highland +25
-        this.addItem(451, 3, EnemyType.LivingHarvestable, "rock");
-        this.addItem(452, 3, EnemyType.LivingHarvestable, "rock");
-        this.addItem(453, 5, EnemyType.LivingHarvestable, "rock");
-        this.addItem(454, 5, EnemyType.LivingHarvestable, "rock");
-        this.addItem(455, 7, EnemyType.LivingHarvestable, "rock");
+        this.addItem(459, 3, EnemyType.LivingHarvestable, "rock");
+        this.addItem(460, 3, EnemyType.LivingHarvestable, "rock");
+        this.addItem(461, 5, EnemyType.LivingHarvestable, "rock");
+        this.addItem(462, 5, EnemyType.LivingHarvestable, "rock");
+        this.addItem(463, 7, EnemyType.LivingHarvestable, "rock");
 
         // Roads <=> Tx_MOB_CRITTER_ROCK_ROADS +25
-        this.addItem(486, 4, EnemyType.LivingHarvestable, "rock");
-        this.addItem(487, 5, EnemyType.LivingHarvestable, "rock");
-        this.addItem(488, 6, EnemyType.LivingHarvestable, "rock");
-        this.addItem(489, 7, EnemyType.LivingHarvestable, "rock");
-        this.addItem(490, 8, EnemyType.LivingHarvestable, "rock");
+        this.addItem(494, 4, EnemyType.LivingHarvestable, "rock");
+        this.addItem(495, 5, EnemyType.LivingHarvestable, "rock");
+        this.addItem(496, 6, EnemyType.LivingHarvestable, "rock");
+        this.addItem(497, 7, EnemyType.LivingHarvestable, "rock");
+        this.addItem(498, 8, EnemyType.LivingHarvestable, "rock");
         // Veteran Roads <=> Tx_MOB_CRITTER_ROCK_ROADS_VETERAN +25
-        this.addItem(491, 4, EnemyType.LivingHarvestable, "rock");
-        this.addItem(492, 5, EnemyType.LivingHarvestable, "rock");
-        this.addItem(493, 6, EnemyType.LivingHarvestable, "rock");
-        this.addItem(494, 7, EnemyType.LivingHarvestable, "rock");
-        this.addItem(495, 8, EnemyType.LivingHarvestable, "rock");
+        this.addItem(499, 4, EnemyType.LivingHarvestable, "rock");
+        this.addItem(500, 5, EnemyType.LivingHarvestable, "rock");
+        this.addItem(501, 6, EnemyType.LivingHarvestable, "rock");
+        this.addItem(502, 7, EnemyType.LivingHarvestable, "rock");
+        this.addItem(503, 8, EnemyType.LivingHarvestable, "rock");
         // Elite Roads <=> Tx_MOB_CRITTER_ROCK_ROADS_ELITE +25
-        this.addItem(496, 4, EnemyType.LivingHarvestable, "rock");
-        this.addItem(497, 5, EnemyType.LivingHarvestable, "rock");
-        this.addItem(498, 6, EnemyType.LivingHarvestable, "rock");
-        this.addItem(499, 7, EnemyType.LivingHarvestable, "rock");
-        this.addItem(500, 8, EnemyType.LivingHarvestable, "rock");
+        this.addItem(504, 4, EnemyType.LivingHarvestable, "rock");
+        this.addItem(505, 5, EnemyType.LivingHarvestable, "rock");
+        this.addItem(506, 6, EnemyType.LivingHarvestable, "rock");
+        this.addItem(507, 7, EnemyType.LivingHarvestable, "rock");
+        this.addItem(508, 8, EnemyType.LivingHarvestable, "rock");
 
         // Mists Green <=> Tx_MOB_CRITTER_ROCK_MISTS_GREEN +25
         this.addItem(537, 3, EnemyType.LivingHarvestable, "rock");
@@ -206,30 +206,30 @@ class MobsInfo{
 
         //#region Ore
         // Mountain +25
-        this.addItem(441, 3, EnemyType.LivingHarvestable, "ore");
-        this.addItem(442, 3, EnemyType.LivingHarvestable, "ore");
-        this.addItem(443, 5, EnemyType.LivingHarvestable, "ore");
-        this.addItem(444, 5, EnemyType.LivingHarvestable, "ore");
-        this.addItem(445, 7, EnemyType.LivingHarvestable, "ore");
+        this.addItem(449, 3, EnemyType.LivingHarvestable, "ore");
+        this.addItem(450, 3, EnemyType.LivingHarvestable, "ore");
+        this.addItem(451, 5, EnemyType.LivingHarvestable, "ore");
+        this.addItem(452, 5, EnemyType.LivingHarvestable, "ore");
+        this.addItem(453, 7, EnemyType.LivingHarvestable, "ore");
 
         // Roads <=> Tx_MOB_CRITTER_ORE_ROADS +25
-        this.addItem(501, 4, EnemyType.LivingHarvestable, "ore");
-        this.addItem(502, 5, EnemyType.LivingHarvestable, "ore");
-        this.addItem(503, 6, EnemyType.LivingHarvestable, "ore");
-        this.addItem(504, 7, EnemyType.LivingHarvestable, "ore");
-        this.addItem(505, 8, EnemyType.LivingHarvestable, "ore");
+        this.addItem(509, 4, EnemyType.LivingHarvestable, "ore");
+        this.addItem(510, 5, EnemyType.LivingHarvestable, "ore");
+        this.addItem(511, 6, EnemyType.LivingHarvestable, "ore");
+        this.addItem(512, 7, EnemyType.LivingHarvestable, "ore");
+        this.addItem(513, 8, EnemyType.LivingHarvestable, "ore");
         // Veteran Roads <=> Tx_MOB_CRITTER_ORE_ROADS_VETERAN +25
-        this.addItem(506, 4, EnemyType.LivingHarvestable, "ore");
-        this.addItem(507, 5, EnemyType.LivingHarvestable, "ore");
-        this.addItem(508, 6, EnemyType.LivingHarvestable, "ore");
-        this.addItem(509, 7, EnemyType.LivingHarvestable, "ore");
-        this.addItem(510, 8, EnemyType.LivingHarvestable, "ore");
+        this.addItem(514, 4, EnemyType.LivingHarvestable, "ore");
+        this.addItem(515, 5, EnemyType.LivingHarvestable, "ore");
+        this.addItem(516, 6, EnemyType.LivingHarvestable, "ore");
+        this.addItem(517, 7, EnemyType.LivingHarvestable, "ore");
+        this.addItem(518, 8, EnemyType.LivingHarvestable, "ore");
         // Elite Roads <=> Tx_MOB_CRITTER_ORE_ROADS_ELITE +25
-        this.addItem(511, 4, EnemyType.LivingHarvestable, "ore");
-        this.addItem(512, 5, EnemyType.LivingHarvestable, "ore");
-        this.addItem(513, 6, EnemyType.LivingHarvestable, "ore");
-        this.addItem(514, 7, EnemyType.LivingHarvestable, "ore");
-        this.addItem(515, 8, EnemyType.LivingHarvestable, "ore");
+        this.addItem(519, 4, EnemyType.LivingHarvestable, "ore");
+        this.addItem(520, 5, EnemyType.LivingHarvestable, "ore");
+        this.addItem(521, 6, EnemyType.LivingHarvestable, "ore");
+        this.addItem(522, 7, EnemyType.LivingHarvestable, "ore");
+        this.addItem(523, 8, EnemyType.LivingHarvestable, "ore");
 
         // Mists Green <=> Tx_MOB_CRITTER_ORE_MISTS_GREEN +25
         this.addItem(543, 3, EnemyType.LivingHarvestable, "ore");
@@ -256,28 +256,28 @@ class MobsInfo{
 
         //#region Fiber
         // ??? <=> Don't know the location <=> Tx_MOB_CRITTER_FIBER + 25
-        this.addItem(435, 3, EnemyType.LivingHarvestable, "fiber");
-        this.addItem(436, 5, EnemyType.LivingHarvestable, "fiber");
-        this.addItem(437, 7, EnemyType.LivingHarvestable, "fiber");
+        this.addItem(443, 3, EnemyType.LivingHarvestable, "fiber");
+        this.addItem(444, 5, EnemyType.LivingHarvestable, "fiber");
+        this.addItem(445, 7, EnemyType.LivingHarvestable, "fiber");
 
         // Roads <=> Tx_MOB_CRITTER_FIBER_ROADS +25
-        this.addItem(516, 4, EnemyType.LivingHarvestable, "fiber");
-        this.addItem(517, 5, EnemyType.LivingHarvestable, "fiber");
-        this.addItem(518, 6, EnemyType.LivingHarvestable, "fiber");
-        this.addItem(519, 7, EnemyType.LivingHarvestable, "fiber");
-        this.addItem(520, 8, EnemyType.LivingHarvestable, "fiber");
+        this.addItem(524, 4, EnemyType.LivingHarvestable, "fiber");
+        this.addItem(525, 5, EnemyType.LivingHarvestable, "fiber");
+        this.addItem(526, 6, EnemyType.LivingHarvestable, "fiber");
+        this.addItem(527, 7, EnemyType.LivingHarvestable, "fiber");
+        this.addItem(58, 8, EnemyType.LivingHarvestable, "fiber");
         // Veteran Roads <=> Tx_MOB_CRITTER_FIBER_ROADS_VETERAN +25
-        this.addItem(521, 4, EnemyType.LivingHarvestable, "fiber");
-        this.addItem(522, 5, EnemyType.LivingHarvestable, "fiber");
-        this.addItem(523, 6, EnemyType.LivingHarvestable, "fiber");
-        this.addItem(524, 7, EnemyType.LivingHarvestable, "fiber");
-        this.addItem(525, 8, EnemyType.LivingHarvestable, "fiber");
+        this.addItem(529, 4, EnemyType.LivingHarvestable, "fiber");
+        this.addItem(530, 5, EnemyType.LivingHarvestable, "fiber");
+        this.addItem(531, 6, EnemyType.LivingHarvestable, "fiber");
+        this.addItem(532, 7, EnemyType.LivingHarvestable, "fiber");
+        this.addItem(533, 8, EnemyType.LivingHarvestable, "fiber");
         // Elite Roads <=> Tw_MOB_CRITTER_FIBER_ROADS_ELITE +25
-        this.addItem(526, 4, EnemyType.LivingHarvestable, "fiber");
-        this.addItem(527, 5, EnemyType.LivingHarvestable, "fiber");
-        this.addItem(528, 6, EnemyType.LivingHarvestable, "fiber");
-        this.addItem(529, 7, EnemyType.LivingHarvestable, "fiber");
-        this.addItem(530, 8, EnemyType.LivingHarvestable, "fiber");
+        this.addItem(534, 4, EnemyType.LivingHarvestable, "fiber");
+        this.addItem(535, 5, EnemyType.LivingHarvestable, "fiber");
+        this.addItem(536, 6, EnemyType.LivingHarvestable, "fiber");
+        this.addItem(537, 7, EnemyType.LivingHarvestable, "fiber");
+        this.addItem(538, 8, EnemyType.LivingHarvestable, "fiber");
 
         // Mists Green <=> Tx_MOB_CRITTER_FIBER_MISTS_GREEN +25
         this.addItem(549, 3, EnemyType.LivingHarvestable, "fiber");
