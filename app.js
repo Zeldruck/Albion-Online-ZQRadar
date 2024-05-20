@@ -9,7 +9,8 @@ const WebSocket = require('ws');
 
 const fs = require("fs");
 
-const { getAdapterIp } = require('./server-scripts/adapter-selector')
+const { getAdapterIp } = require('./server-scripts/adapter-selector');
+const { downloadItemImage } = require('./server-scripts/image-downloader');
 
 
 
@@ -75,6 +76,17 @@ app.get('/settings', (req, res) => {
 });
 
 
+app.get('/retrieve-image/:fileName', async (req, res) => {
+  const fileName = req.params.fileName
+  const itemName = fileName.replace('.png', '')
+  const image = await downloadItemImage(itemName);
+
+  res.writeHead(200, {
+    'Content-Type': 'image/png',
+    'Content-Length': image.byteLength,
+  })
+  res.end(image)
+})
 
 
 app.get('/drawing', (req, res) => {
