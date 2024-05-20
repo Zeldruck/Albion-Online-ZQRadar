@@ -180,6 +180,11 @@ class Settings
         this.chestYellow = false;
         //#endregion  
 
+        //#region FootTracks
+        this.settingFootTracksSolo  = false;
+        this.settingFootTracksGroup  = false;
+        //#endregion
+
         this.update();
     }
 
@@ -482,6 +487,11 @@ class Settings
         this.dungeonGroup = this.returnLocalBool("settingDungeonDuo");
         this.dungeonCorrupted = this.returnLocalBool("settingDungeonCorrupted");
         this.dungeonHellgate = this.returnLocalBool("settingDungeonHellgate");
+        //#endregion
+
+        //#region FootTracks
+        this.settingFootTracksSolo = this.returnLocalBool("settingFootTracksSolo");
+        this.settingFootTracksGroup = this.returnLocalBool("settingFootTracksGroup");
         //#endregion
 
         this.ignoreList = JSON.parse(localStorage.getItem("ignoreList")) || [];
