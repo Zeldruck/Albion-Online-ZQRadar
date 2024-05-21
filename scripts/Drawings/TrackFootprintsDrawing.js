@@ -35,11 +35,16 @@ export class TrackFootprintsDrawing extends DrawingUtils {
             }
 
             const point = this.transformPoint(footprint.hX, footprint.hY);
-            this.drawFilledCircle(ctx, point.x, point.y, 10, "#FF6347"); // Dibujar un círculo lleno para las huellas
 
-            // Dibujar nombre de la huella
-            const textWidth = ctx.measureText(footprint.name).width;
-            this.drawTextItems(point.x - textWidth / 2, point.y + 24, footprint.name, ctx, "12px", "yellow");
+            // Obtener el nombre de la imagen basado en el parámetro 3
+            let imageName = footprint.name.toLowerCase().replace("shared_track_", "");
+            if (footprint.type === 'SOLO') {
+                imageName = `solo_${imageName}`;
+            } else if (footprint.type === 'GROUP') {
+                imageName = `group_${imageName}`;
+            }
+
+            this.DrawCustomImage(ctx, point.x, point.y, imageName, 'Resources', 60);
         }
     }
 }
