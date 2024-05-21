@@ -23,7 +23,7 @@ export class TrackFootprintsDrawing extends DrawingUtils {
         const showGroup = this.settings.returnLocalBool("settingFootTracksGroup");
 
         if (!showSolo && !showGroup) {
-            return; // No dibujar huellas si ambos ajustes están deshabilitados
+            return; 
         }
 
         for (const footprint of footprints) {
@@ -31,12 +31,12 @@ export class TrackFootprintsDrawing extends DrawingUtils {
             const isGroup = footprint.name.includes("GROUP");
 
             if ((isSolo && !showSolo) || (isGroup && !showGroup)) {
-                continue; // Filtrar huellas según los ajustes
+                continue; 
             }
 
             const point = this.transformPoint(footprint.hX, footprint.hY);
 
-            // Obtener el nombre de la imagen basado en el parámetro 3
+
             let imageName = footprint.name.toLowerCase().replace("shared_track_", "");
             if (footprint.type === 'SOLO') {
                 imageName = `solo_${imageName}`;
