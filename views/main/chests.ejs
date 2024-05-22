@@ -158,8 +158,26 @@
 
 			</div>
 		</div>
-
-
+		<div class="mt-8 flex items-start p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+			<div>
+				<h2 class=" text-4xl font-semibold text-gray-600 dark:text-gray-300">
+					FootTracks
+				</h2>
+			</div>
+		</div>
+		
+		<div class="flex items-start p-4 bg-white rounded-lg shadow-xs dark:bg-gray-800">
+			<div>
+				<label class="flex items-center space-x-2">
+					<input type="checkbox" id="settingFootTracksSolo" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+					<span class="dark:text-white ml-4">Show SOLO FootTracks</span>
+				</label>
+				<label class="flex items-center space-x-2">
+					<input type="checkbox" id="settingFootTracksGroup" class="h-5 w-5 text-indigo-600 border-gray-300 rounded-md focus:ring-indigo-500 focus:border-indigo-500">
+					<span class="dark:text-white ml-4">Show GROUP FootTracks</span>
+				</label>
+			</div>
+		</div>
 	</div>
 </div>
 
@@ -333,5 +351,21 @@
 			settingDungeonHellgate.addEventListener("click", () => {
 				localStorage.setItem("settingDungeonHellgate", settingDungeonHellgate.checked);
 			});
+
+			
+			let settingFootTracksSolo = document.getElementById("settingFootTracksSolo");
+			let settingFootTracksGroup = document.getElementById("settingFootTracksGroup");
+
+			settingFootTracksSolo.checked = returnLocalBool("settingFootTracksSolo");
+			settingFootTracksGroup.checked = returnLocalBool("settingFootTracksGroup");
+
+			settingFootTracksSolo.addEventListener("click", () => {
+				localStorage.setItem("settingFootTracksSolo", settingFootTracksSolo.checked);
+			});
+
+			settingFootTracksGroup.addEventListener("click", () => {
+				localStorage.setItem("settingFootTracksGroup", settingFootTracksGroup.checked);
+			});
+
 
 </script>
