@@ -33,7 +33,7 @@ Join the [Discord](https://discord.gg/XAWjmzeaD3) to look at the to-do list and 
 1. Download Node.js v18.18.2:
 - [Node.js v18.18.2 (64-bit)](https://nodejs.org/dist/v18.18.2/node-v18.18.2-x64.msi)
 2. Download Npcap:
-- [Npcap 1.72](https://npcap.com/dist/npcap-1.72.exe)
+- [Npcap 1.79](https://npcap.com/dist/npcap-1.79.exe)
 3. Download the the latest release
 - [Releases](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases)
 7. Open the file `_RUN.bat` and wait for the line:
@@ -53,7 +53,7 @@ input the number here:
 1. Download Node.js v18.18.2:
 - [Node.js v18.18.2 (64-bit)](https://nodejs.org/dist/v18.18.2/node-v18.18.2-x64.msi)
 2. Download Npcap:
-- [Npcap 1.72](https://npcap.com/dist/npcap-1.72.exe)
+- [Npcap 1.79](https://npcap.com/dist/npcap-1.79.exe)
 3. Download Python 3.10.2:
 - [Python 3.10.2 (64-bit)](https://www.python.org/ftp/python/3.10.2/python-3.10.2-amd64.exe)
 4. Download Windows Build Tools:

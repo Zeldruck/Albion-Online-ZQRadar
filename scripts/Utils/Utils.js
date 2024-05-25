@@ -8,11 +8,16 @@ import { MapDrawing } from '../Drawings/MapsDrawing.js';
 import { WispCageDrawing } from '../Drawings/WispCageDrawing.js';
 import { FishingDrawing } from '../Drawings/FishingDrawing.js';
 
+import { TrackFootprintsDrawing } from '../Drawings/TrackFootprintsDrawing.js';
 import { EventCodes } from './EventCodes.js';
 
 import { PlayersHandler } from '../Handlers/PlayersHandler.js';
+import { MobsHandler } from '../Handlers/MobsHandler.js';
 import { WispCageHandler } from '../Handlers/WispCageHandler.js';
 import { FishingHandler } from '../Handlers/FishingHandler.js';
+import { TrackFootprintsHandler } from '../Handlers/TrackFootprintsHandler.js';
+
+import { GetMobList } from '../../mob-info/MobsInfo.js';
 
 var canvasMap = document.getElementById("mapCanvas");
 var contextMap = canvasMap.getContext("2d");
@@ -38,17 +43,15 @@ const harvestablesDrawing = new HarvestablesDrawing(settings);
 const dungeonsHandler = new DungeonsHandler(settings);
 
 var itemsInfo = new ItemsInfo();
-var mobsInfo = new MobsInfo();
 
 itemsInfo.initItems();
-mobsInfo.initMobs();
 
 var map = new MapH(-1);
 const mapsDrawing = new MapDrawing(settings);
 
 const chestsHandler = new ChestsHandler();
 const mobsHandler = new MobsHandler(settings);
-mobsHandler.updateMobInfo(mobsInfo.moblist);
+mobsHandler.updateMobInfo(GetMobList());
 
 
 const harvestablesHandler = new HarvestablesHandler(settings);
@@ -64,6 +67,8 @@ const chestsDrawing = new ChestsDrawing(settings);
 const mobsDrawing = new MobsDrawing(settings);
 const playersDrawing = new PlayersDrawing(settings);
 const dungeonsDrawing = new DungeonsDrawing(settings);
+const trackFootprintsHandler = new TrackFootprintsHandler(settings);
+const trackFootprintsDrawing = new TrackFootprintsDrawing(settings);
 playersDrawing.updateItemsInfo(itemsInfo.iteminfo);
 
 
@@ -116,6 +121,14 @@ function onEvent(Parameters)
     const eventCode = Parameters[252];
 
     switch (eventCode) {
+        
+        case EventCodes.Track:
+            const trackPosX = Parameters[1][0];
+            const trackPosY = Parameters[1][1];
+            const name = Parameters[3];
+            trackFootprintsHandler.addFootprint(id, trackPosX, trackPosY, name);
+            break;
+
         case EventCodes.Leave:
             playersHandler.removePlayer(id);
             mobsHandler.removeMist(id);
@@ -123,6 +136,7 @@ function onEvent(Parameters)
             dungeonsHandler.RemoveDungeon(id);
             chestsHandler.removeChest(id);
             fishingHandler.RemoveFish(id);
+            trackFootprintsHandler.removeFootprint(id);
             break;
 
         case EventCodes.Move:
@@ -131,6 +145,7 @@ function onEvent(Parameters)
             playersHandler.updatePlayerPosition(id, posX, posY);
             mobsHandler.updateMistPosition(id, posX, posY);
             mobsHandler.updateMobPosition(id, posX, posY);
+            trackFootprintsHandler.updateFootprintPosition(id, posX, posY);
             break;
 
         case EventCodes.NewPlayer:
@@ -248,9 +263,8 @@ function render() {
     fishingDrawing.Draw(context, fishingHandler.fishes);
     dungeonsDrawing.Draw(context, dungeonsHandler.dungeonList);
     playersDrawing.invalidate(context, playersHandler.playersInRange);
-
+    trackFootprintsDrawing.invalidate(context, trackFootprintsHandler.getFootprintsList());
 }
-
 
 var previousTime = performance.now();
 
@@ -284,6 +298,7 @@ function update() {
     fishingDrawing.Interpolate(fishingHandler.fishes, lpX, lpY, t);
     dungeonsDrawing.interpolate(dungeonsHandler.dungeonList, lpX, lpY, t);
     playersDrawing.interpolate(playersHandler.playersInRange, lpX, lpY, t);
+    trackFootprintsDrawing.interpolate(trackFootprintsHandler.getFootprintsList(), lpX, lpY, t);
 
     previousTime = currentTime;
 }
