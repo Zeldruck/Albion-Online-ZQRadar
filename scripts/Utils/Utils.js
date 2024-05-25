@@ -12,6 +12,7 @@ import { TrackFootprintsDrawing } from '../Drawings/TrackFootprintsDrawing.js';
 import { EventCodes } from './EventCodes.js';
 
 import { PlayersHandler } from '../Handlers/PlayersHandler.js';
+import { MobsHandler } from '../Handlers/MobsHandler.js';
 import { WispCageHandler } from '../Handlers/WispCageHandler.js';
 import { FishingHandler } from '../Handlers/FishingHandler.js';
 import { TrackFootprintsHandler } from '../Handlers/TrackFootprintsHandler.js';
