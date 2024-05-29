@@ -148,7 +148,7 @@ function onEvent(Parameters)
             trackFootprintsHandler.updateFootprintPosition(id, posX, posY);
             break;
 
-        case EventCodes.NewPlayer:
+        case EventCodes.NewCharacter:
             playersHandler.handleNewPlayerEvent(Parameters);
             break;
 
