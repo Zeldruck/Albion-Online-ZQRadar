@@ -30,13 +30,11 @@ Join the [Discord](https://discord.gg/XAWjmzeaD3) to look at the to-do list and 
 
 ## 🔰 How to run (Windows)
 
-1. Download Node.js v18.18.2:
-- [Node.js v18.18.2 (64-bit)](https://nodejs.org/dist/v18.18.2/node-v18.18.2-x64.msi)
-2. Download Npcap:
+1. Download Npcap:
 - [Npcap 1.79](https://npcap.com/dist/npcap-1.79.exe)
-3. Download the the latest release
+2. Download the the latest release
 - [Releases](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases)
-7. Open the file `_RUN.bat` and wait for the line:
+3. Open the radar and wait for the line:
 ```
 Please select one of the adapter that you use to connect to the internet:
   1. ******
@@ -45,8 +43,10 @@ Please select one of the adapter that you use to connect to the internet:
 
 input the number here:
 ```
-8. Choose the right adapter and enter the number. 
-9. You can now access the radar features by going to `http://localhost:5001` in your browser.
+4. Choose the right adapter and enter the number (do not choose 127.0.0.1). 
+5. Authenticate yourself with discord.
+6. Click on the "Launch radar" button.
+7. You can now access the radar features by going to `http://localhost:5001` in your browser.
 
 ## 👨‍💻 For the devs (Windows)
 
@@ -59,8 +59,8 @@ input the number here:
 4. Download Windows Build Tools:
 - [Windows Build Tools](https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=BuildTools)
 - And select `Desktop development with C++` (the first one normally), and install
-5. Download the source code of the latest release
-- [Releases](https://github.com/Zeldruck/Albion-Online-ZQRadar/releases)
+5. Download the source code of the latest dev branch
+- [Branch](https://github.com/Zeldruck/Albion-Online-ZQRadar/tree/old-radar-dev)
 6. Run the following line:
 ```
 npm install
