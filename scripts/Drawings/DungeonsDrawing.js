@@ -27,7 +27,14 @@ export class DungeonsDrawing extends DrawingUtils
     {
         for (const dungeonOne of dungeons)
         {
+
             if (dungeonOne.drawName === undefined) continue;
+            //----------------
+            const match = dungeonOne.drawName.match(/_(\d)/);
+            if (match) {
+                dungeonOne.drawName = dungeonOne.drawName.split('_')[0] + '_' + match[1];
+            }
+            //----------------
 
             const point = this.transformPoint(dungeonOne.hX, dungeonOne.hY);
             this.DrawCustomImage(ctx, point.x, point.y, dungeonOne.drawName, "Resources", 40);

@@ -88,7 +88,7 @@ class DungeonsHandler
         else if (lowerCaseName.includes("solo")) // solo
         {
             // Test if solo checkbox
-            if (!this.settings.dungeonSolo || !this.settings.dungeonEnchants[enchant]) return;
+            if (!this.settings.dungeonSolo /*|| !this.settings.dungeonEnchants[enchant]*/) return;
 
             dungeonType = DungeonType.Solo;
         }

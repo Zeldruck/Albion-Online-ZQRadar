@@ -89,7 +89,10 @@
         {
             this.settings.preloadImageAndAddToList(src, folder)
             .then(() => console.log('Item loaded'))
-            .catch(() => console.log('Item not loaded'));
+            .catch(() => { 
+                this.drawFilledCircle(ctx, x, y, 10, "#4169E1");
+                console.log('Item not loaded')
+            });
         }
     }
 

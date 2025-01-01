@@ -17,7 +17,9 @@ import { WispCageHandler } from '../Handlers/WispCageHandler.js';
 import { FishingHandler } from '../Handlers/FishingHandler.js';
 import { TrackFootprintsHandler } from '../Handlers/TrackFootprintsHandler.js';
 
-import { GetMobList } from '../../mob-info/MobsInfo.js';
+//import { GetMobList } from '../../mob-info/MobsInfo.js';
+
+let coord = document.getElementById("logCoor");
 
 var canvasMap = document.getElementById("mapCanvas");
 var contextMap = canvasMap.getContext("2d");
@@ -51,7 +53,7 @@ const mapsDrawing = new MapDrawing(settings);
 
 const chestsHandler = new ChestsHandler();
 const mobsHandler = new MobsHandler(settings);
-mobsHandler.updateMobInfo(await GetMobList());
+//mobsHandler.updateMobInfo(await GetMobList());
 
 
 const harvestablesHandler = new HarvestablesHandler(settings);
@@ -115,11 +117,16 @@ socket.addEventListener('message', (event) => {
 });
 
 
+//MARK: EVENTS
 function onEvent(Parameters)
 {
     const id = parseInt(Parameters[0]);
-    const eventCode = Parameters[252];
-
+    let eventCode = Parameters[252];
+ 
+    if(parseInt(eventCode) > 10){
+        eventCode = parseInt(eventCode) - 1;
+    }
+  
     switch (eventCode) {
         
         case EventCodes.Track:
@@ -149,7 +156,8 @@ function onEvent(Parameters)
             break;
 
         case EventCodes.NewCharacter:
-            playersHandler.handleNewPlayerEvent(Parameters);
+            console.log("Nuevo Player", Parameters)
+            playersHandler.handleNewPlayerEvent(Parameters, [lpX, lpY]);
             break;
 
         case EventCodes.NewSimpleHarvestableObjectList:
@@ -185,6 +193,7 @@ function onEvent(Parameters)
             break;
 
         case EventCodes.Mounted:
+            console.log("Mount", Parameters)
             playersHandler.handleMountedPlayerEvent(id, Parameters);
             break;
 
@@ -226,6 +235,10 @@ function onRequest(Parameters)
     {
         lpX = Parameters[1][0];
         lpY = Parameters[1][1];
+
+        if(coord != null){
+            coord.innerHTML = "X: " + lpX + ", Y: " + lpY;
+        }
 
         //console.log("X: " + lpX + ", Y: " + lpY);
     }    
