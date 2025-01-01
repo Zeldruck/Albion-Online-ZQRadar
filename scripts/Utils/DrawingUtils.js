@@ -89,7 +89,10 @@
         {
             this.settings.preloadImageAndAddToList(src, folder)
             .then(() => console.log('Item loaded'))
-            .catch(() => console.log('Item not loaded'));
+            .catch(() => { 
+                this.drawFilledCircle(ctx, x, y, 10, "#4169E1");
+                console.log('Item not loaded')
+            });
         }
     }
 
@@ -111,17 +114,30 @@
     }
 
 
-     drawText(xTemp, yTemp, text, ctx )
-     {
-         ctx.font = this.fontSize + " " + this.fontFamily;
-         ctx.fillStyle = this.textColor;
-  
-         let x = xTemp;
-         let y = yTemp;
+    drawText(xTemp, yTemp, text, ctx, size = 12, font = undefined, bgColor = 'transparent', borderRadius = 0) {
 
-         const textWidth = ctx.measureText(text).width;
+      
+        let fontSize = (size == undefined ? this.fontSize : size);
+        ctx.font = fontSize  + "px " + (font == undefined ? this.fontFamily : font);
+        ctx.fillStyle = this.textColor;
+    
+        let x = xTemp;
+        let y = yTemp;
+    
+        const textWidth = ctx.measureText(text).width;
+        const textHeight = fontSize; // Aproximación del alto del texto
+    
+        // Dibujar el fondo con bordes redondeados
+        ctx.fillStyle = bgColor;
+        ctx.beginPath();
+        ctx.roundRect(x - textWidth / 2 - 3, y - textHeight - 3, textWidth + 8, textHeight + 8, borderRadius);
+        ctx.fill();
+    
+        // Dibujar el texto
+        ctx.fillStyle = this.textColor;
+        ctx.fillText(text, x - textWidth / 2, y);
 
-         ctx.fillText(text, x - textWidth / 2, y);
+        ctx.font = this.fontSize + "px " + this.fontFamily;
     }
 
 

@@ -17,7 +17,9 @@ import { WispCageHandler } from '../Handlers/WispCageHandler.js';
 import { FishingHandler } from '../Handlers/FishingHandler.js';
 import { TrackFootprintsHandler } from '../Handlers/TrackFootprintsHandler.js';
 
-import { GetMobList } from '../../mob-info/MobsInfo.js';
+//import { GetMobList } from '../../mob-info/MobsInfo.js';
+
+let coord = document.getElementById("logCoor");
 
 var canvasMap = document.getElementById("mapCanvas");
 var contextMap = canvasMap.getContext("2d");
@@ -51,7 +53,7 @@ const mapsDrawing = new MapDrawing(settings);
 
 const chestsHandler = new ChestsHandler();
 const mobsHandler = new MobsHandler(settings);
-mobsHandler.updateMobInfo(await GetMobList());
+//mobsHandler.updateMobInfo(await GetMobList());
 
 
 const harvestablesHandler = new HarvestablesHandler(settings);
@@ -72,8 +74,17 @@ const trackFootprintsDrawing = new TrackFootprintsDrawing(settings);
 playersDrawing.updateItemsInfo(itemsInfo.iteminfo);
 
 
+//----------------
 let lpX = 0.0;
 let lpY = 0.0;
+let get_data = sessionStorage.getItem("save_data_map");
+get_data = JSON.parse(get_data) ?? undefined;
+if(get_data != undefined && get_data["map_id"] != undefined){
+    map.id = get_data["map_id"];
+    lpX = parseFloat(get_data["lpX"]) ?? 0.0;
+    lpY = parseFloat(get_data["lpY"]) ?? 0.0; 
+} 
+//----------------
 
 const drawingUtils = new DrawingUtils();
 drawingUtils.initCanvas(canvas, context);
@@ -115,11 +126,17 @@ socket.addEventListener('message', (event) => {
 });
 
 
+//MARK: EVENTS
 function onEvent(Parameters)
 {
     const id = parseInt(Parameters[0]);
-    const eventCode = Parameters[252];
-
+    let eventCode = Parameters[252];
+ 
+    if(parseInt(eventCode) > 10){
+        eventCode = parseInt(eventCode) - 1;
+    }
+  
+  
     switch (eventCode) {
         
         case EventCodes.Track:
@@ -149,7 +166,7 @@ function onEvent(Parameters)
             break;
 
         case EventCodes.NewCharacter:
-            playersHandler.handleNewPlayerEvent(Parameters);
+            playersHandler.handleNewPlayerEvent(Parameters, [lpX, lpY]);
             break;
 
         case EventCodes.NewSimpleHarvestableObjectList:
@@ -185,6 +202,7 @@ function onEvent(Parameters)
             break;
 
         case EventCodes.Mounted:
+            //console.log("Mount", Parameters)
             playersHandler.handleMountedPlayerEvent(id, Parameters);
             break;
 
@@ -227,6 +245,10 @@ function onRequest(Parameters)
         lpX = Parameters[1][0];
         lpY = Parameters[1][1];
 
+        if(coord != null){
+            coord.innerHTML = "X: " + lpX + ", Y: " + lpY;
+        }
+
         //console.log("X: " + lpX + ", Y: " + lpY);
     }    
 };
@@ -237,12 +259,14 @@ function onResponse(Parameters)
     if (Parameters[253] == 35)
     {
         map.id = Parameters[0];
+        sessionStorage.setItem("save_data_map", JSON.stringify({"map_id": Parameters[0], "lpX": lpX, "lpY": lpY}));
     }
     // All data on the player joining the map (us)
     else if (Parameters[253] == 2)
     {
         lpX = Parameters[9][0];
         lpY = Parameters[9][1];
+        sessionStorage.setItem("save_data_map", JSON.stringify({"map_id": map.id, "lpX": lpX, "lpY": lpY}));
     }
 };
 

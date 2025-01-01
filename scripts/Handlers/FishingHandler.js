@@ -67,9 +67,9 @@ export class FishingHandler
     {
         if (!this.settings.showFish) return;
 
-        console.log("Fishing END:");
+        /*console.log("Fishing END:");
         console.log(Parameters);
-        console.log();
+        console.log();*/
 
         const id = Parameters[0];
 

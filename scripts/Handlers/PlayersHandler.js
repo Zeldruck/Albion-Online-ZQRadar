@@ -87,7 +87,7 @@ export class PlayersHandler {
         }
     }
 
-    handleNewPlayerEvent(Parameters)
+    handleNewPlayerEvent(Parameters, Pos)
     {
         if (!this.settings.settingDot)
             return;
@@ -122,17 +122,18 @@ export class PlayersHandler {
         }
 
         /* Position */
-        var positionArray = Parameters[14];
-        const posX = positionArray[0];
-        const posY = positionArray[1];
+        //var positionArray = Parameters[14];
+        // IMPORTANT: The Parameters[14] is not always present or has been changed directly. Therefore, it is not possible to locate a character. We use placeholder data for the coordinates until an alternative is found.
+        const posX = /*Pos[0] +*/ Parameters[30]; //positionArray[0];
+        const posY = /*Pos[1] +*/ Parameters[35];//positionArray[1];
 
         /* Health */
-        const currentHealth = Parameters[20];
-        const initialHealth = Parameters[21];
+        const currentHealth = Parameters[23];
+        const initialHealth = Parameters[22];
 
         /* Items & flag */
-        const items = Parameters[38];
-        const flagId = Parameters[51];
+        const items = Parameters[40];
+        const flagId = Parameters[45];
 
         this.addPlayer(posX, posY, id, nickname, guildName, currentHealth, initialHealth, items, this.settings.settingSound, flagId);
     }
