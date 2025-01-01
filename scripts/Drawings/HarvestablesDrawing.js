@@ -103,12 +103,32 @@ export class HarvestablesDrawing extends DrawingUtils  {
             // Change Resources to Animals/LHarvestables (living harvestables)
             this.DrawCustomImage(ctx, point.x, point.y, draw, "Resources", 50);
 
-            if (this.settings.livingResourcesID)
-                this.drawText(point.x, point.y + 20, type.toString(), ctx);
+            //if (this.settings.livingResourcesID)
+                let tier = "I";
+                switch (harvestableOne.tier) {
+                    case 1: tier = "I"; break;
+                    case 2: tier = "II"; break;
+                    case 3: tier = "III"; break;
+                    case 4: tier = "IV"; break;
+                    case 5: tier = "V"; break;
+                    case 6: tier = "VI"; break;
+                    case 6: tier = "VII"; break;
+                    case 6: tier = "VIII"; break;
+                
+                    default:
+                        tier = "";
+                        break;
+                }
+
+            //if (this.settings.livingResourcesID)
+              
+            this.drawText(point.x - 10, point.y - 10, tier.toString(), ctx, 9, "monospace", "#585858", 10); //-- TIER
+                
 
             // TODO
             if (this.settings.resourceSize)
-                this.drawText(point.x, point.y - 20, harvestableOne.size, ctx);
+                harvestableOne.size = parseInt(harvestableOne.size);
+                this.drawText(point.x + 13, point.y + 15, harvestableOne.size, ctx, 8); //Count
             
         }
     }  

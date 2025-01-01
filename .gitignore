@@ -145,16 +145,11 @@ ip.txt
 
 BUILD PACKAGE/
 
-scripts/Handlers/MobsInfo.js
-
-app.js
-
 auth.auth.auth
-
 nexe.txt
-
 discord-checker/
 
 mob-infos/
-
 mob-info/
+
+package-lock.json

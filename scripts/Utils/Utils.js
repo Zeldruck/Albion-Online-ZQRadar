@@ -74,8 +74,17 @@ const trackFootprintsDrawing = new TrackFootprintsDrawing(settings);
 playersDrawing.updateItemsInfo(itemsInfo.iteminfo);
 
 
+//----------------
 let lpX = 0.0;
 let lpY = 0.0;
+let get_data = sessionStorage.getItem("save_data_map");
+get_data = JSON.parse(get_data) ?? undefined;
+if(get_data != undefined && get_data["map_id"] != undefined){
+    map.id = get_data["map_id"];
+    lpX = parseFloat(get_data["lpX"]) ?? 0.0;
+    lpY = parseFloat(get_data["lpY"]) ?? 0.0; 
+} 
+//----------------
 
 const drawingUtils = new DrawingUtils();
 drawingUtils.initCanvas(canvas, context);
@@ -127,6 +136,7 @@ function onEvent(Parameters)
         eventCode = parseInt(eventCode) - 1;
     }
   
+  
     switch (eventCode) {
         
         case EventCodes.Track:
@@ -156,7 +166,6 @@ function onEvent(Parameters)
             break;
 
         case EventCodes.NewCharacter:
-            console.log("Nuevo Player", Parameters)
             playersHandler.handleNewPlayerEvent(Parameters, [lpX, lpY]);
             break;
 
@@ -193,7 +202,7 @@ function onEvent(Parameters)
             break;
 
         case EventCodes.Mounted:
-            console.log("Mount", Parameters)
+            //console.log("Mount", Parameters)
             playersHandler.handleMountedPlayerEvent(id, Parameters);
             break;
 
@@ -250,12 +259,14 @@ function onResponse(Parameters)
     if (Parameters[253] == 35)
     {
         map.id = Parameters[0];
+        sessionStorage.setItem("save_data_map", JSON.stringify({"map_id": Parameters[0], "lpX": lpX, "lpY": lpY}));
     }
     // All data on the player joining the map (us)
     else if (Parameters[253] == 2)
     {
         lpX = Parameters[9][0];
         lpY = Parameters[9][1];
+        sessionStorage.setItem("save_data_map", JSON.stringify({"map_id": map.id, "lpX": lpX, "lpY": lpY}));
     }
 };
 
