@@ -1,4 +1,4 @@
-export const EventCodes =
+const EventCodes =
 {
     Leave: 1,
     JoinFinished: 2,
@@ -121,8 +121,8 @@ export const EventCodes =
     StartArenaMatchInfos: 119,
     EndArenaMatch: 120,
     MatchUpdate: 121,
-    ActiveMatchUpdate: 122,
-    NewMob: 123,
+    //ActiveMatchUpdate: 122,
+    NewMob: 122,
     DebugMobInfo: 124,
     DebugVariablesInfo: 125,
     DebugReputationInfo: 126,
@@ -349,8 +349,8 @@ export const EventCodes =
     FishingCatch: 347,
     FishingFinished: 348,
     FishingCancel: 349,
-    NewFloatObject: 350,
-    NewFishingZoneObject: 351,
+    //NewFloatObject: 350,
+    NewFishingZoneObject: 350,
     FishingMiniGame: 352,
     AlbionJournalAchievementCompleted: 353,
     UpdatePuppet: 354,
@@ -589,4 +589,8 @@ export const EventCodes =
     BotCommand: 587,
     JournalAchievementProgressUpdate: 588,
     JournalClaimableRewardUpdate: 589
+}
+
+module.exports = {
+    EventCodes
 }
